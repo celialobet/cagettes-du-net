@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address_number: 1
+  address_street: MyString
+  address_city: MyString
+  zip_code: 1
+  description: MyText
+  day: MyString
+  time: 2021-06-15 15:16:31
+  opening_hours: MyString
+  validated: false
+
+two:
+  name: MyString
+  address_number: 1
+  address_street: MyString
+  address_city: MyString
+  zip_code: 1
+  description: MyText
+  day: MyString
+  time: 2021-06-15 15:16:31
+  opening_hours: MyString
+  validated: false
