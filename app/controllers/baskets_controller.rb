@@ -3,4 +3,8 @@ class BasketsController < ApplicationController
     @baskets = Basket.find(params[:id])
     puts params
   end
+
+    def index
+
+    end
 end

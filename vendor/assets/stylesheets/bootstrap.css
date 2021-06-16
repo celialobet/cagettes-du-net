@@ -8321,7 +8321,7 @@ fieldset:disabled .btn {
 }
 
 .text-dark {
-  color: #3e3f3a !important;
+  color: #000000 !important;
 }
 
 .text-white {
@@ -8377,7 +8377,7 @@ fieldset:disabled .btn {
 }
 
 .bg-dark {
-  background-color: #3e3f3a !important;
+  background-color: #000000 !important;
 }
 
 .bg-body {
@@ -11245,7 +11245,7 @@ fieldset:disabled .btn {
 }
 
 .bg-dark {
-  background-color: #8e8c84 !important;
+  background-color: #000000 !important;
 }
 
 .bg-light {
@@ -11261,10 +11261,10 @@ fieldset:disabled .btn {
 .pagination,
 .dropdown-menu .dropdown-item,
 .tooltip {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 22px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 800;
+  
 }
 
 .navbar-form input,
