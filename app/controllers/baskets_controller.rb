@@ -5,6 +5,6 @@ class BasketsController < ApplicationController
   end
 
     def index
-
+        
     end
 end
