@@ -1,9 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap%27");
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap%27");
 
+
+
 body {
   font-family: "Lato", sans-serif !important;
 }
+
+.jumbotron {
+  background-image: url("https://images.unsplash.com/photo-1616410731303-6affae095a0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=645&q=80");
+  background-size: cover;
+  height: 450px;
+  margin-top: -100px;
+  height: 750px;
+  padding-top: 80px;
+}
+
+.navbar {
+  margin: 0; 
+}
+
 
 li a{
   text-transform: capitalize;
