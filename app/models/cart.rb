@@ -1,8 +1,8 @@
 class Cart < ApplicationRecord
   belongs_to: user
-  has_many: selections
-  has_many: baskets, through: :selections
-  has_many: additional_product, through: :selections
+  has_many :selections
+  has_many :baskets, through: :selections
+  has_many :additional_product, through: :selections
 
   def total_cart
     @total_cart = 0
