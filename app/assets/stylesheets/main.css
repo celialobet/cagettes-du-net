@@ -5,6 +5,10 @@ body {
   font-family: "Lato", sans-serif !important;
 }
 
+li a{
+  text-transform: capitalize;
+}
+
 p {
   font-family: "Lora", serif;
 }

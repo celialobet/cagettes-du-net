@@ -11261,10 +11261,10 @@ fieldset:disabled .btn {
 .pagination,
 .dropdown-menu .dropdown-item,
 .tooltip {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 22px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: 800;
+  
 }
 
 .navbar-form input,
