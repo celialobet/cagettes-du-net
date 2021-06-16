@@ -1,0 +1,22 @@
+<div class="row single-product mt-5">
+  <div class="col-md-6 offset-md-2">
+    <div class="row">
+      <div class="col-md-5 margin-b-30">
+        <div class="item">
+          <%= image_tag @items.image_url, alt: 'photo de chat', class: 'w-100' %>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="mx-5">
+          <h3 class="title pt-2"> <%= @baskets.title %></h3>
+          <span class="price"> <%= @baskets.price %> €</span>
+          <p class="mt-2"><%= @baskets.description %></p>
+          <div class="available mt-5">En stock</div>
+          <div class="add-buttons">
+            <%= link_to "Ajouter au panier", item_selections_path(@items), class:"btn btn-dark", method:"POST" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
