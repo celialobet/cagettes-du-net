@@ -10,17 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 0) do
-=======
 ActiveRecord::Schema.define(version: 2021_06_15_133408) do
->>>>>>> development
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
   create_table "additional_products", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -113,5 +107,4 @@ ActiveRecord::Schema.define(version: 2021_06_15_133408) do
     t.index ["location_id"], name: "index_users_on_location_id"
   end
 
->>>>>>> development
 end
