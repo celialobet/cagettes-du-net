@@ -26,9 +26,10 @@ end
   User.create(first_name: Faker::Games::Pokemon.name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123456', zip_code: 75011, location: Location.all.sample)
 end
 
+i = 1
 5.times do
-  i += 1  
-  Basket.create(title: "Panier #{i}", description: Faker::Lorem.paragraph, price: ((i+10)
+  Basket.create(title: "Panier #{i}", description: Faker::Lorem.paragraph, price: (i+10))
+  i += 1 
 end
 
 10.times do
