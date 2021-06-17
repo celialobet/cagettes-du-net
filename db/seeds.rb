@@ -25,7 +25,7 @@ end
 
 5.times do
   zip = [75001,75002,75003,75004,75005,75006,75007,75008,75009,75010,75011,75012,75013,75014,75015,75016,75017,75018,75019,75020]
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: '123456', zip_code: 75011, location: Location.all.sample)
+  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "#{Faker::Lorem.word}_#{Faker::Name.last_name}@yopmail.com", password: '123456', zip_code: 75011, location: Location.all.sample)
 end
 
 # i = 1
