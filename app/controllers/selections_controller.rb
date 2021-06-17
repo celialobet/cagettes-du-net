@@ -7,16 +7,25 @@ class SelectionsController < ApplicationController
   def create
     @selection = Selection.new
     @selection.cart = Cart.find_by(user_id: current_user.id)
-    @selection.basket_id = params[:basket_id]
-    @selection.additional_products_id = params[:additional_products_id]
+    puts params
+    @params_basket = params[:basket_id]
+    
+    if params[:basket_id] =! nil
+      @selection.basket_id = @params_basket
+      puts params
+      puts @params_basket
+    else
+      @selection.additional_products_id = params[:additional_products_id]
+    end
     if @selection.save
       flash[:success] = "Produit ajouté au panier!"
       puts "Succès ! #{@selection} a été ajouté au panier #{Cart.find_by(user_id: current_user.id)}"
-      end
+      redirect_to root_path
+      
     else
       flash[:error] = @selection.errors.messages
       puts "Nul !"
-      end
+      
     end
   end
   
