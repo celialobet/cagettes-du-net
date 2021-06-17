@@ -1,10 +1,10 @@
 <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-3">
+      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <div class="container d-flex justify-content-between">
           <ul class="navbar-nav align-items-center ">
             <li>
               <a class="navbar-brand" href="#">
-                <img src="img/Logo_cagette 3.png" alt="" height="50" class="d-inline-block align-text-top">
+                <%= image_tag("Logo_cagette_3.png", :alt => "logo_cagette_du_net", :height => "65", :class => "d-inline-block align-text-top") %>
               </a>
             </li>
             <li class="nav-item">
@@ -21,21 +21,19 @@
                 Mon profil
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Mes informations personnelles</a></li>
-                <li><a class="dropdown-item" href="#">Mes commandes</a></li>
-                <li><a class="dropdown-item" href="#">Mes lieux de livraisons</a></li>
-                <li><a class="dropdown-item bg-danger" href="#">Se déconnecter</a></li>
+                <li> <%=link_to 'Mes informations personnelles', user_path(current_user.id), class:'dropdown-item'%></li>
+                <li><%=link_to 'Mes commandes', root_path, class:'dropdown-item'%></li>
+                <li><%=link_to 'Mes lieux de livraisons', root_path, class:'dropdown-item'%></li>
+                <li class="nav-link active"><%=link_to 'Se déconnecter', destroy_user_session_path, class:'dropdown-item bg-danger', method: :delete%></li>
               </ul>
             </li>
             <li class="nav_item">
-              <button class="btn btn-dark rounded">Commander</button>
+              <%=link_to 'Mon panier', cart_path(:id), class:'btn btn-dark rounded'%>
             </li>
           <% else %>
           <ul class="navbar-nav align-items-center">
-            <li class="nav-item mx-2"><a class="nav-link active"href="">Se connecter</a></li>
-            <li class="nav-item mx-2">
-              <button class="btn btn-dark rounded-pill">Commander</button>
-            </li>
+            <li class="nav-item mx-2"> <%=link_to 'Se connecter', new_user_session_path, class:'nav-link active'%></li>
+            <li class="nav-item mx-2"> <%=link_to 'Créer un profil', new_user_registration_path, class:'nav-link active'%></li>
           <% end  %>
           </ul>
           </div>
