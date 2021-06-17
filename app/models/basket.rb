@@ -15,5 +15,5 @@ validates :price,
   presence: true,
   numericality: {greater_than: 0.00}
 
-
+  has_one_attached :picture
 end
