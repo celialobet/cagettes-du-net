@@ -1,91 +1,56 @@
-<h2>Partial Jumbotron to add</h2>
-
-<!-- The three steps to order a basket-->
-  <div class="container">
-    <h1>Les étapes pour simplement commander un panier de produits locaux </h1>
-
-    <div class="row">
-      
-      <div class="col-md-4">
-        <h2><%= 1 %></h2>
-        <p> Choisissez un de nos paniers </p>
-      </div>
-
-    
-      <div class="col-md-4">
-        <h2><%= 2 %></h2>
-        <p> Sélectionner un lieu de livraison ou créez-en un  </p>
-      </div>
-
-    
-      <div class="col-md-4">
-        <h2><%= 3 %></h2>
-        <p> Récupérez votre panier au lieu et à l'horaire choisis </p>
-      </div>
-      
-    </div>
-  </div>  
-
-  <section class="container p-3">
-<hr>
-  <div class="container">
-  <h2 class="text-center py-3">Nos paniers du moment</h2>
-    <div class="row justify-content-center">
-      <div class="card-group">
-      <% @baskets.each do |basket|%>
-        <div class="col mx-5">
-          <div class="card" style="18rem;">
-          <h3>Image to add</h3>
-            <!-- <%= image_tag rand_item.image_url, alt: 'photo de chat', class: 'card-img-top' %> -->
-            <div class="card-body">
-              <h4 class="card-title"><%= basket.title %></h4>
-              <p class="card-text"><%= basket.description %></p>
-              <!-- <%= link_to "Accéder à la photo", item_path(item.id), class:"btn btn-warning" %>  
-              <%= link_to "Ajouter au panier", item_selections_path(item), class:"btn btn-info", method:"POST", remote:true %> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <section class="jumbotron top-0">
+            <div class="container top-0">
+                <div class="row align-items-center g-5 py-5">
+                    <div class="col-lg-6">
+                        
+                        <p class="fs-4 m-0 text-dark mb-2">Bienvenue sur les cagettes du net</p>
+                        <h1 class="display-4 fw-bolder text-dark lh-1 mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing</h1>
+                    
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start pt-3">
+                            <button type="button" class="btn btn-dark rounded-pill px-4 me-md-2">Passer une commande</button>
+                        </div>
+                    </div>
+                    <div class="col-6 container">
+                    <div class="row">
+                        <div class="col-6 ">
+                        <img src="https://images.unsplash.com/photo-1584473457406-6240486418e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="" class="img-fluid h-auto">
+                        </div>
+                        <div class="col-6">
+                        <div class="row-6 pb-3 mb-3">
+                            <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" class="img-fluid">
+                        </div>
+                        
+                        <div class="row-6 pt-3 mt-3">
+                            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    </div>          
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        
-        <% end %>
-        
+            <div class="text-center">
+                
+                <a class="text-dark text-decoration-none" href="">
+                <p>
+                    <small>Comment ça marche ? <br>
+                    <i class="fas fa-chevron-down"></i>
+                    </small>
+                </p>
+                </a>
+            </div>
+      </section>
+    </header>
+<%= render 'index_card' %>
 
-        
-      </div>
-    </div>
-  </div>
-</section>    
-
-  <div class="container">
-    <h1>Nos paniers du moment</h1>
-    <div class="row">
-      <% @baskets.each do |basket| %>
-        <div class="col-md-4">
-          <h2><%= basket.title %></h2>
-          <p>/image to add</p>
-          <p> <%= basket.description %> </p>
-          <p> <%= basket.price %>€</p>
-          <a href="#">Voir tous les lieux</a>
-          <!-- <%= link_to "Ajouter au panier", item_selections_path(item), class:"btn btn-info", method:"POST", remote:true %>  -->
-        </div>
-      <% end %> 
-    </div>
-    <hr>
-  </div>
-
-  <div class="container ">
-    <h2 class="text-center py-3">Nos lieux de livraison</h2>
-    <div class="card">
-      
-      <% @locations.adress_city.each do |city| %>
-        <div class="row">
-          <div class="col-md-8"> 
-          <h5><%= city.name </h5>%>
-        </div> 
-        <div class="col-md-4">
-          <a href="#">Voir tous les lieux</a>
-          <!-- Maybe with AJAX
-          <%= link_to "Voir tous les lieux", item_path(item.id), class:"btn btn-warning" %> --> 
-        </div>
-      <% end %>
-    </div>
-  </div>
+</body>
+</html>
