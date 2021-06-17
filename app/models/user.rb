@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   after_create :user_cart
+  after_create :welcome_send
+
+  
 
   has_many :subscriptions
   has_many :deliveries
@@ -16,5 +19,9 @@ class User < ApplicationRecord
   def user_cart
     Cart.create(user_id: self.id)
     puts "Voici le panier numéro #{Cart.last.id}"
+  end
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
   end
 end
