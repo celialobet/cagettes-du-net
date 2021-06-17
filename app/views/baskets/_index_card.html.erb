@@ -13,7 +13,7 @@
               <h4 class="card-title"><%= basket.title %></h4>
               <p class="card-text"><%= basket.description %></p>
               <p> <%= basket.price %>€</p>
-              <a href="#">Ajouter au panier</a>
+              <%= link_to "Ajouter au panier", basket_selections_path(basket), class:"btn btn-dark",  method:"POST" %>
               
             </div>
           </div>
