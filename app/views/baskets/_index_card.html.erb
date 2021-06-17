@@ -12,9 +12,17 @@
             <div class="card-body">
               <h4 class="card-title"><%= basket.title %></h4>
               <p class="card-text"><%= basket.description %></p>
-              <p> <%= basket.price %>€</p>
-              <%= link_to "Ajouter au panier", basket_selections_path(basket), class:"btn btn-dark",  method:"POST" %>
-              
+              <p class="text-center"> <%= basket.price %>€</p>
+              <div class="add-buttons text-center">
+                <%= link_to "Page du produit", basket_path(basket.id), class:"btn btn-success"%>
+              </div>
+            </div>
+            <div class="card-footer">
+            <% if user_signed_in? %>
+              <div class="add-buttons text-center">
+                <%= link_to "Ajouter au panier", basket_selections_path(@baskets), class:"btn btn-warning",  method:"POST" %>
+              </div>
+            <% end %>   
             </div>
           </div>
         </div>
