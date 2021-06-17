@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :additional_products do
     resources :selections
   end
+
+  resources :users 
 end
