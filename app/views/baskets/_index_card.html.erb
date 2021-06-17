@@ -1,29 +1,3 @@
-<!-- The three steps to order a basket-->
-  <div class="container text-center">
-
-
-    <div class="row mt-5">
-      
-      <div class="col-md-4 text-center">
-        <h2 class="text-center"><%= 1 %></h2>
-        <p> Choisissez un de nos paniers </p>
-      </div>
-
-    
-      <div class="col-md-4 text-center">
-        <h2 class="text-center"><%= 2 %></h2>
-        <p> Sélectionner un lieu de livraison ou créez-en un  </p>
-      </div>
-
-    
-      <div class="col-md-4 text-center">
-        <h2 class="text-center"><%= 3 %></h2>
-        <p> Récupérez votre panier au lieu et à l'horaire choisis </p>
-      </div>
-      
-    </div>
-  </div>  
-
 <section class="container p-3 my-5">
   
   <div class="container my-5">
@@ -33,7 +7,7 @@
         <% @baskets.each do |basket|%>
         <div class="col mx-2">
           <div class="card rounded shadow" style="18rem;">
-            <h3>Image to add</h3>
+            <%= image_tag("Logo_cagette_3.png", :alt => "logo_cagette_du_net", :class => "card-img-top") %>
             <!-- <%#= image_tag rand_item.image_url, alt: 'photo de chat', class: 'card-img-top' %> -->
             <div class="card-body">
               <h4 class="card-title"><%= basket.title %></h4>
@@ -50,26 +24,3 @@
     </div>
   </div>
 </section>    
-
-  
-
-  <div class="container my-5">
-    <h2 class="text-center py-3">Nos lieux de livraison</h2>
-    <div class="card">
-      
-      <% @city_list_array.each do |city| %>
-        <div class="row">
-          <div class="col-md-8"> 
-          <h5 class="px-5 py-1"><%= city %></h5>
-          </div>
-         
-          <div class="col-md-4">
-            <a class="px-5" href="#">Voir tous les lieux </a>
-            <%= @locations.length %>
-            <!-- Maybe with AJAX
-            <%#= link_to "Voir tous les lieux", item_path(item.id), class:"btn btn-warning" %> --> 
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
