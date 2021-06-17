@@ -16,29 +16,36 @@
     </header>
     <main >
         <section class="container py-5">
-            <div class="row justify-content-center align-items-center mx-4">
-                <div class="card p-0 shadow-3 shadow rounded border-0 h-auto " style="max-width: 1000px;">
+            <% @locations.each do |location| %>
+                <div class="row justify-content-center align-items-center mx-4">
+            
+            
+                <div class="card p-0 shadow-3 shadow rounded border-0 h-auto py-3" style="max-width: 1000px;">
                     <div class="row g-0 ">
                         <div class="col-md-4 col-lg-4 bg-image" style="background-image: url('https://images.unsplash.com/photo-1581683705068-ca8f49fc7f45?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'); height: 200px; max-width: auto; background-size: cover; background-position: center;">
                         </div>
                         <div class="d-flex col-md-8 col-lg-8 px-3 align-self-center ">
                             <div class="card-body pb-0 ">
 
-                                <h5 class="card-title display-6 fw-bold text-dark ">Le Petit Zinc</h5>
-                                <p class="card-text ">58 rue du paradis, 75011, Paris</p>
-                                
+                                <h5 class="card-title display-6 fw-bold text-dark "><%= location.name %></h5>
+                                <p class="card-text "><%= location.address_number %> <%= location.address_street %> , <%= location.zip_code %>, Paris</p>
+                                <% if location.validated == true %>
                                 <div class="card-footer p-0">
                                     <div class="row justify-content-between align-items-center ">
-                                        <p class="col-8 pt-3">Proposé par Julie Miranda</p>
-                                        <button class="btn btn-dark col-4">s'inscire dans ce lieux</button>
+                                        <p class="col-8 pt-3">Partenaire officiel des Cagettes du net</p>
+                                        <%= link_to "Voir le lieu", location_path(location.id), class:"btn btn-dark col-4"%>
                                     </div>                           
                                 </div>
-
+                                <% end %>
                             </div>
                         </div>
                     </div>
                 </div>
+            
+            
             </div>
+            <% end %>
+            
         </section>
     </main>
 </body>
