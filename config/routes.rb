@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   resources :users 
 
   resources :locations
+
+  resources :orders, only: [:new, :create, :index]
 end
