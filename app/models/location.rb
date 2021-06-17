@@ -40,5 +40,5 @@ class Location < ApplicationRecord
 
   validates :opening_hours,
   presence: true
-
+  
 end
