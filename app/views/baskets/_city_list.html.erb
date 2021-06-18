@@ -1,0 +1,20 @@
+  <div class="container my-5">
+    <h2 class="text-center py-3">Nos lieux de livraison</h2>
+    <div class="card">
+      
+      <% @city_list_array.each do |city| %>
+        <div class="row">
+          <div class="col-md-8"> 
+          <h5 class="px-5 py-1"><%= city %></h5>
+          </div>
+         
+          <div class="col-md-4">
+          <%= link_to "Voir tous les lieux", locations_path, class:"px-5"%>
+            <%= @locations.length %>
+            <!-- Maybe with AJAX
+            <%#= link_to "Voir tous les lieux", item_path(item.id), class:"btn btn-warning" %> --> 
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

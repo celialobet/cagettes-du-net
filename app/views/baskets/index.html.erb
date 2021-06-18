@@ -7,34 +7,31 @@
     <title>Document</title>
 </head>
 <body>
+<%= render "layouts/flash" %>
     <header>
-        <section class="jumbotron py-5" >
-        <div class="container align-items-center" >
-          <div class="row row-cols-2 row-cols-sm-1 " style="height: 600px;">
-            <div class="col-lg-6 col-12 col-md-12 align-self-center py-5">
-                <p class="lead text-dark fs-4"> Bienvenue sur les Cagettes du net</p>
-                <h1 class="display-3 fw-bold text-dark lh-1 mb-3 ">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h1>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                  <button type="button" class="btn btn-dark btn-lg px-4 me-md-2 ">passer commande</button>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 align-items-center py-5 ">
-              <div class="card h-100 cg p-5 border-0" style="background-image: url(https://images.unsplash.com/photo-1584473457406-6240486418e9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80); background-size: cover; background-position: bottom;">
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 align-items-center py-5">
-              <div class="row h-50 pb-2">
-                <div class="card cg p-5 h-100 border-0" style="background-image: url(https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80); background-size: cover;"></div>
-              </div>
-              <div class="row h-50  pt-2">
-                <div class="card cg p-5 h-100 border-0" style="background-image: url(https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80); background-size: cover;"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+<%= render 'layouts/jumbotron_home' %>
     </header>
-<%= render 'index_card' %>
+    
+  <div class="container text-center">
+    <div class="row mt-5">
+      <div class="col-md-4 text-center">
+        <h2 class="text-center"><%= 1 %></h2>
+        <p> Choisissez un de nos paniers </p>
+      </div>
 
+        
+      <div class="col-md-4 text-center">
+        <h2 class="text-center"><%= 2 %></h2>
+        <p> Sélectionnez un lieu de livraison ou créez-en un  </p>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <h2 class="text-center"><%= 3 %></h2>
+        <p> Récupérez votre panier au lieu et à l'horaire choisis </p>
+      </div>    
+    </div>
+  </div>  
+<%= render 'index_card' %>
+<%= render 'city_list' %>
 </body>
 </html>
