@@ -3,16 +3,12 @@
         <div class="container d-flex justify-content-between">
           <ul class="navbar-nav align-items-center ">
             <li>
-              <a class="navbar-brand" href="#">
-                <%= image_tag("Logo_cagette_3.png", :alt => "logo_cagette_du_net", :height => "65", :class => "d-inline-block align-text-top") %>
-              </a>
+              <%=link_to image_tag("Logo_cagette_3.png", :alt => "logo_cagette_du_net", :height => "65", :class => "d-inline-block align-text-top mx-5"), root_path %>              
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="/">Accueil</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="">L'équipe</a>
-            </li>
+           
           </ul>
           <%if user_signed_in? %>
           <ul class="navbar-nav align-items-center">
@@ -28,7 +24,7 @@
               </ul>
             </li>
             <li class="nav_item">
-              <%=link_to 'Mon panier', cart_path(:id), class:'btn btn-dark rounded'%>
+              <%=link_to 'Mon panier', cart_path(current_user_cart), class:'btn btn-dark rounded'%>
             </li>
           <% else %>
           <ul class="navbar-nav align-items-center">

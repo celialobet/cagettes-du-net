@@ -1,9 +1,5 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
-  
-  def new
-    @cart = Cart.new
-  end
 
   def create
     if user_signed_in?
@@ -15,7 +11,6 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find_by(user_id: current_user.id)
     @baskets = Basket.all
-    #@additional_products = AdditionalProducts.all
   end
 
   def index

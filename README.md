@@ -64,4 +64,4 @@ http://localhost:3000/
 * Baptiste BUCHOU
 
 ### Notre mentor
-* Joséphine REMY 
+* Joséphine REMY
