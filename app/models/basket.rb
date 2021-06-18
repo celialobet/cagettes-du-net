@@ -15,5 +15,4 @@ validates :price,
   presence: true,
   numericality: {greater_than: 0.00}
 
-
 end

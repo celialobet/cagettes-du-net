@@ -10,7 +10,7 @@ class SelectionsController < ApplicationController
     puts params
     @params_basket = params[:basket_id]
     
-    if params[:basket_id] =! nil
+    if params[:basket_id] != nil
       @selection.basket_id = @params_basket
       puts params
       puts @params_basket
