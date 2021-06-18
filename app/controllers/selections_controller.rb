@@ -10,7 +10,7 @@ class SelectionsController < ApplicationController
     puts params
     @params_basket = params[:basket_id]
     
-    if params[:basket_id] =! nil
+    if params[:basket_id] != nil
       @selection.basket_id = @params_basket
       puts params
       puts @params_basket
@@ -35,10 +35,11 @@ class SelectionsController < ApplicationController
   def destroy
     @cart = Cart.find_by(user_id: current_user.id)
     @selection = Selection.find(params[:id])
+    
     @selection.destroy
     flash[:success] = "Produit supprimé du panier avec succès!"
       puts "Succès ! #{@selection} a été supprimé du panier #{Cart.find_by(user_id: current_user.id)}"
-      redirect_to carts_path
+      redirect_to root_path
   end
 
 end
