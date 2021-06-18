@@ -11,7 +11,6 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find_by(user_id: current_user.id)
     @baskets = Basket.all
-    #@additional_products = AdditionalProducts.all
   end
 
   def index
