@@ -23,11 +23,6 @@ i = 0
   i = i + 1
 end
 
-5.times do
-  zip = [75001,75002,75003,75004,75005,75006,75007,75008,75009,75010,75011,75012,75013,75014,75015,75016,75017,75018,75019,75020]
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "#{Faker::Lorem.word}_#{Faker::Name.last_name}@yopmail.com", password: '123456', zip_code: 75011, location: Location.all.sample)
-end
-
 basket_1 = Basket.create(title: "Petite cagette mélangée", description: "Voici un petit panier pour 1 à 2 petits mangeurs de fruits et légumes. Idéal pour découvrir nos meilleurs produits frais ! :)", price: 9.99)
 basket_2 = Basket.create(title: "Petit cagette de fruit", description: "Voici un petit panier pour 1 à 2 fruits-addict. Idéal pour compléter vos achats de la semaine et déguster de bons fruits de saison !", price: 9.99)
 basket_3 = Basket.create(title: "Cagette moyenne mélangée", description: "Avec cette cagette de 5kg environ, vous aurez de quoi régaler 3 à 4 personnes avec des produits variés... jusqu'à votre commande de la semaine prochaine ;)", price: 14.99)
