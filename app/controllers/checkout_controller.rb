@@ -32,6 +32,9 @@ class CheckoutController < ApplicationController
       selection.order_id = @order.id
       selection.save
     end
+
+    OrderMailer.order_email(@order).deliver_now
+
   end
 
   def cancel
