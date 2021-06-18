@@ -12,5 +12,10 @@ class OrdersController < ApplicationController
       selection.save
     end
     
+    
+      flash[:success] = "Nous avons bien enregistré votre commande!"
+      puts "Success ! The order n°#{@order.id} is created"
+      redirect_to root_path
+
   end
 end
