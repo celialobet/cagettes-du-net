@@ -25,10 +25,7 @@ class CheckoutController < ApplicationController
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
 
     @cart = Cart.find_by(user_id: current_user.id)
-    @order = Order.new
-    
-    @order.user_id = @cart.user_id
-    @order.save
+    @order = Order.create(user_id: current_user.id)
 
     @cart.selections.each do |selection|
       selection.cart_id = nil
