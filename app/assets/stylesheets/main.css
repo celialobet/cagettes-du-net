@@ -41,6 +41,7 @@ li a{
 
 p {
   font-family: "Lora", serif;
+  text-transform: none;
 }
 
 .col .avatar-xs{
