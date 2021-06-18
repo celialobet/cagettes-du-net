@@ -14,19 +14,15 @@
                       <li class="list-group-item" >
                         <div class="d-flex align-items-center justify-content-between">
                           <a href="#!" class="text-decoration-none">
-                              <div class="d-lg-flex align-items-center">
-                                  
-                                  <div>
-                                      
-                                      
-                                  </div>
-                                  <div class="ml-lg-3 mt-2">
-                                      <h4 class="mb-O text-secondary"><%= selection.basket.title %></h4>
-                                      <p class="mb-0 text-muted"><%=selection.basket.description%></p>
-                                      <%= link_to "Fiche du panier", basket_path(selection.basket.id), class:"btn btn-warning" %>
-                                      <div class="fs-lg text-accent pt-2"><%= selection.basket.price %> €</div>
-                                  </div>
+                            <div class="d-lg-flex align-items-center">
+                              <div class="ml-lg-3 mt-2">
+                                <h4 class="mb-O text-secondary"><%= selection.basket.title %></h4>
+                                <p class="mb-0 text-muted"><%=selection.basket.description%></p>
+                                <%= link_to "Fiche de la cagette", basket_path(selection.basket.id), class:"btn btn-warning" %>
+                                <div class="fs-lg text-accent pt-2"><%= selection.basket.price %> €
+                                </div>
                               </div>
+                            </div>
                           </a>
                           <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
                           <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger" %>
