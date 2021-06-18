@@ -11264,6 +11264,7 @@ fieldset:disabled .btn {
   font-size: 14px;
   line-height: 22px;
   font-weight: 800;
+  text-transform: none;
   
 }
 
@@ -11337,56 +11338,57 @@ fieldset:disabled .btn {
 
 .alert a,
 .alert .alert-link {
-  color: #fff;
+  color: rgb(0, 0, 0);
   text-decoration: underline;
 }
 
 .alert-primary,
 .alert-primary > th,
 .alert-primary > td {
-  background-color: #325d88;
+  background-color: #325d885d;
 }
 
 .alert-secondary,
 .alert-secondary > th,
 .alert-secondary > td {
-  background-color: #8e8c84;
+  background-color: #8e8c846b;
 }
 
 .alert-success,
 .alert-success > th,
 .alert-success > td {
-  background-color: #93c54b;
+  background-color: #92c54b7c;
 }
 
 .alert-info,
 .alert-info > th,
 .alert-info > td {
-  background-color: #29abe0;
+  background-color: #29ace044;
+  
 }
 
 .alert-danger,
 .alert-danger > th,
 .alert-danger > td {
-  background-color: #d9534f;
+  background-color: #d9544f73;
 }
 
 .alert-warning,
 .alert-warning > th,
 .alert-warning > td {
-  background-color: #f47c3c;
+  background-color: #f47c3c75;
 }
 
 .alert-dark,
 .alert-dark > th,
 .alert-dark > td {
-  background-color: #3e3f3a;
+  background-color: #3e3f3ab6;
 }
 
 .alert-light,
 .alert-light > th,
 .alert-light > td {
-  background-color: #f8f5f0;
+  background-color: #f8f5f08a;
 }
 
 .alert-light,
@@ -11396,7 +11398,7 @@ fieldset:disabled .btn {
 }
 
 .badge.bg-light {
-  color: #3e3f3a;
+  color: #3e3f3a85;
 }
 
 .modal .btn-close,
