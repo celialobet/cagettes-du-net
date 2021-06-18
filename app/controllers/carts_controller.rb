@@ -1,9 +1,5 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
-  
-  def new
-    @cart = Cart.new
-  end
 
   def create
     if user_signed_in?
