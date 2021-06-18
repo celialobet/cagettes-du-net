@@ -4,13 +4,15 @@
       <img src="https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="rounded mx-auto d-block" style="width: 600px;">
     </div>
     <div class="col-12 col-lg-4 align-self-center">
-          <h3 class="title text-center fw-bold display-6"> <%= @baskets.title %></h3>
-          <p class="text-center"><%= @baskets.description %></p>
-          <p class="price text-center fs-3"> <%= @baskets.price %> €</p>
+      <h3 class="title text-center fw-bold display-6"> <%= @baskets.title %></h3>
+        <p class="text-center"><%= @baskets.description %></p>
+        <p class="price text-center fs-3"> <%= @baskets.price %> €</p>
+        <% if user_signed_in? %>
           <div class="add-buttons text-center">
             <%= link_to "Ajouter au panier", basket_selections_path(@baskets), class:"btn btn-dark",  method:"POST" %>
           </div>
-          <div class="available text-center mt-3">En stock</div>
+        <% end %>        
+      <div class="available text-center mt-3">En stock</div>
     </div>
   </div>
 </div>
