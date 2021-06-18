@@ -20,7 +20,7 @@
                   <div class="form-text pb-2">
                     <% f.label :password %>
                     <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <em>(<%= @minimum_password_length %> lettres minimum)</em>
                     <% end %>
                     <%= f.password_field :password, autocomplete: "new-password", class:"form-control form-control-sm", placeholder:"Entrez mot de passe" %>
                   </div>
@@ -31,7 +31,7 @@
                   </div>
 
                   <div class="actions my-1">
-                    <%= f.submit "Sign up", class:"btn btn-dark text-capitalize w-100" %>
+                    <%= f.submit "Créer un compte", class:"btn btn-dark w-100" %>
                   </div>
                 <% end %>
           </div>
