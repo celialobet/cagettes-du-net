@@ -8,9 +8,7 @@
 
 require 'faker'
 
-User.destroy_all
 Basket.destroy_all
-AdditionalProduct.destroy_all
 Location.destroy_all
 
 i = 0
