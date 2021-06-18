@@ -23,7 +23,7 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <li> <%=link_to 'Mes informations personnelles', user_path(current_user.id), class:'dropdown-item'%></li>
                 <li><%=link_to 'Mes commandes', root_path, class:'dropdown-item'%></li>
-                <li><%=link_to 'Mes lieux de livraisons', root_path, class:'dropdown-item'%></li>
+                <li><%=link_to 'Mes lieux de livraison', root_path, class:'dropdown-item'%></li>
                 <li class="nav-link active"><%=link_to 'Se déconnecter', destroy_user_session_path, class:'dropdown-item bg-danger', method: :delete%></li>
               </ul>
             </li>
