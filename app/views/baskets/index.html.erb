@@ -1,37 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
 <%= render "layouts/flash" %>
-    <header>
 <%= render 'layouts/jumbotron_home' %>
-    </header>
     
   <div class="container text-center">
     <div class="row mt-5">
       <div class="col-md-4 text-center">
-        <h2 class="text-center"><%= 1 %></h2>
+        <h2 class="text-center">1</h2>
         <p> Choisissez un de nos paniers </p>
       </div>
 
         
       <div class="col-md-4 text-center">
-        <h2 class="text-center"><%= 2 %></h2>
+        <h2 class="text-center">2</h2>
         <p> Sélectionnez un lieu de livraison ou créez-en un  </p>
       </div>
 
       <div class="col-md-4 text-center">
-        <h2 class="text-center"><%= 3 %></h2>
+        <h2 class="text-center"></h2>
         <p> Récupérez votre panier au lieu et à l'horaire choisis </p>
       </div>    
     </div>
   </div>  
 <%= render 'index_card' %>
 <%= render 'city_list' %>
-</body>
-</html>

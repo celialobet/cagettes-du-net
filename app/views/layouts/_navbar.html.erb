@@ -3,16 +3,12 @@
         <div class="container d-flex justify-content-between">
           <ul class="navbar-nav align-items-center ">
             <li>
-              <a class="navbar-brand" href="#">
-                <%= image_tag("Logo_cagette_3.png", :alt => "logo_cagette_du_net", :height => "65", :class => "d-inline-block align-text-top") %>
-              </a>
+              <%=link_to image_tag("Logo_cagette_3.png", :alt => "logo_cagette_du_net", :height => "65", :class => "d-inline-block align-text-top mx-5"), root_path %>              
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="/">Accueil</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="">L'équipe</a>
-            </li>
+           
           </ul>
           <%if user_signed_in? %>
           <ul class="navbar-nav align-items-center">
@@ -21,14 +17,14 @@
                 Mon profil
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li> <%=link_to 'Mes informations personnelles', user_path(current_user.id), class:'dropdown-item'%></li>
+                <li> <%=link_to 'Mes informations personnelles', edit_user_registration_path(@current_user), class:'dropdown-item'%></li>
                 <li><%=link_to 'Mes commandes', root_path, class:'dropdown-item'%></li>
                 <li><%=link_to 'Mes lieux de livraison', root_path, class:'dropdown-item'%></li>
                 <li class="nav-link active"><%=link_to 'Se déconnecter', destroy_user_session_path, class:'dropdown-item bg-danger', method: :delete%></li>
               </ul>
             </li>
             <li class="nav_item">
-              <%=link_to 'Mon panier', cart_path(:id), class:'btn btn-dark rounded'%>
+              <%=link_to 'Mon panier', cart_path(current_user_cart), class:'btn btn-dark rounded'%>
             </li>
           <% else %>
           <ul class="navbar-nav align-items-center">

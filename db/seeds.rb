@@ -8,9 +8,7 @@
 
 require 'faker'
 
-User.destroy_all
 Basket.destroy_all
-AdditionalProduct.destroy_all
 Location.destroy_all
 
 i = 0
@@ -24,7 +22,17 @@ i = 0
 end
 
 basket_1 = Basket.create(title: "Petite cagette mélangée", description: "Voici un petit panier pour 1 à 2 petits mangeurs de fruits et légumes. Idéal pour découvrir nos meilleurs produits frais ! :)", price: 9.99)
+basket_1.image_url.attach(io:File.open("app/assets/images/basket_1_petite_cagette_melangee.jpeg"), filename: "basket_1_petite_cagette_melangee.jpeg")
+
 basket_2 = Basket.create(title: "Petit cagette de fruit", description: "Voici un petit panier pour 1 à 2 fruits-addict. Idéal pour compléter vos achats de la semaine et déguster de bons fruits de saison !", price: 9.99)
+basket_2.image_url.attach(io:File.open("app/assets/images/basket_2_petite_cagette_de_fruits.jpeg"), filename: "basket_1_petite_cagette_de_fruits.jpeg")
+
 basket_3 = Basket.create(title: "Cagette moyenne mélangée", description: "Avec cette cagette de 5kg environ, vous aurez de quoi régaler 3 à 4 personnes avec des produits variés... jusqu'à votre commande de la semaine prochaine ;)", price: 14.99)
+basket_3.image_url.attach(io:File.open("app/assets/images/basket_3_cagette_moyenne_melangee.jpeg"), filename: "basket_3_cagette_moyenne_melangee.jpeg")
+
 basket_4 = Basket.create(title: "Cagette moyenne de fruit", description: "5kg de fruits pour une petite famille (ou rien que pour vous!), pour mettre du soleil dans votre verre en hiver et faire de belles tartes aux fraises en été!", price: 14.99)
+basket_4.image_url.attach(io:File.open("app/assets/images/basket_4_cagette_moyenne_de_fruits.jpeg"), filename: "basket_4_cagette_moyenne_de_fruits.jpeg")
+
 basket_5 = Basket.create(title: "Grande cagette mélangée", description: "Pour les familles nombreuses (ou les cantines scolaires), entre 7 et 9kg de fruits et légumes par semaine pour une cuisine toujours plus variée et colorée ! Et avec un tarif réduit en prime pour vous remercier !", price: 19.99)
+basket_5.image_url.attach(io:File.open("app/assets/images/basket_5_grande_cagette_melangee.jpeg"), filename: "basket_5_grande_cagette_melangee.jpeg")
+
