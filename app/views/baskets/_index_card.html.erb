@@ -7,7 +7,8 @@
         <% @baskets.each do |basket|%>
         <div class="col mx-2">
           <div class="card rounded shadow" style="18rem;">
-            <%= image_tag("Logo_cagette_3.png", :alt => "logo_cagette_du_net", :class => "card-img-top") %>
+            
+            <%= image_tag basket.image_url, alt: 'photo de panier', class: 'card-img-top' %>
             <div class="card-body">
               <h4 class="card-title"><%= basket.title %></h4>
               <p class="card-text"><%= basket.description %></p>
