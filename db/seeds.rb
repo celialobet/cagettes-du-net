@@ -28,18 +28,11 @@ end
   User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "#{Faker::Lorem.word}_#{Faker::Name.last_name}@yopmail.com", password: '123456', zip_code: 75011, location: Location.all.sample)
 end
 
-# i = 1
-# 5.times do
-#   Basket.create(title: "Panier #{i}", description: Faker::Lorem.paragraph, price: (i+10))
-#   i += 1 
-# end
-
 basket_1 = Basket.create(title: "Petite cagette mélangée", description: "Voici un petit panier pour 1 à 2 petits mangeurs de fruits et légumes. Idéal pour découvrir nos meilleurs produits frais ! :)", price: 9.99)
 basket_2 = Basket.create(title: "Petit cagette de fruit", description: "Voici un petit panier pour 1 à 2 fruits-addict. Idéal pour compléter vos achats de la semaine et déguster de bons fruits de saison !", price: 9.99)
 basket_3 = Basket.create(title: "Cagette moyenne mélangée", description: "Avec cette cagette de 5kg environ, vous aurez de quoi régaler 3 à 4 personnes avec des produits variés... jusqu'à votre commande de la semaine prochaine ;)", price: 14.99)
 basket_4 = Basket.create(title: "Cagette moyenne de fruit", description: "5kg de fruits pour une petite famille (ou rien que pour vous!), pour mettre du soleil dans votre verre en hiver et faire de belles tartes aux fraises en été!", price: 14.99)
 basket_5 = Basket.create(title: "Grande cagette mélangée", description: "Pour les familles nombreuses (ou les cantines scolaires), entre 7 et 9kg de fruits et légumes par semaine pour une cuisine toujours plus variée et colorée ! Et avec un tarif réduit en prime pour vous remercier !", price: 19.99)
-
 
 # 25.times do
 #   AdditionalProduct.create(title: Faker::Food.ingredient, description: Faker::Food.description, price: rand(1..8), is_available: Faker::Boolean.boolean(true_ratio: 0.6))
