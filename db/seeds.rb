@@ -33,7 +33,3 @@ basket_2 = Basket.create(title: "Petit cagette de fruit", description: "Voici un
 basket_3 = Basket.create(title: "Cagette moyenne mélangée", description: "Avec cette cagette de 5kg environ, vous aurez de quoi régaler 3 à 4 personnes avec des produits variés... jusqu'à votre commande de la semaine prochaine ;)", price: 14.99)
 basket_4 = Basket.create(title: "Cagette moyenne de fruit", description: "5kg de fruits pour une petite famille (ou rien que pour vous!), pour mettre du soleil dans votre verre en hiver et faire de belles tartes aux fraises en été!", price: 14.99)
 basket_5 = Basket.create(title: "Grande cagette mélangée", description: "Pour les familles nombreuses (ou les cantines scolaires), entre 7 et 9kg de fruits et légumes par semaine pour une cuisine toujours plus variée et colorée ! Et avec un tarif réduit en prime pour vous remercier !", price: 19.99)
-
-# 25.times do
-#   AdditionalProduct.create(title: Faker::Food.ingredient, description: Faker::Food.description, price: rand(1..8), is_available: Faker::Boolean.boolean(true_ratio: 0.6))
-# end
