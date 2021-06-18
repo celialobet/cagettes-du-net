@@ -63,6 +63,5 @@ http://localhost:3000/
 * Thomas MICHONNEAU
 * Baptiste BUCHOU
 
-### Les mentors
+### Notre mentor
 * Joséphine REMY 
-* Mahmood SHARIFI
