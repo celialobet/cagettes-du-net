@@ -3,9 +3,7 @@
         <div class="container d-flex justify-content-between">
           <ul class="navbar-nav align-items-center ">
             <li>
-              <a class="navbar-brand" href="#">
-                <%= image_tag("Logo_cagette_3.png", :alt => "logo_cagette_du_net", :height => "65", :class => "d-inline-block align-text-top") %>
-              </a>
+              <%=link_to image_tag("Logo_cagette_3.png", :alt => "logo_cagette_du_net", :height => "65", :class => "d-inline-block align-text-top mx-5"), root_path %>              
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="/">Accueil</a>
