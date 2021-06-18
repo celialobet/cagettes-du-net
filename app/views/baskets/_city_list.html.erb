@@ -9,7 +9,7 @@
           </div>
          
           <div class="col-md-4">
-            <a class="px-5" href="#">Voir tous les lieux </a>
+          <%= link_to "Voir tous les lieux", locations_path, class:"px-5"%>
             <%= @locations.length %>
             <!-- Maybe with AJAX
             <%#= link_to "Voir tous les lieux", item_path(item.id), class:"btn btn-warning" %> --> 
