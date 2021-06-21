@@ -1,3 +1,113 @@
+<div class="row justify-content-evenly">
+  <div class="col-2 border border-2 rounded-3 align-middle">
+    <div class="align-self-center m-1">
+      <img src="https://pbs.twimg.com/profile_images/1169816682841264128/iaYgus-J_400x400.jpg" class="rounded-circle mx-auto d-block" style="width: 100px;" alt="...">
+    </div>
+    <div class="m-1">
+      <h4 class="text-center">Prénom</h4>
+      <h4 class="text-center">NOM</h4>
+    </div>
+    <div class="m-1">
+      <h6 class="text-center">Email</h6>
+    </div>
+    <div class="m-3">
+      <div>
+        <p class="fw-bold">Mon compte</p>
+        <p>Modifier mes informations personnelles</p>
+        <p>Modifier mon mot de passe<p>
+      </div>
+      <div>
+        <p class="fw-bold">Mes commandes<p>
+        <p>En cours (nombre)<p>
+        <p>Passées (nombre)</p>
+      </div>
+      <div>
+        <p class="fw-bold">Mes lieux de livraison</p>
+        <p>Gérer mes lieux</p>
+        <p>Proposer un nouveau lieu</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-9 border border-2 rounded-3">
+    <!-- Page 1 -->
+    <h2 class="text-center p-4 fw-bold">Mes informations personnelles</h2>
+
+    <!-- Début boucle devise -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+    <!-- Photo de profil -->
+    <div class="row gx-5 align-items-center">
+      <div class="col-3 text-center">
+        <label for="inputPassword6" class="col-form-label">Photo de profil</label>
+      </div>
+      <div class="col-3 align-self-center">
+        <img src="https://pbs.twimg.com/profile_images/1169816682841264128/iaYgus-J_400x400.jpg" class="rounded-circle mx-auto d-block" style="width: 100px;" alt="...">
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-primary rounded-pill">Télécharger une photo</button>
+      </div>
+      <div class="col-3">
+        <button type="button" class="btn btn-secondary rounded-pill">Supprimer la photo</button>
+      </div>
+    </div>
+
+    <!-- Prénom | Nom -->
+    <div class="row gx-5 align-items-center pt-4">
+      <div class="col-3 text-center">
+        <label for="inputPassword6" class="col-form-label">Prénom | Nom</label>
+      </div>
+      <div class="col-4">
+        <input type="text" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+      </div>
+      <div class="col-4">
+        <input type="text" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="row gx-5 align-items-center pt-4">
+      <div class="col-3 text-center">
+        <%= f.label :email %>
+      </div>
+      <div class="col-8">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded" %>
+      </div>
+    </div>
+
+    <!-- Si mail de confirmation est activé et qu'il n'a pas abouti -->
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Actuellement en attente de confirmation de : <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+    <!-- Adresse -->
+    <div class="row gx-5 align-items-center pt-4">
+      <div class="col-3 text-center">
+        <label for="inputPassword6" class="col-form-label">Adresse</label>
+      </div>
+      <div class="col-8">
+        <input type="text" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+      </div>
+    </div>
+
+    <!-- Ville | Pays -->
+    <div class="row gx-5 align-items-center pt-4">
+      <div class="col-3 text-center">
+        <label for="inputPassword6" class="col-form-label">Ville | Pays</label>
+      </div>
+      <div class="col-4">
+        <input type="text" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+      </div>
+      <div class="col-4">
+        <input type="text" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
 <!-- Page 1 -->
 <h2 class="text-center p-4 fw-bold">Mes informations personnelles</h2>
 
