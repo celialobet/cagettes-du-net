@@ -57,3 +57,19 @@ p {
   padding-left: 50px;
   z-index: 1000;
 }
+
+#cercle {
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+  background: rgb(0, 0, 0);
+  border-radius: 50%;
+  padding-top: 17px;
+  text-align: center;
+  display :inline-block;
+}
+
+hr.dashed {
+  border-top: 3px dashed rgb(0, 0, 0);
+  background-color: transparent;
+}
