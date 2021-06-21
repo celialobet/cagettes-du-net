@@ -5,9 +5,9 @@ class BasketsController < ApplicationController
     puts params
   end
 
-    def index
+  def index
     @baskets = Basket.all
     @locations = Location.all
     city_list(@locations)
-    end
+  end
 end
