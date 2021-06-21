@@ -29,8 +29,11 @@ class SelectionsController < ApplicationController
     @selection = Selection.find(params[:id])
     
     @selection.destroy
+    respond_to do |format|
+      format.html {redirect_to new_order_path}
+      format.js { }
+    end
     flash[:success] = "Produit supprimé du panier avec succès!"
-    redirect_to cart_path(current_user_cart)
   end
 
 end

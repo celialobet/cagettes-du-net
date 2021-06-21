@@ -10,7 +10,7 @@
                 <ul class="list-group list-group-flush"> 
                   <% @cart.selections.each do |selection|%>
                     <% if selection.additional_product_id == nil  %>                
-                      <li class="list-group-item" >
+                      <li class="list-group-item" id="<%= selection.id%>">
                         <div class="d-flex align-items-center justify-content-between">
                           <a href="#!" class="text-decoration-none">
                             <div class="d-lg-flex align-items-center">
@@ -24,7 +24,7 @@
                             </div>
                           </a>
                           <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
-                          <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger" %>
+                          <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
                           </div>
                         </div>
                       </li>
@@ -42,7 +42,7 @@
                             </div>
                           </a>
                           <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
-                          <%= link_to "Supprimer", [selection.additional_product, selection], method: "delete", class:"btn btn-link px-0 text-danger" %>
+                          <%= link_to "Supprimer", [selection.additional_product, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
                           </div>
                         </div>
                       </li>
