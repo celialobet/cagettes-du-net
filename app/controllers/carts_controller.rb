@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  include ApplicationHelper
   before_action :authenticate_user!
 
   def create
@@ -11,6 +12,10 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find_by(user_id: current_user.id)
     @baskets = Basket.all
+    respond_to do |format|
+      format.html {redirect_to cart_path(current_user_cart)}
+      format.js { }
+    end 
   end
 
   def index
