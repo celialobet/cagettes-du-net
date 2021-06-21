@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h1>Merci pour votre commande <%= @order.id %> !</h1>
+    
+    <h3>Voici votre commande : </h3>
+    <div>
+        <ul>
+          <% @order.selections.each do |selection| %>
+          <li style="text-decoration: none;">
+            <div class="ml-lg-3 mt-2">
+              <h4 class="mb-O text-secondary"><%= selection.basket.title %></h4>
+              <p class="mb-0 text-muted"><%=selection.basket.description%></p>
+              <div class="fs-lg text-accent pt-2"><%= selection.basket.price %> €
+              </div>
+            </div>
+          </li>    
+          <% end %>
+        </ul>
+    </div>
+
+  </body>
+</html>
