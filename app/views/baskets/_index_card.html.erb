@@ -11,7 +11,7 @@
             <%= image_tag basket.image_url, alt: 'photo de panier', class: 'card-img-top' %>
             <div class="card-body">
               <h4 class="card-title"><%= basket.title %></h4>
-              <p class="card-text"><%= basket.description %></p>
+              <p class="card-text"><%= truncate(basket.description, length: 100, omission: "... %s") % link_to('Afficher la suite', basket_path(basket.id))%></p>
               <p class="text-center"> <%= basket.price %>€</p>
               <div class="add-buttons text-center">
                 <%= link_to "Page du produit", basket_path(basket.id), class:"btn btn-success"%>
@@ -31,4 +31,4 @@
       </div>
     </div>
   </div>
-</section>    
+</section>
