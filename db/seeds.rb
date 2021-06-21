@@ -37,5 +37,7 @@ basket_4.image_url.attach(io:File.open("app/assets/images/basket_4_cagette_moyen
 basket_5 = Basket.create(title: "Grande cagette mélangée", description: "Pour les familles nombreuses (ou les cantines scolaires), entre 7 et 9kg de fruits et légumes par semaine pour une cuisine toujours plus variée et colorée ! Et avec un tarif réduit en prime pour vous remercier !", price: 19.99)
 basket_5.image_url.attach(io:File.open("app/assets/images/basket_5_grande_cagette_melangee.jpeg"), filename: "basket_5_grande_cagette_melangee.jpeg")
 
-additional_product_1 = AdditionalProduct.create(title: "Steak haché", description: "façon boucher x 2", price: 4, is_available: true)
-additional_product_1.image_url.attach(io:File.open("app/assets/images/Logo_cagette_3.png"), filename: "Logo_cagette_3.png")
+20.times do
+  additional_product_1 = AdditionalProduct.create(title: "Steak haché", description: "façon boucher x 2", price: 4, is_available: true)
+  additional_product_1.image_url.attach(io:File.open("app/assets/images/Logo_cagette_3.png"), filename: "Logo_cagette_3.png")
+end
