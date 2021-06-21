@@ -39,6 +39,10 @@ li a{
   text-transform: capitalize;
 }
 
+a{
+  text-decoration : none;
+}
+
 p {
   font-family: "Lora", serif;
   text-transform: none;
