@@ -1,34 +1,31 @@
-<section class="container p-3 my-5">
-  
-  <div class="container my-5">
-    <h2 class="text-center py-3">Nos paniers du moment</h2>
-    <div class="row justify-content-center">
-      <div class="card-group mt-5">
-        <% @baskets.each do |basket|%>
-        <div class="col mx-2">
-          <div class="card rounded shadow" style="18rem;">
-            
-            <%= image_tag basket.image_url, alt: 'photo de panier', class: 'card-img-top' %>
-            <div class="card-body">
-              <h4 class="card-title"><%= basket.title %></h4>
-              <p class="card-text"><%= truncate(basket.description, length: 100, omission: "... %s") % link_to('Afficher la suite', basket_path(basket.id))%></p>
-              <p class="text-center"> <%= basket.price %>€</p>
-              <div class="add-buttons text-center">
-                <%= link_to "Page du produit", basket_path(basket.id), class:"btn btn-success"%>
-              </div>
+<section class="container py-4">
+  <h2 class=" fw-bold text-dark py-5">Nos paniers du moment</h2>
+  <div class="row row-cols-1 row-cols-lg-12 g-4" >
+    <div class="card-group">
+      <% @baskets.each do |basket|%>
+        <div class="col">
+          <%= link_to basket_path(basket.id) do %> 
+          <div class="card rounded shadow h-100 text-decoration-none text-dark border-0 m-2">
+            <div class="bg-image" style="background-image: url('<%= rails_blob_url(basket.image_url) %>'); height: 10rem; max-width: auto; background-size: cover; background-position: center;">
             </div>
-            <div class="card-footer">
+            <div class="card-body mx-2">
+              <h4 class="card-title text-dark fw-bold"><%= basket.title %></h4>
+              <small><p class="card-text"><%= truncate(basket.description, length: 100, omission: "... %s") % link_to('Afficher la suite', basket_path(basket.id), class:'text-dark, text-muted') %></p></small> 
+            </div>
+            <% end %> 
             <% if user_signed_in? %>
-              <div class="add-buttons text-center">
-                <%= link_to "Ajouter au panier", basket_selections_path(basket), class:"btn btn-warning",  method:"POST" %>
-              </div>
-            <% end %>   
+            <div class="d-flex justify-content-between align-items-center mx-4 pt-0 pb-4">
+                <p class="d-inline pt-3 fs-5 text-dark"> <%= basket.price %>€</p>
+                <%= link_to basket_selections_path(basket), method:"POST" do %>
+                <div class="d-inline bg-dark text-white p-3" >
+                  <i class="fas fa-shopping-cart"></i> 
+                </div>
+                <% end %>
             </div>
+            <% end %>
           </div>
         </div>
-        
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
-</section>
+</section>    
