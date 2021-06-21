@@ -1,0 +1,5 @@
+var additionalProduct = <%= @cart.additional_product.length %>;
+
+if (additionalProduct == 0) {
+  document.getElementById("order-area").innerHTML ="<%= j render 'cart_basket'%>";
+}
