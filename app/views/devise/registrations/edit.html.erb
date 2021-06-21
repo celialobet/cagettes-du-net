@@ -1,43 +1,130 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- Page 1 -->
+<h2 class="text-center p-4 fw-bold">Mes informations personnelles</h2>
 
+<!-- Début boucle devise -->
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!-- Photo de profil -->
+<div class="row gx-5 align-items-center">
+  <div class="col-3 text-center">
+    <label for="inputPassword6" class="col-form-label">Photo de profil</label>
   </div>
+  <div class="col-3 align-self-center">
+    <img src="https://pbs.twimg.com/profile_images/1169816682841264128/iaYgus-J_400x400.jpg" class="rounded-circle mx-auto d-block" style="width: 100px;" alt="...">
+  </div>
+  <div class="col-3">
+    <button type="button" class="btn btn-primary rounded-pill">Télécharger une photo</button>
+  </div>
+  <div class="col-3">
+    <button type="button" class="btn btn-secondary rounded-pill">Supprimer la photo</button>
+  </div>
+</div>
 
+<!-- Prénom | Nom -->
+<div class="row gx-5 align-items-center pt-4">
+  <div class="col-3 text-center">
+    <label for="inputPassword6" class="col-form-label">Prénom | Nom</label>
+  </div>
+  <div class="col-4">
+    <input type="password" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+  </div>
+  <div class="col-4">
+    <input type="password" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+  </div>
+</div>
+
+<!-- Email -->
+<div class="row gx-5 align-items-center pt-4">
+  <div class="col-3 text-center">
+    <%= f.label :email %>
+  </div>
+  <div class="col-8">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded" %>
+  </div>
+</div>
+
+<!-- Si mail de confirmation est activé et qu'il n'a pas abouti -->
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>Actuellement en attente de confirmation de : <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+<!-- Adresse -->
+<div class="row gx-5 align-items-center pt-4">
+  <div class="col-3 text-center">
+    <label for="inputPassword6" class="col-form-label">Adresse</label>
+  </div>
+  <div class="col-8">
+    <input type="password" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+  </div>
+</div>
+
+<!-- Ville | Pays -->
+<div class="row gx-5 align-items-center pt-4">
+  <div class="col-3 text-center">
+    <label for="inputPassword6" class="col-form-label">Ville | Pays</label>
+  </div>
+  <div class="col-4">
+    <input type="password" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+  </div>
+  <div class="col-4">
+    <input type="password" id="inputPassword6" class="form-control rounded" aria-describedby="passwordHelpInline">
+  </div>
+</div>
+
+
+<!-- Page 2 -->
+<h2 class="text-center p-4 fw-bold mt-3">Changer mon mot de passe</h2>
+
+<!-- Nouveau mot de passe -->
+<div class="row gx-5 align-items-center pt-3">
+  <div class="col-3 text-center">
+    <%= f.label :nouveau_mot_de_passe %>
+  </div>
+  <div class="col-8">
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded", placeholder: "Entrer votre nouveau mot de passe (#{@minimum_password_length} caractères minimum)" %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <% @minimum_password_length %>
     <% end %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+<!-- Confirmer le nouveau mot de passe -->
+<div class="row gx-5 align-items-center pt-4 pb-5">
+  <div class="col-3 text-center">
+    <%= f.label :confirmation_du_mot_de_passe %>
   </div>
+  <div class="col-8">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded", placeholder: "Confirmer votre nouveau mot de passe" %>
+  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+<!-- Mot de passe actuel -->
+<div class="row gx-5 align-items-center pt-4">
+  <div class="col-3 text-center">
+    <%= f.label :mot_de_passe_actuel %>
   </div>
+  <div class="col-8">
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded", placeholder: "Entrer votre mot de passe actuel pour confirmer" %>
+  </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+<!-- Bouton mise à jour -->
+<div class="container text-center mt-5">
+  <%= f.submit "Mettre à jour le mot de passe", class: "btn btn-dark rounded-pill" %>
+</div>
+
 <% end %>
 
-<h3>Cancel my account</h3>
+<!-- Page 3 -->
+<h2 class="text-center p-4 fw-bold mt-3">Supprimer mon compte</h2>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<h6 class="text-center fw-bold" >Vous souhaitez nous quitter ?</h4>
 
-<%= link_to "Back", :back %>
+<div class="container text-center mt-4">
+  <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sûr ? Il ne sera pas possible de revenir en arrière" }, class: "btn btn-danger rounded-pill", method: :delete %>
+</div>
+
+<div class="container text-center mt-4 mb-3">
+  <%= button_to "Annuler", edit_user_registration_path(@current_user), class: "btn btn-outline-dark btn-sm"%>
+</div>

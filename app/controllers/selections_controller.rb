@@ -1,31 +1,20 @@
 class SelectionsController < ApplicationController
-
-  def new
-    @selection = Selection.new
-  end
+  include ApplicationHelper
 
   def create
-    @selection = Selection.new
-    @selection.cart = Cart.find_by(user_id: current_user.id)
-    puts params
-    @params_basket = params[:basket_id]
+    @selection = Selection.new(cart_id: current_user_cart.id)
     
-    if params[:basket_id] =! nil
-      @selection.basket_id = @params_basket
-      puts params
-      puts @params_basket
+    if params[:basket_id]
+      @selection.basket_id = params[:basket_id]
     else
       @selection.additional_products_id = params[:additional_products_id]
     end
     if @selection.save
       flash[:success] = "Produit ajouté au panier!"
-      puts "Succès ! #{@selection} a été ajouté au panier #{Cart.find_by(user_id: current_user.id)}"
-      redirect_to root_path
-      
+      redirect_to root_path      
     else
       flash[:error] = @selection.errors.messages
       puts "Nul !"
-      
     end
   end
   
@@ -33,12 +22,11 @@ class SelectionsController < ApplicationController
   
   
   def destroy
-    @cart = Cart.find_by(user_id: current_user.id)
     @selection = Selection.find(params[:id])
+    
     @selection.destroy
     flash[:success] = "Produit supprimé du panier avec succès!"
-      puts "Succès ! #{@selection} a été supprimé du panier #{Cart.find_by(user_id: current_user.id)}"
-      redirect_to carts_path
+    redirect_to cart_path(current_user_cart)
   end
 
 end

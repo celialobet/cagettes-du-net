@@ -1,16 +1,18 @@
 <div class="container align-items-center border border-dark rounded-3 shadow p-3 mb-5 mt-3 bg-body rounded">
-  <div class="row" style="height: 500px">
+  <div class="row">
     <div class="col-12 col-lg-8 align-self-center">
-      <img src="https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="rounded mx-auto d-block" style="width: 600px;">
+      <%= image_tag @baskets.image_url, alt: 'photo de panier', class: 'rounded mx-auto d-block  h-auto', style: "width: 600px;" %>  
     </div>
     <div class="col-12 col-lg-4 align-self-center">
-          <h3 class="title text-center fw-bold display-6"> <%= @baskets.title %></h3>
-          <p class="text-center"><%= @baskets.description %></p>
-          <p class="price text-center fs-3"> <%= @baskets.price %> €</p>
+      <h3 class="title text-center fw-bold display-6"> <%= @baskets.title %></h3>
+        <p class="text-center"><%= @baskets.description %></p>
+        <p class="price text-center fs-3"> <%= @baskets.price %> €</p>
+        <% if user_signed_in? %>
           <div class="add-buttons text-center">
             <%= link_to "Ajouter au panier", basket_selections_path(@baskets), class:"btn btn-dark",  method:"POST" %>
           </div>
-          <div class="available text-center mt-3">En stock</div>
+        <% end %>        
+      <div class="available text-center mt-3">En stock</div>
     </div>
   </div>
 </div>
