@@ -1,28 +1,27 @@
-<section class="container p-3 my-5">
+<section class="container py-4">
   
-  <div class="container my-5">
-    <h2 class="text-center py-3">Nos paniers du moment</h2>
+  
+    <h2 class=" fw-bold text-dark py-3">Nos paniers du moment</h2>
     <div class="row justify-content-center">
-      <div class="card-group mt-5">
+      <div class="card-group mt-3 p-5">
         <% @baskets.each do |basket|%>
-        <div class="col mx-2">
-          <div class="card rounded shadow" style="18rem;">
+        <div class="col-4 ">
+          <%= link_to(basket_path(basket.id)) do %>
             
-            <%= image_tag basket.image_url, alt: 'photo de panier', class: 'card-img-top' %>
-            <div class="card-body">
-              <h4 class="card-title"><%= basket.title %></h4>
-              <p class="card-text"><%= basket.description %></p>
-              <p class="text-center"> <%= basket.price %>€</p>
-              <div class="add-buttons text-center">
-                <%= link_to "Page du produit", basket_path(basket.id), class:"btn btn-success"%>
-              </div>
+          <div class="card rounded shadow w-100 text-decoration-none" style="18rem;">
+            <div class="bg-image" style="background-image: url('<%= rails_blob_url(basket.image_url) %>'); height: 18rem; max-width: auto; background-size: cover; background-position: center;">
             </div>
-            <div class="card-footer">
+            <div class="card-body my-2 mx-3">
+              <h4 class="card-title text-dark fw-bold"><%= basket.title %></h4>
+              <small> <p class="card-text text-muted"><%= basket.description %></p></small> 
+              <p class="text-center"> <%= basket.price %>€</p>
+            
             <% if user_signed_in? %>
               <div class="add-buttons text-center">
                 <%= link_to "Ajouter au panier", basket_selections_path(basket), class:"btn btn-warning",  method:"POST" %>
               </div>
-            <% end %>   
+            <% end %>
+          <% end %>   
             </div>
           </div>
         </div>
@@ -30,5 +29,5 @@
         <% end %>
       </div>
     </div>
-  </div>
+  
 </section>    
