@@ -1,38 +1,61 @@
-<section class="container p-3 my-5">
+<section class="container p-3 my-5 bg-light">
   
-  <div class="container my-5">
-    <h2 class="text-center py-3">Ajouter des produits supplémentaires ?</h2>
+    <h2 class="text-center py-3 mb-3">Ajouter des produits supplémentaires ?</h2>
     <div class="row">
-      <div class="card-group mt-5">
+      <div class="card-group">
         <% @additional_products.each do |product|%>
-        <div class="col-4 d-flex justify-content-around  py-3">
-          <div class="card rounded shadow align-items-center" style="width:18rem;">
-          
-            <div class="bg-image" style="background-image: url('<%= rails_blob_url(product.image_url) %>'); height: 10rem; width: 10rem; background-size: cover; background-position: center;">              
-            </div>
-            <div class="card-body">
-              <h4 class="card-title"><%= product.title %></h4>
-              <p class="card-text"><%= product.description %></p>
-              <div class="add-buttons text-center">
+        <% if product.is_available == true%>
+          <div class="col-4 d-flex justify-content-around  py-3">
+            <div class="card rounded shadow" style="width:18rem;">
+              <div class="bg-image align-self-center" style="background-image: url('<%= rails_blob_url(product.image_url) %>'); height: 10rem; width: 10rem; background-size: cover; background-position: center;">              
+              </div>
+              <div class="card-body align-self-center">
+                <h4 class="card-title"><%= product.title %></h4>
+                <p class="card-text"><%= product.description %></p>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <div class= "d-flex align-items-center mb-0 fw-bolder fs-5"> <%= product.price %>€</div>
+                <div class="add-buttons">
+                  <%= link_to additional_product_selections_path(product), class: 'btn btn-primary',  method:"POST" do %>
+                    <span class="glyphicon glyphicon-eye-open"></span> <i class="fas fa-shopping-cart" id="cart-btn-value"> </i>
+                  <% end %>
+                </div>  
               </div>
             </div>
-            <div class="card-footer d-flex justify-content-between">
-              <div class= "d-flex align-items-center mb-0 fw-bold"> <%= product.price %>€</div>
-              <div class="add-buttons">
-                <%= link_to additional_product_selections_path(product), class: 'btn btn-primary',  method:"POST" do %>
-                  <span class="glyphicon glyphicon-eye-open"></span> <i class="fas fa-shopping-cart" id="cart-btn-value"> </i>
-                <% end %>
-              </div>  
-            </div>
           </div>
-        </div>
-        
+        <% end %>
         <% end %>
       </div>
     </div>
+</section>
+<section class="container p-3 my-5">
+    <div class="row mt-5">
+      <h3 class="text-center">Ces produits sont en cours de réaprovisionement</h3>
+      <div class="card-group">
+        <% @additional_products.each do |product|%>
+        <% if product.is_available == false%>
+          <div class="col-4 d-flex justify-content-around  py-3">
+            <div class="card rounded shadow" style="width:18rem;">
+              <div class="bg-image align-self-center" style="background-image: url('<%= rails_blob_url(product.image_url) %>'); height: 10rem; width: 10rem; background-size: cover; background-position: center;">              
+              </div>
+              <div class="card-body align-self-center">
+                <h4 class="card-title"><%= product.title %></h4>
+                <p class="card-text"><%= product.description %></p>
+                <div class="add-buttons text-center">
+                </div>
+              </div>
+              <div class="card-footer d-flex justify-content-between">
+                <div class= "d-flex align-items-center mb-0 fw-bolder fs-5"> <%= product.price %>€</div> 
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  <div class="container text-center">
+    <%=link_to 'Etape suivante', cart_path(current_user_cart), class:'btn btn-dark btn-lg rounded'%>
   </div>
 </section>  
 
-<div>
-  <%=link_to 'Etape suivante', cart_path(current_user_cart), class:'btn btn-dark rounded'%>
-</div>
+
