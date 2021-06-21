@@ -1,3 +1,4 @@
-alert("On est bien dans le fichier JS");
 
-document.getElementById("order-area").innerHTML ="<%= j render 'orders/second_step'%>";
+var titleBasket = "<%= @basket.title %>"
+
+alert("La " + titleBasket.toLowerCase() + " a été ajoutée");

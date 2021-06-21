@@ -6,6 +6,7 @@ class SelectionsController < ApplicationController
     @locations = Location.all
     if params[:basket_id]
       @selection.basket_id = params[:basket_id]
+      @basket = Basket.find(@selection.basket_id)
     else
       @selection.additional_products_id = params[:additional_products_id]
     end
