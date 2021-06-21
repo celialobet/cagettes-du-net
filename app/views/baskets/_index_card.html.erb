@@ -13,9 +13,9 @@
               <small><p class="card-text"><%= truncate(basket.description, length: 100, omission: "... %s") % link_to('Afficher la suite', basket_path(basket.id), class:'text-dark, text-muted') %></p></small> 
             </div>
             <% end %> 
-            <% if user_signed_in? %>
             <div class="d-flex justify-content-between align-items-center mx-4 pt-0 pb-4">
                 <p class="d-inline pt-3 fs-5 text-dark"> <%= basket.price %>€</p>
+                <% if user_signed_in? %>
                 <%= link_to basket_selections_path(basket), method:"POST", remote: true do %>
                 <div class="d-inline bg-dark text-white p-3" >
                   <i class="fas fa-shopping-cart"></i> 
