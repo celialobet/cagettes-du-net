@@ -20,7 +20,7 @@
             <div class="card-footer">
             <% if user_signed_in? %>
               <div class="add-buttons text-center">
-                <%= link_to "Ajouter au panier", basket_selections_path(basket), class:"btn btn-warning",  method:"POST" %>
+                <%= link_to "Ajouter au panier", basket_selections_path(basket), class:"btn btn-warning", method:"POST", remote: true %>
               </div>
             <% end %>   
             </div>

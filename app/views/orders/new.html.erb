@@ -1,0 +1,21 @@
+<h1 class="text-center">Commander un panier</h1>
+
+
+  <div class="container" id="order-area"><%=link_to 'Commander', new_order_path, class:'btn btn-dark rounded', remote: true %></div>
+
+  
+<% if @step == 1 %>
+  <%= render 'baskets/index_card' %>
+<% end %>
+
+<% if @step == 2 %>
+  <%= render 'baskets/index_card' %>
+<% end %>
+
+<% if @step == 3 %>
+  <%= render 'baskets/index_card' %>
+<% end %>
+
+<% if @step == 4 %>
+  <%= render 'baskets/index_card' %>
+<% end %>
