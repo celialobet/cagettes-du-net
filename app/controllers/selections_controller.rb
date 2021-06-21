@@ -8,7 +8,7 @@ class SelectionsController < ApplicationController
       @selection.basket_id = params[:basket_id]
       @basket = Basket.find(@selection.basket_id)
     else
-      @selection.additional_products_id = params[:additional_products_id]
+      @selection.additional_product_id = params[:additional_product_id]
     end
     if @selection.save
       flash[:success] = "Produit ajouté au panier!"
