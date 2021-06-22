@@ -23,11 +23,16 @@
     </div>
   </div>  
   
-<%= render 'baskets/index_card' %>
+<%= render 'additional_products/index_card' %>
 
 <div class="row">
-    <div class="mx-5 col-3"><%=link_to 'Etape suivante', additional_products_path, class:'btn btn-dark rounded', remote: true %>
+  
+  <% if current_user.location_id == nil %>
+    <div class="mx-5 col-3"><%=link_to 'Etape suivante', edit_user_path(current_user), class:'btn btn-dark rounded', remote: true %>
     </div>
+  <% end %>
+  
+    
     <div class="col-6"><%=link_to 'Voir le panier', cart_path(current_user_cart), class:'btn btn-dark rounded', remote: true %>
     </div>
   </div>
