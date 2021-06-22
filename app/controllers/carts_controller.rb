@@ -12,10 +12,11 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find_by(user_id: current_user.id)
     @baskets = Basket.all
+    
     respond_to do |format|
-      format.html {redirect_to cart_path(current_user_cart)}
+      format.html {}
       format.js { }
-    end 
+    end
   end
 
   def index

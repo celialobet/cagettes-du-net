@@ -27,9 +27,10 @@
 
 <div class="row">
   
-  <% if current_user.location_id == nil %>
-    <div class="mx-5 col-3"><%=link_to 'Etape suivante', edit_user_path(current_user), class:'btn btn-dark rounded', remote: true %>
+  <% if current_user.location_id == nil%>
+    <div class="mx-5 col-3"><%=link_to 'Etape suivante', locations_path, class:'btn btn-dark rounded', remote: true %>
     </div>
+    
     <% else %>
     <div class="mx-5 col-3"><%=link_to 'Etape suivante', location_path(current_user.location_id), class:'btn btn-dark rounded', remote: true %>
     </div>

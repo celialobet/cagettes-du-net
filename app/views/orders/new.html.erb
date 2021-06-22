@@ -1,7 +1,18 @@
 <section class="container min-vh-100 d-flex flex-column justify-content-center">
   <h1 class="text-center fw-bold text-dark">Commander un panier</h1>
   <div class="container" id="order-area">
-    <%= render "first_step" %>
+    
+    <% if @cart.step == 0 %>
+      <%= render "first_step" %>
+    <% elsif @cart.step == 1 %>
+      <%= render "first_step_ap" %>
+    <% elsif @cart.step == 2 %>
+      <%= render "second_step" %>
+    <% elsif @cart.step == 3 %>
+      <%= render "third_step" %>
+    <% end %>
+    
+    
     
   </div>
 

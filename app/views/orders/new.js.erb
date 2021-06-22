@@ -1,10 +1,12 @@
-
-var additionalProduct = <%= @cart.additional_product.length %>;
-
-if (additionalProduct == 0) {
-  document.getElementById("order-area").innerHTML ="<%= j render 'first_step_ap'%>";
-}
-
-else {
+<% if @cart.step == 0 %>
   document.getElementById("order-area").innerHTML ="<%= j render 'first_step'%>";
-}
+
+<% elsif @cart.step == 1 %>
+document.getElementById("order-area").innerHTML ="<%= j render 'first_step_ap'%>";
+
+<% elsif @cart.step == 2 %>
+document.getElementById("order-area").innerHTML ="<%= j render 'second_step'%>";
+
+<% elsif @cart.step == 3 %>
+document.getElementById("order-area").innerHTML ="<%= j render 'third_step'%>";
+<% end %>

@@ -52,9 +52,18 @@
 </section>
 
 <div class="container row" >
-      <div class="col-6"><%=link_to 'Etape suivante', cart_path(current_user_cart), class:'btn btn-dark rounded', remote: true %>
+    
+    <% if @location.id == current_user.location_id %>
+      <div class="col-6"><%=link_to 'Valider le lieu de livraison', edit_user_path(current_user), class:'btn btn-dark rounded', remote: true %>
       </div>
-
+      <div class="col-6"><%=link_to 'Retourner à la liste des lieux de livraison', locations_path, class:'btn btn-dark rounded', remote: true %>
+      </div>
+    
+    <% else %>
+      <div class="col-6"><%=link_to 'En faire votre lieu de livraison', location_path(@location.id), class:'btn btn-dark rounded', remote: true %>
+      </div>
       <div class="col-6"><%=link_to 'Changer de lieu de livraison', locations_path, class:'btn btn-dark rounded', remote: true %>
       </div>
-    </div>
+     <% end %>
+      
+  </div>

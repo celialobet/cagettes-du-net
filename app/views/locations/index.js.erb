@@ -1,1 +1,5 @@
+  <% @cart = current_user_cart %>
+  <% @cart.step = 2 %>
+  <% @cart.save %>
+
   document.getElementById("order-area").innerHTML ="<%= j render 'index'%>";

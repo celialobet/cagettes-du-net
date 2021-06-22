@@ -1,17 +1,4 @@
-<body class="min-vh-100 d-flex flex-column justify-content-between">
-    <header>
-        <section class="jumbotron2 ">
-            <div class="container align-items-end  pt-5">
-                <div class="row">
-                    <div class="col-12 align-self-center">
-                        <h1 class="text-dark display-4 fw-bold">Trouvez un lieu près de chez vous</h1>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
-    <main >
-        <section class="container py-5">
+<section class="container py-5">
             
             <% @locations.each do |location| %>
             <div class="card-group">
@@ -29,7 +16,7 @@
                                     <div class="card-footer p-0">
                                         <div class="row justify-content-between align-items-center ">
                                             <p class="col-8 pt-3 text-muted d-inline"><small> Partenaire officiel des Cagettes du net </small></p>
-                                            <%= link_to "Voir le lieu", location_path(location.id), class:"btn btn-dark d-inline col-4"%>
+                                            <%= link_to "Voir le lieu", location_path(location.id), class:"btn btn-dark d-inline col-4", remote: true%>
                                         </div>                           
                                     </div>
                                     <% end %>
@@ -42,5 +29,3 @@
             <% end %>
             
         </section>
-    </main>
-</body>
