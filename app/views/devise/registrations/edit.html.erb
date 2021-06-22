@@ -13,9 +13,8 @@
     <div class="m-3">
       <div>
         <p class="fw-bold">Mon compte</p>
-        <p>Modifier mes informations personnelles</p>
         <%= link_to "Modifier mes informations personnelles", edit_user_registration_path, remote: true, method: :get %>
-        <p>Modifier mon mot de passe<p>
+        <%= link_to "Modifier mon mot de passe", edit_user_registration_path, remote: true, method: :get %>
       </div>
       <div>
         <p class="fw-bold">Mes commandes<p>

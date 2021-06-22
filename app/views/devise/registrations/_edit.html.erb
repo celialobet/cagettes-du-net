@@ -1,1 +1,80 @@
-<h6 class="text-center">Email</h6>
+<div class="col-9 border border-2 rounded-3" id="test">
+    <!-- Page 1 -->
+    <h2 class="text-center p-4 fw-bold">Mes informations personnelles</h2> 
+
+    <!-- Photo de profil -->
+    <div class="row gx-5 align-items-center">
+      <div class="col-3 text-center">
+        <label for="inputPassword6" class="col-form-label">Photo de profil</label>
+      </div>
+      <div class="col-3 align-self-center">
+      <%if @user.avatar.attached?%>
+        <%= image_tag @user.avatar, alt: 'avatar' %>
+        <p> Choisis une nouvelle image pour le modifier: </p>
+        <%else%>
+        <p>Tu n'as pas encore d'avatar ! Tu peux en ajouter un via la formulaire ci-dessous. </p>
+      <%end%>
+      </div>
+      <div class="col-3">
+      <%= form_tag user_avatars_path(@user), multipart: true do %>
+        <%= file_field_tag :avatar %><br/><br/>
+        <%= submit_tag "Mettre à jour", class:"btn btn-success" %>
+      <% end %>
+      </div>
+    </div>
+
+    <!-- Début boucle devise -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <!-- Prénom | Nom -->
+    <div class="row gx-5 align-items-center pt-4">
+      <div class="col-3 text-center">
+        <label for="inputPassword6" class="col-form-label">Prénom | Nom</label>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+      </div>
+      <div class="col-4">
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="row gx-5 align-items-center pt-4">
+      <div class="col-3 text-center">
+        <%= f.label :email %>
+      </div>
+      <div class="col-8">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded" %>
+      </div>
+    </div>
+
+    <!-- Si mail de confirmation est activé et qu'il n'a pas abouti -->
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Actuellement en attente de confirmation de : <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+    <!-- Code postal -->
+    <div class="row gx-5 align-items-center pt-4">
+      <div class="col-3 text-center">
+        <label for="inputPassword6" class="col-form-label">Code postal</label>
+      </div>
+      <div class="col-1">
+        <%= f.text_field :zip_code, autofocus: true, autocomplete: "zip_code", class: "form-control" %>
+      </div>
+    </div>
+    <div class="row gx-5 align-items-center pt-4">
+      <div class="col-3 text-center">
+        <%= f.label :mot_de_passe_actuel %>
+      </div>
+      <div class="col-8">
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded", placeholder: "Entrer votre mot de passe actuel pour confirmer" %>
+      </div>
+    </div>
+    <div class="container text-center mt-5">
+      <%= f.submit "Mettre à jour mes informations", class: "btn btn-dark rounded-pill" %>
+    </div>
+
+    <% end %>
+</div>
