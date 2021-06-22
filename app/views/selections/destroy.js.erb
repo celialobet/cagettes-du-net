@@ -1,3 +1,11 @@
 alert("La cagette a bien été supprimée");
 
+
 document.getElementById("<%=@selection.id%>").remove();
+<%= @cart = current_user.cart  %>
+
+<% if @cart.selections.length == 0 %>
+  <%= @cart.step = 0  %>
+  document.getElementById("order-area").innerHTML ="<%= j render 'orders/first_step'%>";
+<% end %>
+

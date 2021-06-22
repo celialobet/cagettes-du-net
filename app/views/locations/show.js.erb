@@ -1,10 +1,18 @@
 
 <% if @cart.step == 2 %>
-  <%= @cart.step = 3 %>
-  <%= @cart.save %>
+  <% @cart.step == 3 %>
+  <% @cart.save %>
 
   document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
-  
+
+<% elsif @cart.step == 1 %>
+
+  <% @cart.step = 3 %>
+
+  <% @cart.save %>
+
+  document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
+
 <% elsif @cart.step == 3 %>
 
   <%= current_user.location_id = @location.id %>
