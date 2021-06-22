@@ -1,0 +1,100 @@
+<body class="min-vh-100 flex-column justify-content-between">
+  <section class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class=" ">
+          <div class="card shadow-lg p-4 border-0">
+            <div class="card-body text-center">
+              <h4 class="text-primary">Ma cagette</h4>
+            </div>
+              <% if @cart.selections.length > 0 %>
+                <ul class="list-group list-group-flush"> 
+                  <% @cart.selections.each do |selection|%>
+                    <% if selection.additional_product_id == nil  %>                
+                      <li class="list-group-item" >
+                        <div class="d-flex align-items-center justify-content-between">
+                          <a href="#!" class="text-decoration-none">
+                            <div class="d-lg-flex align-items-center">
+                              <div class="ml-lg-3 mt-2">
+                                <h4 class="mb-O text-secondary"><%= selection.basket.title %></h4>
+                                <p class="mb-0 text-muted"><%=selection.basket.description%></p>
+                                <%= link_to "Fiche de la cagette", basket_path(selection.basket.id), class:"btn btn-warning" %>
+                                <div class="fs-lg text-accent pt-2"><%= selection.basket.price %> €
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                          <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
+                          <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger" %>
+                          </div>
+                        </div>
+                      </li>
+                    <% elsif selection.basket_id == nil %> 
+                      <li class="list-group-item" >
+                        <div class="d-flex align-items-center justify-content-between">
+                          <a href="#!" class="text-decoration-none">
+                            <div class="d-lg-flex align-items-center">
+                              <div class="ml-lg-3 mt-2">
+                                <h4 class="mb-O text-secondary"><%= selection.additional_product.title %></h4>
+                                <p class="mb-0 text-muted"><%=selection.additional_product.description%></p>
+                                <%= link_to "Fiche du panier", additional_product_path(selection.additional_product.id), class:"btn btn-warning" %>
+                                <div class="fs-lg text-accent pt-2"><%= selection.additional_product.price %> €</div>
+                              </div>
+                            </div>
+                          </a>
+                          <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
+                          <%= link_to "Supprimer", [selection.additional_product, selection], method: "delete", class:"btn btn-link px-0 text-danger" %>
+                          </div>
+                        </div>
+                      </li>
+                    <% end %>
+                  <% end %>
+                </ul>
+              <% else %>
+                <div class="flex center">
+                  <p class="text-center">Votre cagette est vide pour le moment.</p>
+                  <img src="https://media.giphy.com/media/TjS7u7yoMC2KubI5wE/giphy.gif" class="rounded mx-auto d-block" alt="this slowpoke moves"  width="250" />
+                </div>
+              <% end %>
+          </div>    
+        </div>
+      </div>
+      <div class="col-lg-4 align-self-center">
+        <div class="bg-white rounded-3 shadow-lg p-4">
+          <div class="py-2 px-xl-2">
+            <div class="text-center mb-4 pb-3 border-bottom">
+              <h2 class="h6 mb-3 pb-1">Total</h2>
+              <h3 class="fw-normal"><%= @cart.total_cart %> €</h3>
+            </div>
+            <div class="accordion" id="order-options">
+              <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+<div class="row justify-content-center align-items-center m-3 w-100">
+  <div class="card p-0 shadow-3 shadow rounded border-0 h-auto" style="max-width: 1000px;">
+    <div class="row g-0 ">
+      <div class="col-md-4 col-lg-4 bg-image" style="background-image: url('https://media.gettyimages.com/photos/lesbian-couple-groceries-shopping-picture-id1012106882?s=2048x2048'); height: 200px; max-width: auto; background-size: cover; background-position: center;">
+      </div>
+      <div class="d-flex col-md-8 col-lg-8 px-3 align-self-center ">
+        <div class="card-body my-3 pb-0 ">
+          <h5 class="card-title fs-4 fw-bold text-dark "><%= current_user.location.name %></h5>
+          <p class="card-text "><%= current_user.location.address_number %> <%= current_user.location.address_street %> , <%= current_user.location.zip_code %>, Paris</p>
+          <% if current_user.location.validated == true %>
+          <div class="card-footer p-0">
+            <div class="row justify-content-between align-items-center ">
+              <p class="col-8 pt-3 text-muted d-inline"><small> Partenaire officiel des Cagettes du net </small></p>
+              <%= link_to "Voir le lieu", location_path(current_user.location_id), class:"btn btn-dark d-inline col-4", remote: true%>
+            </div>                           
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
