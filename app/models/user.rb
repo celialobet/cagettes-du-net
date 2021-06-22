@@ -15,6 +15,8 @@ class User < ApplicationRecord
   belongs_to :location, optional: true
   has_one :cart
 
+  has_one_attached :avatar
+
 
   def user_cart
     Cart.create(user_id: self.id)

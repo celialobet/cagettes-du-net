@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :selections
   end
 
-  resources :users 
+  resources :users do
+    resources :avatars, only: [:create, :update]
+  end
 
   resources :locations
 

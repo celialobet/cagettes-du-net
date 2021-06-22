@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         respond_to do |format|
             format.html {redirect_to cart_path(current_user_cart)}
             format.js { }
-          end
+        end
     end
 
 end
