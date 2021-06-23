@@ -1,6 +1,7 @@
 <section class="container py-5">
             
             <% @locations.each do |location| %>
+            <% if location.validated == true %>
             <div class="card-group">
                 <div class="row justify-content-center align-items-center m-3 w-100">
                     <div class="card p-0 shadow-3 shadow rounded border-0 h-auto" style="max-width: 1000px;">
@@ -12,7 +13,7 @@
 
                                     <h5 class="card-title fs-4 fw-bold text-dark "><%= location.name %></h5>
                                     <p class="card-text "><%= location.address_number %> <%= location.address_street %> , <%= location.zip_code %>, Paris</p>
-                                    <% if location.validated == true %>
+                                    
                                     <div class="card-footer p-0">
                                         <div class="row justify-content-between align-items-center ">
                                             <p class="col-8 pt-3 text-muted d-inline"><small> Partenaire officiel des Cagettes du net </small></p>

@@ -1,46 +1,82 @@
 <body class="min-vh-100 d-flex flex-column justify-content-between">
-    <header>
-        <section class="jumbotron2 ">
-            <div class="container align-items-end  pt-5">
-                <div class="row">
-                    <div class="col-12 align-self-center">
-                        <h1 class="text-dark display-4 fw-bold">Trouvez un lieu près de chez vous</h1>
-                    </div>
+  <header>
+    <section class="jumbotron2 ">
+      <div class="container align-items-end pt-5">
+        <div class="row">
+          <div class="col-12 align-self-center">
+            <h1 class="text-dark display-4 fw-bold">Trouvez un lieu de livraison près de chez vous</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+  <main >
+    <section class="container pt-5 bg-light">        
+      <% @locations.each do |location| %>
+      <% if location.validated == true %>
+        <div class="card-group">
+          <div class="row justify-content-center align-items-center m-3 w-100">
+            <div class="card p-0 shadow-3 shadow rounded border-0 h-auto" style="max-width: 1000px;">
+              <div class="row g-0 ">
+                <div class="col-md-4 col-lg-4 bg-image" style="background-image: url('https://media.gettyimages.com/photos/lesbian-couple-groceries-shopping-picture-id1012106882?s=2048x2048'); height: 200px; max-width: auto; background-size: cover; background-position: center;">
+              </div>
+              <div class="d-flex col-md-8 col-lg-8 px-3 align-self-center ">
+                <div class="card-body my-3 pb-0 ">
+                  <h5 class="card-title fs-4 fw-bold text-dark "><%= location.name %></h5>
+                  <p class="card-text "><%= location.address_number %> <%= location.address_street %> , <%= location.zip_code %>, Paris</p>
+                  <div class="card-footer p-0">
+                    <div class="row justify-content-between align-items-center ">
+                      <p class="col-8 pt-3 text-muted d-inline"><small> Partenaire officiel des Cagettes du net </small></p>
+                      <%= link_to "Voir le lieu", location_path(location.id), class:"btn btn-dark d-inline col-4"%>
+                    </div>                           
+                  </div>
+                  <% end %>
                 </div>
+              </div>
             </div>
-        </section>
-    </header>
-    <main >
-        <section class="container py-5">
-            
-            <% @locations.each do |location| %>
-            <div class="card-group">
-                <div class="row justify-content-center align-items-center m-3 w-100">
-                    <div class="card p-0 shadow-3 shadow rounded border-0 h-auto" style="max-width: 1000px;">
-                        <div class="row g-0 ">
-                            <div class="col-md-4 col-lg-4 bg-image" style="background-image: url('https://media.gettyimages.com/photos/lesbian-couple-groceries-shopping-picture-id1012106882?s=2048x2048'); height: 200px; max-width: auto; background-size: cover; background-position: center;">
-                            </div>
-                            <div class="d-flex col-md-8 col-lg-8 px-3 align-self-center ">
-                                <div class="card-body my-3 pb-0 ">
-
-                                    <h5 class="card-title fs-4 fw-bold text-dark "><%= location.name %></h5>
-                                    <p class="card-text "><%= location.address_number %> <%= location.address_street %> , <%= location.zip_code %>, Paris</p>
-                                    <% if location.validated == true %>
-                                    <div class="card-footer p-0">
-                                        <div class="row justify-content-between align-items-center ">
-                                            <p class="col-8 pt-3 text-muted d-inline"><small> Partenaire officiel des Cagettes du net </small></p>
-                                            <%= link_to "Voir le lieu", location_path(location.id), class:"btn btn-dark d-inline col-4"%>
-                                        </div>                           
-                                    </div>
-                                    <% end %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>            
+          </div>
+        </div>            
+      </div>
+      <% end %>      
+    </section>
+    <section class="container pt-3">
+      <h4 class="text-center">Lieux proposés par la communauté</h4>
+      <p>Ces lieux sont des propositions faites par les membres de la communauté des Cagettes du net. Pour qu'ils soient validés et intégrés aux lieux de livraison possibles, il faut qu'au moins 5 personnes s'inscrivent sur ce lieu. Si un d'entre eux vous intéresse, cliquez sur le bouton "Je m'inscris"!</p>
+      <% @locations.each do |location| %>
+      <% if location.validated == false %>
+        <div class="card-group">
+          <div class="row justify-content-center align-items-center m-3 w-100">
+            <div class="card p-0 shadow-3 shadow rounded border-0 h-auto" style="max-width: 1000px;">
+              <div class="row g-0 ">
+                <div class="col-md-4 col-lg-4 bg-image" style="background-image: url('https://media.gettyimages.com/photos/lesbian-couple-groceries-shopping-picture-id1012106882?s=2048x2048'); height: 200px; max-width: auto; background-size: cover; background-position: center;">
+              </div>
+              <div class="d-flex col-md-8 col-lg-8 px-3 align-self-center ">
+                <div class="card-body my-3 pb-0 ">
+                  <h5 class="card-title fs-4 fw-bold text-dark "><%= location.name %></h5>
+                  <p class="card-text "><%= location.address_number %> <%= location.address_street %> , <%= location.zip_code %>, Paris</p>
+                  <div class="card-footer p-0">
+                    <div class="row justify-content-between align-items-center ">
+                      <p class="col-8 pt-3 text-muted d-inline"> <button class="btn btn-secondary">Je m'inscris</button></p>
+                      <%= link_to "Voir le lieu", location_path(location.id), class:"btn btn-dark d-inline col-4"%>
+                    </div>                           
+                  </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
-            <% end %>
-            
-        </section>
-    </main>
+          </div>
+        </div>            
+      </div>
+      <% end %>      
+    </section>
+    <div class="container border-strong text-center bg-light mb-5 py-3">
+    <h4>Pas convaincu ?</h4>
+      <p>
+      Si vous êtes arrivés jusqu'ici, c'est peut-être parce que vous n'avez pas trouvé votre bonheur, et nous en sommes navrés...</p> 
+      <p>Mais pas de panique ! Si vous le souhaitez, vous pouvez aussi nous proposer de nouveaux lieux de livraisons, au plus près de chez vous. Cliquez sur le bouton ci-dessous, prenez 2 minutes pour lire les quelques consignes, et lancez vous, on attend que ça! :)</p>
+      
+      <%= link_to "Proposer un lieu", new_location_path, class:"btn btn-primary" %>
+    </div>
+        
+  </main>
 </body>
