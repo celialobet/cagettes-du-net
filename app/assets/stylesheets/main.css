@@ -52,8 +52,11 @@ p {
   border-radius: 50%;
 }
 
+.avatar-s {
+  height: 100px;
+}
+
 .alert {
-  margin-top: 100px;
   padding-left: 50px;
   z-index: 1000;
 }
