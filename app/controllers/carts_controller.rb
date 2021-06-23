@@ -12,7 +12,16 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find_by(user_id: current_user.id)
     @baskets = Basket.all
-    
+
+    basket_array = []
+
+    @cart.selections.each do |selection|
+      if selection.additional_product_id == nil
+      basket_array.push(selection.id)
+      end
+    end
+    @basket_array = basket_array
+
     respond_to do |format|
       format.html {}
       format.js { }
