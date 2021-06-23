@@ -21,10 +21,6 @@ class Location < ApplicationRecord
 
   validates :address_city,
   presence: true,
-  length: { in: 5..100 }
-
-  validates :address_city,
-  presence: true,
   acceptance: { accept: 'Paris' }
 
   validates :zip_code,
