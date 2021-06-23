@@ -4,11 +4,13 @@ class SelectionsController < ApplicationController
   def create
     @selection = Selection.new(cart_id: current_user_cart.id)
     @locations = Location.all
+
     if params[:basket_id]
       @selection.basket_id = params[:basket_id]
       @basket = Basket.find(@selection.basket_id)
     else
       @selection.additional_product_id = params[:additional_product_id]
+      @additional_product = AdditionalProduct.find(@selection.additional_product_id)
     end
     if @selection.save
       flash[:success] = "Produit ajouté au panier!"
@@ -26,6 +28,7 @@ class SelectionsController < ApplicationController
   
   
   def destroy
+    @baskets = Basket.all
     @selection = Selection.find(params[:id])
     
     @selection.destroy
