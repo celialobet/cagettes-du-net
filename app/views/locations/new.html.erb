@@ -1,50 +1,23 @@
-<%= render "newerror" %>
-
 <div class="col-12 min-vh-100 text-center d-flex flex-column justify-content-center bg-image" style="background-image: url('https://images.pexels.com/photos/5709299/pexels-photo-5709299.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); background-repeat: none; background-size: cover;" > 
-  <div class="align-self-center p-5 bg-image rounded-3" style="background-image: url('https://images.unsplash.com/photo-1616410731303-6affae095a0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=645&q=80');">
-    <div class="form-group" style="width: 400px">
-    <%= form_tag url_for(action: 'create'), method: "post", multipart: true do %>
-          
-      <%label_tag "Nom de l'établissement"%>
-      <%= text_field_tag 'name', nil, class:"form-control form-control-sm", placeholder:"Nom de l'établissement"%>
-      <br /> <br />
 
-      <% label_tag "Description" %>
-      <%= text_area_tag 'description', nil, class:"form-control form-control-sm", placeholder:"Description" %>
-      <br /> <br />
+<div class="container border-strong text-center bg-light mb-5 py-3">
+  <h4>Proposer un nouveau lieu de livraison</h4>
+    <div id="new-location">
+      <h5>Comment ça se passe ?</h5>
+      <ul class="text-start">
+        <li class="mb-2">Dans un premier temps, il vous faudra cliquer sur le bouton juste en dessous, qui vous redirigera vers un formulaire à remplir (avec soin).</li> 
+        <li class="mb-2">Nous vous y demanderons quelques informations pratiques sur le lieu que vous souhaitez nous proposer (son nom, son adresse, etc.) pour que nous puissions vérifier qu'il corresponde à nos critères techniques et pratiques (s'il est tout au bout d'une rue piétonne, notre camion réfrigéré aura surement du mal à l'atteindre!).</li>
+        <li class="mb-2">Nous prendrons ensuite contact avec les responsables pour nous présenter et leur proposer un éventuel partenariat.</li>
+        <li class="mb-2">S'ils sont intéressés, nous proposerons ensuite ce nouveau lieu sur notre site pour que les membres de la communauté des Cagettes (on s'est dit que ça sonnait mieux que "Cagettois et Cagettoises", non?) puissent s'y inscrire aussi.</li>
+          <ul>
+            <li>En effet, pour des raisons pratiques, il nous serait compliqué de mettre un place un nouveau point de livraison pour une ou deux personnes seulement, notamment pour optimiser les trajets en camion de nos livreurs.</li>
+            <li>En moyenne, nous avons entre 5 et 10 personnes par lieu de livraison</li>
+          </ul>
+        <li class="mb-2">Une fois que suffisamment de personnes seront inscrites, vous recevrez un email vous informant de la validation du lieu. Et peut-être que quelques petites surprises vous attendent... Mais on ne vous en dit pas plus pour le moment!</li>
+      </ul>
+      <p>Alors, qu'est-ce que vous attendez pour vous lancer ? N'hésitez surtout pas à parler de nous autour de vous, à vos amis, vos collègues, vos voisins! Les Cagettes, c'est aussi une formidable raison de tisser des liens autour de vous :)</p>
+      <%= link_to "Proposer un lieu", new_location_path, class:"btn btn-primary", remote: true %>
+    </div>  
+</div>
 
-      <% label_tag "Adresse (numéro)" %>
-      <%= number_field_tag 'address_number', nil, min: 1, max: 407, class:"form-control form-control-sm", placeholder:"Numéro de rue"%>
-      <br /> <br />
-
-      <% label_tag "Adresse (rue)"%>
-      <%= text_field_tag 'address_street', nil, class:"form-control form-control-sm", placeholder:"Rue" %>
-      <br /> <br />
-
-      <% label_tag "Code postal"%>
-      <%= select_tag "zip_code", raw("<option>75001</option><option>75002</option><option>75003</option><option>75004</option><option>75005</option><option>75006</option><option>75007</option><option>75008</option><option>75009</option><option>75010</option><option>75011</option><option>75012</option><option>75013</option><option>75014</option><option>75015</option><option>75016</option><option>75017</option><option>75018</option><option>75019</option><option>75020</option>"), class:"form-control form-control-sm"%>
-      <br /> <br />
-
-      <% label_tag "Horaires d'ouverture (si inconnues, merci de l'indiquer)" %>
-      <%= text_field_tag 'opening_hours', nil, class:"form-control form-control-sm", placeholder:"Horaires d'ouverture (si inconnues, merci de l'indiquer)"%>
-      <br /> <br />
-
-      <hr/>
-
-      <%= label_tag "Jour proposé de livraison" %>
-      <%= select_tag "day", raw("<option>Lundi</option><option>Mardi</option><option>Mercredi</option><option>Jeudi</option><option>Vendredi</option>"), class:"form-control form-control-sm"%>
-      <br /> <br />
-
-      <%= label_tag "Heure de livraison proposée" %>
-      <%= number_field_tag 'time', nil, in: 8..19, class:"form-control form-control-sm"%>
-      <br /> <br />
-      
-
-      <%= submit_tag "Proposer ce lieu", class: "btn btn-primary" %>
-
-    <% end %>
-    <br />
-    <%= link_to "Retour", locations_path, class:"btn btn-primary"%>
-    </div>
-  </div>
 </div>

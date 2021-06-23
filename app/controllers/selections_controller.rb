@@ -18,7 +18,6 @@ class SelectionsController < ApplicationController
       end     
     else
       flash[:error] = @selection.errors.messages
-      puts "Nul !"
     end
   end
   
