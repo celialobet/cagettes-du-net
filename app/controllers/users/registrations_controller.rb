@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  protected
+
+  def after_sign_up_path_for(resource)
+    :edit_user_registration
+  end
 
   respond_to :html, :js
   # before_action :configure_sign_up_params, only: [:create]
