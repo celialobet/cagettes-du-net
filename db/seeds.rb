@@ -18,7 +18,7 @@ i = 0
   rue = ['Rue Abel', 'Rue Abel-Gance', 'Rue Abel-Hovelacque', 'Rue Abel-Rabaud', 'Rue Abel-Truchet', 'Rue Achille', 'Rue Achille-Luchaire', 'Rue Achille-Martinet', 'Rue Adolphe-Adam', 'Rue Adolphe-Jullien']
   zip = [75012, 75013, 75013, 75011, 75017, 75020, 75014, 75018, 75004, 75001]
   days = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi']
-  Location.create(name: name[i], address_number: rand(1..10), address_street: rue[i], address_city: 'Paris', zip_code: zip[i], description: Faker::Lorem.paragraph, day: days.sample, time: Time.now, opening_hours: "10h-20h", validated: true)
+  Location.create(name: name[i], address_number: rand(1..10), address_street: rue[i], address_city: 'Paris', zip_code: zip[i], description: Faker::Lorem.paragraph, day: days.sample, time: rand(8..19), opening_hours: "10h-20h", validated: true)
   i = i + 1
 end
 
