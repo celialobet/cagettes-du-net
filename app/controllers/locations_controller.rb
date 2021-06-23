@@ -13,7 +13,6 @@ class LocationsController < ApplicationController
       redirect_to(root_path)
     else
       render "new"
-      flash[:success] = @location.errors
     end
   end
 
