@@ -34,6 +34,8 @@ class CheckoutController < ApplicationController
     end
     @cart.step = 0
 
+    @delivery = Delivery.create(user_id: curant_user.id, order_id: @order.id, location_id: current_user.location_id)
+
     OrderMailer.order_email(@order).deliver_now
 
   end
