@@ -16,9 +16,12 @@
             
                             
             <% order.selections.each do |selection| %>
-            <p>1 photo de <%= selection.item.title %> - <%= selection.item.price %> €
-            
-            <%= link_to "Accéder à la page de la photo", item_path(selection.item.id), class:"btn btn-warning btn-sm" %></p>
+            <% if selection.basket_id == nil %>
+              <p>1 <%= selection.additional_product.title %> - <%= selection.additional_product.price %> €</p>
+            <% elsif selection.additional_product_id == nil %>
+              <p>1 <%= selection.basket.title %> - <%= selection.basket.price %> €</p>
+              <%= link_to "Accéder à la page de la cagette", basket_path(selection.basket.id), class:"btn btn-primary btn-sm" %></p>
+            <% end %>
             
             <% end %>
             

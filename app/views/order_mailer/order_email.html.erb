@@ -13,14 +13,11 @@
     <div>
         <ul>
           <% @order.selections.each do |selection| %>
-          <li style="text-decoration: none;">
-            <div class="ml-lg-3 mt-2">
-              <h4 class="mb-O text-secondary"><%= selection.basket.title %></h4>
-              <p class="mb-0 text-muted"><%=selection.basket.description%></p>
-              <div class="fs-lg text-accent pt-2"><%= selection.basket.price %> €
-              </div>
-            </div>
-          </li>    
+            <% if selection.basket_id == nil %>
+              <p>1 <%= selection.additional_product.title %> - <%= selection.additional_product.price %> €</p>
+            <% elsif selection.additional_product_id == nil %>
+              <p>1 <%= selection.basket.title %> - <%= selection.basket.price %> €</p>
+            <% end %>
           <% end %>
         </ul>
     </div>
