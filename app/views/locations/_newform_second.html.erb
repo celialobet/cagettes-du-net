@@ -1,7 +1,8 @@
 <%= render "newerror" %>
 
 <div class="col-12 min-vh-100 text-center d-flex flex-column justify-content-center bg-image" style="background-image: url('https://images.pexels.com/photos/5709299/pexels-photo-5709299.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); background-repeat: none; background-size: cover;" > 
-  <div class="align-self-center p-5 bg-image rounded-3" style="background-image: url('https://images.unsplash.com/photo-1616410731303-6affae095a0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=645&q=80');">
+  <div class="align-self-center p-4 bg-image rounded-3" style="background-image: url('https://images.unsplash.com/photo-1616410731303-6affae095a0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=645&q=80');">
+    <h4>Proposer un nouveau lieu de livraison</h4>
     <div class="form-group" style="width: 400px">
     <%= form_tag url_for(action: 'create'), method: "post", multipart: true do %>
           
@@ -27,13 +28,13 @@
 
       <% label_tag "Horaires d'ouverture (si inconnues, merci de l'indiquer)" %>
       <%= text_field_tag 'opening_hours', nil, class:"form-control form-control-sm", placeholder:"Horaires d'ouverture (si inconnues, merci de l'indiquer)"%>
-      <br /> <br />
+      <br />
 
       <hr/>
 
       <%= label_tag "Jour proposé de livraison" %>
       <%= select_tag "day", raw("<option>Lundi</option><option>Mardi</option><option>Mercredi</option><option>Jeudi</option><option>Vendredi</option>"), class:"form-control form-control-sm"%>
-      <br /> <br />
+      <br />
 
       <%= label_tag "Heure de livraison proposée" %>
       <%= number_field_tag 'time', nil, in: 8..19, class:"form-control form-control-sm"%>
@@ -44,7 +45,7 @@
 
     <% end %>
     <br />
-    <%= link_to "Retour", locations_path, class:"btn btn-primary"%>
+    <%= link_to "Retour", new_location_path, class:"btn btn-primary", remote: true%>
     </div>
   </div>
 </div>

@@ -1,0 +1,19 @@
+<div class="container border-strong text-center bg-light mb-5 py-3">
+  <h4>Proposer un nouveau lieu de livraison</h4>
+  <h5>Comment ça se passe ?</h5>
+    <ul class="text-start">
+      <li class="mb-2">Dans un premier temps, il vous faudra cliquer sur le bouton juste en dessous, qui vous redirigera vers un formulaire à remplir (avec soin).</li> 
+      <li class="mb-2">Nous vous y demanderons quelques informations pratiques sur le lieu que vous souhaitez nous proposer (son nom, son adresse, etc.) pour que nous puissions vérifier qu'il corresponde à nos critères techniques et pratiques (s'il est tout au bout d'une rue piétonne, notre camion réfrigéré aura surement du mal à l'atteindre!).</li>
+      <li class="mb-2">Nous prendrons ensuite contact avec les responsables pour nous présenter et leur proposer un éventuel partenariat.</li>
+      <li class="mb-2">S'ils sont intéressés, nous proposerons ensuite ce nouveau lieu sur notre site pour que les membres de la communauté des Cagettes (on s'est dit que ça sonnait mieux que "Cagettois et Cagettoises", non?) puissent s'y inscrire aussi.</li>
+        <ul>
+          <li>En effet, pour des raisons pratiques, il nous serait compliqué de mettre un place un nouveau point de livraison pour une ou deux personnes seulement, notamment pour optimiser les trajets en camion de nos livreurs.</li>
+          <li>En moyenne, nous avons entre 5 et 10 personnes par lieu de livraison</li>
+        </ul>
+      <li class="mb-2">Une fois que suffisamment de personnes seront inscrites, vous recevrez un email vous informant de la validation du lieu. Et peut-être que quelques petites surprises vous attendent... Mais on ne vous en dit pas plus pour le moment!</li>
+    </ul>
+  <p>Alors, qu'est-ce que vous attendez pour vous lancer ? N'hésitez surtout pas à parler de nous autour de vous, à vos amis, vos collègues, vos voisins! Les Cagettes, c'est aussi une formidable raison de tisser des liens autour de vous :)</p>
+  <%= link_to "Proposer un lieu", new_location_path(step: 2), class:"btn btn-primary", remote: true %>
+  <br /><br />
+  <%= link_to "Retour", locations_path, class:"btn btn-primary"%>
+</div>  
