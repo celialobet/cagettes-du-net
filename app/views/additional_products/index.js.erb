@@ -1,1 +1,11 @@
-document.getElementById("order-area").innerHTML ="<%= j render 'orders/first_step_ap'%>";
+
+<% if @cart.baskets.length != 0 %>
+  <% @cart = current_user_cart %>
+  <% @cart.step == 1 %>
+  <% @cart.save %>
+
+  document.getElementById("order-area").innerHTML ="<%= j render 'orders/first_step_ap'%>";
+<% else %>
+  alert("Veuillez sélectionner un panier pour pouvoir passer à l'étape suivante");
+<% end %>
+
