@@ -5,7 +5,11 @@
         <div class=" ">
           <div class="card shadow-lg p-4 border-0">
             <div class="card-body text-center">
-              <h4 class="text-primary">Cagette(s)</h4>
+              <% if @basket_array.length == 1 %>
+                <h4 class="text-primary">Cagette</h4>
+              <% else %>
+                <h4 class="text-primary">Cagettes</h4>
+              <% end %>
             </div>
             <% if @cart.selections.length > 0 %>
               <ul class="list-group list-group-flush"> 
