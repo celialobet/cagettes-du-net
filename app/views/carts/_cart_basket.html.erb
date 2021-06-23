@@ -5,30 +5,26 @@
         <div class=" ">
           <div class="card shadow-lg p-4 border-0">
             <div class="card-body text-center">
-              <h4 class="text-primary">Cagettes</h4>
+              <h4 class="text-primary">Cagette(s)</h4>
             </div>
             <% if @cart.selections.length > 0 %>
               <ul class="list-group list-group-flush"> 
                 <% @cart.selections.each do |selection|%>
                 <% if selection.additional_product_id == nil %>
                   <li class="list-group-item" id="<%= selection.id%>">
-                    <div class="d-flex align-items-center justify-content-between">
-                      <a href="#!" class="text-decoration-none">
-                        <div class="d-lg-flex align-items-center">
-                          <div>
-                            <%# <%= image_tag @baskets.image_url, alt: 'photo de panier', class: 'rounded mx-auto d-block  h-auto', style: "width: 600px;" %>
-                          </div>
-                          <div class="ml-lg-3 mt-2">
-                            <h4 class="mb-O text-secondary"><%= selection.basket.title %></h4>
-                            <p class="mb-0 text-muted"><%=selection.basket.description%></p>
-                            <%= link_to "Fiche de la cagette", basket_path(selection.basket.id), class:"btn btn-warning" %>
-                            <div class="fs-lg text-accent pt-2"><%= selection.basket.price %> €</div>
-                          </div>
-                        </div>
-                        </a>
-                          <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
-                            <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
-                          </div>
+                    <div class="row d-flex align-items-center justify-content-between">
+                      <div class="col-4">
+                        <%= image_tag selection.basket.image_url, alt: 'photo de panier', class: 'rounded mx-auto d-block  h-auto', style: "width: 200px;" %>
+                      </div>
+                      <div class="col-6 ml-lg-3 mt-2">
+                        <h4 class="mb-O text-secondary"><%= selection.basket.title %></h4>
+                        <p class="mb-0 text-muted text-justify"><%=selection.basket.description%></p>
+                        <%= link_to "Fiche de la cagette", basket_path(selection.basket.id), class:"btn btn-warning" %>
+                        <div class="fs-lg text-accent pt-2"><%= selection.basket.price %> €</div>
+                      </div>
+                      <div class=" col-2 pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
+                        <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
+                      </div>
                     </div>
                   </li>
                 <% elsif selection.basket_id == nil %> 
@@ -39,7 +35,7 @@
                           <div class="ml-lg-3 mt-2">
                             <h4 class="mb-O text-secondary"><%= selection.additional_product.title %></h4>
                             <p class="mb-0 text-muted"><%=selection.additional_product.description%></p>
-                            <%= link_to "Fiche du panier", additional_product_path(selection.additional_product.id), class:"btn btn-warning" %>
+                            <%= link_to "Fiche du produit", additional_product_path(selection.additional_product.id), class:"btn btn-warning" %>
                             <div class="fs-lg text-accent pt-2"><%= selection.additional_product.price %> €</div>
                           </div>
                         </div>
