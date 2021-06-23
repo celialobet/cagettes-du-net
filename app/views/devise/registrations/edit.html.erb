@@ -3,7 +3,7 @@
     <div class="container align-items-end  pt-5">
       <div class="row">
         <div class="col-12 align-self-center">
-          <h1 class="text-dark display-4 fw-bold">Trouvez un lieu près de chez vous</h1>
+          <h1 class="text-dark display-4 fw-bold">Mes informations personnelles</h1>
         </div>
       </div>
     </div>
@@ -13,7 +13,7 @@
   <div class="row" style="margin-top: -150px;">
     <div class="col-lg-4 col-md-4 col-12">
       <div class="card border-0">
-        <div class="card-body">
+        <div class="card-body p-4">
           <h6>Mon compte</h6>
           <ul class="nav flex-column">
               <li class="nav-item">
@@ -35,6 +35,9 @@
                 <a class="nav-link text-muted fs-6" href="#">Changer de lieux de livraison</a>
               </li>
           </ul>
+          <div>
+            <%= link_to "Supprimer mon profil",  user_registration_path, class:"nav-link text-danger fs-6", data: { confirm: "Êtes vous sûr ? Il ne sera pas possible de revenir en arrière" }, method: :delete %>
+          </div>
         </div>
       </div>
     </div>
