@@ -1,6 +1,6 @@
 
 <% if @cart.step == 2 %>
-  <% @cart.step == 3 %>
+  <% @cart.step = 3 %>
   <% @cart.save %>
 
   document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
