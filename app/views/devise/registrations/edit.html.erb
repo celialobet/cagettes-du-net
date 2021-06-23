@@ -1,169 +1,47 @@
-<div class="row justify-content-evenly">
-  <div class="col-2 border border-2 rounded-3 align-middle">
-    <div class="align-self-center m-1">
-      <img src="https://pbs.twimg.com/profile_images/1169816682841264128/iaYgus-J_400x400.jpg" class="rounded-circle mx-auto d-block" style="width: 100px;" alt="...">
-    </div>
-    <div class="m-1">
-      <h4 class="text-center">Prénom</h4>
-      <h4 class="text-center">NOM</h4>
-    </div>
-    <div class="m-1">
-      <h6 class="text-center">Email</h6>
-    </div>
-    <div class="m-3">
-      <div>
-        <p class="fw-bold">Mon compte</p>
-        <%= link_to "Modifier mes informations personnelles", edit_user_registration_path, remote: true, method: :get %>
-        <%= link_to "Modifier mon mot de passe", edit_user_registration_path, remote: true, method: :get %>
-      </div>
-      <div>
-        <p class="fw-bold">Mes commandes<p>
-        <p>En cours (nombre)<p>
-        <p>Passées (nombre)</p>
-      </div>
-      <div>
-        <p class="fw-bold">Mes lieux de livraison</p>
-        <p>Gérer mes lieux</p>
-        <p>Proposer un nouveau lieu</p>
+<header>
+  <section class="jumbotron2 ">
+    <div class="container align-items-end  pt-5">
+      <div class="row">
+        <div class="col-12 align-self-center">
+          <h1 class="text-dark display-4 fw-bold">Trouvez un lieu près de chez vous</h1>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="col-9 border border-2 rounded-3" id="test">
-    <!-- Page 1 -->
-    <h2 class="text-center p-4 fw-bold">Mes informations personnelles</h2> 
-
-    <!-- Photo de profil -->
-    <div class="row gx-5 align-items-center">
-      <div class="col-3 text-center">
-        <label for="inputPassword6" class="col-form-label">Photo de profil</label>
-      </div>
-      <div class="col-3 align-self-center">
-      <%if @user.avatar.attached?%>
-        <%= image_tag @user.avatar, alt: 'avatar' %>
-        <p> Choisis une nouvelle image pour le modifier: </p>
-        <%else%>
-        <p>Tu n'as pas encore d'avatar ! Tu peux en ajouter un via la formulaire ci-dessous. </p>
-      <%end%>
-      </div>
-      <div class="col-3">
-      <%= form_tag user_avatars_path(@user), multipart: true do %>
-        <%= file_field_tag :avatar %><br/><br/>
-        <%= submit_tag "Mettre à jour", class:"btn btn-success" %>
-      <% end %>
-      </div>
-    </div>
-
-    <!-- Début boucle devise -->
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-    <!-- Prénom | Nom -->
-    <div class="row gx-5 align-items-center pt-4">
-      <div class="col-3 text-center">
-        <label for="inputPassword6" class="col-form-label">Prénom | Nom</label>
-      </div>
-      <div class="col-4">
-        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
-      </div>
-      <div class="col-4">
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+  </section>
+</header>
+<section class="container col-12 pt-5"> 
+  <div class="row" style="margin-top: -150px;">
+    <div class="col-lg-4 col-md-4 col-12">
+      <div class="card border-0">
+        <div class="card-body">
+          <h6>Mon compte</h6>
+          <ul class="nav flex-column">
+              <li class="nav-item">
+                <%= link_to "Modifier mes informations personnelles", edit_user_registration_path, class:"nav-link text-muted fs-6", remote: true, method: :get %>
+              </li>
+          </ul>
+          <h6>Mes commandes</h6>
+          <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link text-muted fs-6" href="#">Mes commandes en cours</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-muted fs-6" href="#">Mes commandes passées</a>
+              </li>
+          </ul>
+          <h6>Mes lieux de livraisons</h6>
+          <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link text-muted fs-6" href="#">Changer de lieux de livraison</a>
+              </li>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <!-- Email -->
-    <div class="row gx-5 align-items-center pt-4">
-      <div class="col-3 text-center">
-        <%= f.label :email %>
-      </div>
-      <div class="col-8">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded" %>
-      </div>
+    <div class="col-lg-8 col-md-8 col-12" id="editpage">
     </div>
-
-    <!-- Si mail de confirmation est activé et qu'il n'a pas abouti -->
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Actuellement en attente de confirmation de : <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-    <!-- Code postal -->
-    <div class="row gx-5 align-items-center pt-4">
-      <div class="col-3 text-center">
-        <label for="inputPassword6" class="col-form-label">Code postal</label>
-      </div>
-      <div class="col-1">
-        <%= f.text_field :zip_code, autofocus: true, autocomplete: "zip_code", class: "form-control" %>
-      </div>
-    </div>
-    <div class="row gx-5 align-items-center pt-4">
-      <div class="col-3 text-center">
-        <%= f.label :mot_de_passe_actuel %>
-      </div>
-      <div class="col-8">
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded", placeholder: "Entrer votre mot de passe actuel pour confirmer" %>
-      </div>
-    </div>
-    <div class="container text-center mt-5">
-      <%= f.submit "Mettre à jour mes informations", class: "btn btn-dark rounded-pill" %>
-    </div>
-
-    <% end %>
+  </div>     
 
 
-    <!-- Page 2 -->
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-    <h2 class="text-center p-4 fw-bold mt-3">Changer mon mot de passe</h2>
-
-    <!-- Nouveau mot de passe -->
-    <div class="row gx-5 align-items-center pt-3">
-      <div class="col-3 text-center">
-        <%= f.label :nouveau_mot_de_passe %>
-      </div>
-      <div class="col-8">
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded", placeholder: "Entrer votre nouveau mot de passe (#{@minimum_password_length} caractères minimum)" %>
-        <% if @minimum_password_length %>
-          <% @minimum_password_length %>
-        <% end %>
-      </div>
-    </div>
-
-    <!-- Confirmer le nouveau mot de passe -->
-    <div class="row gx-5 align-items-center pt-4 pb-5">
-      <div class="col-3 text-center">
-        <%= f.label :confirmation_du_mot_de_passe %>
-      </div>
-      <div class="col-8">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded", placeholder: "Confirmer votre nouveau mot de passe" %>
-      </div>
-    </div>
-
-    <!-- Mot de passe actuel -->
-    <div class="row gx-5 align-items-center pt-4">
-      <div class="col-3 text-center">
-        <%= f.label :mot_de_passe_actuel %>
-      </div>
-      <div class="col-8">
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded", placeholder: "Entrer votre mot de passe actuel pour confirmer" %>
-      </div>
-    </div>
-
-    <!-- Bouton mise à jour -->
-    <div class="container text-center mt-5">
-      <%= f.submit "Mettre à jour le mot de passe", class: "btn btn-dark rounded-pill" %>
-    </div>
-
-    <% end %>
-
-    <!-- Page 3 -->
-    <h2 class="text-center p-4 fw-bold mt-3">Supprimer mon compte</h2>
-
-    <h6 class="text-center fw-bold" >Vous souhaitez nous quitter ?</h4>
-
-    <div class="container text-center mt-4">
-      <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes vous sûr ? Il ne sera pas possible de revenir en arrière" }, class: "btn btn-danger rounded-pill", method: :delete %>
-    </div>
-
-    <div class="container text-center mt-4 mb-3">
-      <%= button_to "Annuler", edit_user_registration_path(@current_user), class: "btn btn-outline-dark btn-sm"%>
-    </div>
+  
+</section>
