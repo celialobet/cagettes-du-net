@@ -1,6 +1,8 @@
   <% @cart = current_user_cart %>
   <% @cart.step = 2 %>
   <% @cart.save %>
+  <% current_user.location_id = nil %>
+  <% current_user.save %>
   alert("Veuillez sélectionner un lieu de livraison pour avoir accés à votre panier final");
   window.scroll({top: 0});
   document.getElementById("order-area").innerHTML ="<%= j render 'orders/second_step'%>";

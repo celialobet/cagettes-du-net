@@ -17,7 +17,11 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
+    if current_user.location_id != nil
+      @location = Location.find(current_user.location_id)
+    else
+      @location = Location.find(params[:id])
+    end
     @cart = current_user_cart
   end
 

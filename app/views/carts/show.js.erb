@@ -1,8 +1,8 @@
 <% if @cart.step == 0 %>
-  document.getElementById("order-area").innerHTML ="<%= j render 'cart_basket'%>";
+  document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
 
 <% elsif @cart.step == 1 %>
-document.getElementById("order-area").innerHTML ="<%= j render 'cart_additional_product'%>";
+document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
 
 
 <% elsif @cart.step == 3 %>
