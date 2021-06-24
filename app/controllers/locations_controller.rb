@@ -17,7 +17,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-  @location = Location.find(params[:id])
+    @location = Location.find(params[:id])
     
     @cart = current_user_cart
   end
