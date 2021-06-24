@@ -43,20 +43,12 @@
             </li>
           </ul>
         </div>
-        <button class="btn btn-dark mt-0">S'inscrire dans ce lieux</button>
+        <% if @location.id == current_user.location_id %>
+          <%=link_to 'Changer de lieu de livraison', locations_path, class:'btn btn-dark mt-0' %>
+        <% else %>
+          <%=link_to 'En faire votre lieu de livraison', user_path(current_user, location_id: @location.id), class:'btn btn-dark mt-0', method: "PUT" %>
+        <% end %>
       </div>
     </div>
   </div>   
 </section>
-
-<div class="container row" >
-    
-    <% if @location.id == current_user.location_id %>
-      <h4>Ce lieu est votre lieu de livraison par défaut</h4>
-    
-    <% else %>
-      <div class="col-6"><%=link_to 'En faire votre lieu de livraison', user_path(current_user, location_id: @location.id), class:'btn btn-dark rounded', method: "PUT" %>
-      </div>
-     <% end %>
-      
-  </div>
