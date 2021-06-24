@@ -68,6 +68,13 @@ p {
   z-index: 1000;
 }
 
+.alert-alert { 
+  background-color: rgba(211, 30, 30, 0.863);
+ }
+.alert-notice { 
+  background-color: rgba(31, 148, 20, 0.473); 
+}
+
 #cercle {
   width: 80px;
   height: 80px;
