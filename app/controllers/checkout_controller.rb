@@ -46,7 +46,6 @@ class CheckoutController < ApplicationController
     @order = Order.create(user_id: current_user.id)
 
     if @session.mode === "payment"
-      puts @session  
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
       @cart.selections.each do |selection|
         selection.cart_id = nil
@@ -55,11 +54,12 @@ class CheckoutController < ApplicationController
       end
       @cart.step = 0
       @cart.save
+      @delivery = Delivery.create(user_id: current_user.id, order_id: @order.id, location_id: current_user.location_id, time: current_user.location.time)
 
       OrderMailer.order_email(@order).deliver_now   
 
-    elsif @session.mode === "subscription"
-      puts @session  
+    elsif @session.mode === "subscription"  
+      @delivery = Delivery.create(user_id: current_user.id, order_id: @order.id, location_id: current_user.location_id, time: current_user.location.time)
       OrderMailer.subscription_email.deliver_now   
     end
 
