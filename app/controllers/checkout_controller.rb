@@ -41,9 +41,6 @@ class CheckoutController < ApplicationController
 
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
-    # if @mode == "single"
-    #   @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
-    # end
 
     @cart = Cart.find_by(user_id: current_user.id)
     @order = Order.create(user_id: current_user.id)
