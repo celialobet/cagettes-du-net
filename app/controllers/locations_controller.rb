@@ -9,7 +9,6 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      flash[:success] = "Formulaire soumis!"
       redirect_to(root_path)
     else
       render "new"
