@@ -95,13 +95,13 @@ ActiveRecord::Schema.define(version: 2021_06_23_145638) do
     t.string "name"
     t.integer "address_number"
     t.string "address_street"
-    t.string "address_city", default: "Paris"
+    t.string "address_city"
     t.integer "zip_code"
     t.text "description"
     t.string "day"
-    t.integer "time"
+    t.datetime "time"
     t.string "opening_hours"
-    t.boolean "validated", default: false
+    t.boolean "validated"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
