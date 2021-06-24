@@ -1,0 +1,12 @@
+  <% if current_user.location_id == nil %>
+    alert("Veuillez sélectionner un lieu de livraison pour avoir accés à votre panier final");
+    <% @cart.step = 2 %>
+    <% @cart.save %>
+    window.scroll({top: 0});
+    document.getElementById("order-area").innerHTML ="<%= j render 'orders/second_step'%>";
+  <% else %>
+    <% @cart.step = 2 %>
+    <% @cart.save %>
+    document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
+  <% end %>
+  

@@ -1,1 +1,16 @@
-document.getElementById("order-area").innerHTML ="<%= j render 'first_step'%>";
+<% if @cart.step == 0 %>
+window.scroll({top: 0});
+  document.getElementById("order-area").innerHTML ="<%= j render 'first_step'%>";
+
+<% elsif @cart.step == 1 %>
+window.scroll({top: 0});
+document.getElementById("order-area").innerHTML ="<%= j render 'first_step_ap'%>";
+
+<% elsif @cart.step == 2 %>
+window.scroll({top: 0});
+document.getElementById("order-area").innerHTML ="<%= j render 'second_step'%>";
+
+<% elsif @cart.step == 3 %>
+window.scroll({top: 0});
+document.getElementById("order-area").innerHTML ="<%= j render 'third_step'%>";
+<% end %>

@@ -1,0 +1,49 @@
+<div class="col-12 min-vh-100 text-center d-flex flex-column justify-content-center bg-image" style="background-image: url('https://images.pexels.com/photos/5709299/pexels-photo-5709299.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); background-repeat: none; background-size: cover;" > 
+  <div class="align-self-center p-4 bg-image rounded-3" style="background-image: url('https://images.unsplash.com/photo-1616410731303-6affae095a0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=645&q=80');">
+    <h4>Proposer un nouveau lieu de livraison</h4>
+    <div class="form-group" style="width: 400px">
+    <%= form_tag url_for(action: 'create'), method: "post", multipart: true do %>
+          
+      <%label_tag "Nom de l'établissement"%>
+      <%= text_field_tag 'name', nil, class:"form-control form-control-sm", placeholder:"Nom de l'établissement"%>
+      <br /> <br />
+
+      <% label_tag "Description" %>
+      <%= text_area_tag 'description', nil, class:"form-control form-control-sm", placeholder:"Description" %>
+      <br /> <br />
+
+      <% label_tag "Adresse (numéro)" %>
+      <%= number_field_tag 'address_number', nil, min: 1, max: 407, class:"form-control form-control-sm", placeholder:"Numéro de rue"%>
+      <br /> <br />
+
+      <% label_tag "Adresse (rue)"%>
+      <%= text_field_tag 'address_street', nil, class:"form-control form-control-sm", placeholder:"Rue" %>
+      <br /> <br />
+
+      <% label_tag "Code postal"%>
+      <%= select_tag "zip_code", raw("<option>75001</option><option>75002</option><option>75003</option><option>75004</option><option>75005</option><option>75006</option><option>75007</option><option>75008</option><option>75009</option><option>75010</option><option>75011</option><option>75012</option><option>75013</option><option>75014</option><option>75015</option><option>75016</option><option>75017</option><option>75018</option><option>75019</option><option>75020</option>"), class:"form-control form-control-sm"%>
+      <br /> <br />
+
+      <% label_tag "Horaires d'ouverture (si inconnues, merci de l'indiquer)" %>
+      <%= text_field_tag 'opening_hours', nil, class:"form-control form-control-sm", placeholder:"Horaires d'ouverture (si inconnues, merci de l'indiquer)"%>
+      <br />
+
+      <hr/>
+
+      <%= label_tag "Jour proposé de livraison" %>
+      <%= select_tag "day", raw("<option>Lundi</option><option>Mardi</option><option>Mercredi</option><option>Jeudi</option><option>Vendredi</option>"), class:"form-control form-control-sm"%>
+      <br />
+
+      <%= label_tag "Heure de livraison proposée" %>
+      <%= number_field_tag 'time', nil, in: 8..19, class:"form-control form-control-sm"%>
+      <br /> <br />
+      
+
+      <%= submit_tag "Proposer ce lieu", class: "btn btn-primary" %>
+
+    <% end %>
+    <br />
+    <%= link_to "Retour", :back, class:"btn btn-dark"%>
+    </div>
+  </div>
+</div>

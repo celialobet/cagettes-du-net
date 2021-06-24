@@ -1,0 +1,106 @@
+
+  <div class="card p-5">
+    <div class="card-body">
+      <h4 class="text-muted ">Mes informations personnelles</h4>
+      <div class="row pt-5">
+        <div class="col-4">
+          <label for="inputPassword6" class="col-form-label">Photo de profil</label>
+        </div>
+        <div class="col-8 pt-3 ">
+        <%if @user.avatar.attached?%>
+          <%= image_tag @user.avatar, alt: 'avatar', class:"avatar-s"%>
+          <%else%>
+          <p>Tu n'as pas encore d'avatar ! Tu peux en ajouter un via la formulaire ci-dessous. </p>
+        <%end%>
+        <%= form_tag user_avatars_path(@user), multipart: true do %>
+          <small><%= file_field_tag :avatar %>
+          <%= submit_tag "Mettre à jour", class:"btn btn-dark btn-sm mt-2" %>
+        <% end %>
+        </div>
+        
+      </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <!-- Prénom | Nom -->
+        <div class="row py-3">
+          <div class="col-4">
+            <label for="inputPassword6" class="col-form-label">Prénom | Nom</label>
+          </div>
+          <div class="col-4">
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control" %>
+          </div>
+          <div class="col-4">
+            <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control" %>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="row py-3">
+          <div class="col-4 ">
+            <%= f.label :email %>
+          </div>
+          <div class="col-8">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control rounded" %>
+          </div>
+        </div>
+
+        <!-- Si mail de confirmation est activé et qu'il n'a pas abouti -->
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Actuellement en attente de confirmation de : <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+        <!-- Code postal -->
+        <div class="row py-3">
+          <div class="col-4 ">
+            <label for="inputPassword6" class="col-form-label">Code postal</label>
+          </div>
+          <div class="col-3">
+            <%= f.text_field :zip_code, autofocus: true, autocomplete: "zip_code", class: "form-control" %>
+          </div>
+        </div>
+        
+        <!-- Nouveau mot de passe -->
+        <div class="row py-3">
+          <div class="col-4 ">
+            <%= f.label :nouveau_mot_de_passe %>
+          </div>
+          <div class="col-8">
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control rounded", placeholder: "Entrer votre nouveau mot de passe (#{@minimum_password_length} caractères minimum)" %>
+            <% if @minimum_password_length %>
+              <% @minimum_password_length %>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- Confirmer le nouveau mot de passe -->
+        <div class="row py-3">
+          <div class="col-4 ">
+            <%= f.label :confirmation_du_mot_de_passe %>
+          </div>
+          <div class="col-8">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control rounded", placeholder: "Confirmer votre nouveau mot de passe" %>
+          </div>
+        </div>
+
+        <!-- Mot de passe actuel -->
+        <div class="row py-3">
+          <div class="col-4 ">
+            <%= f.label :mot_de_passe_actuel %>
+          </div>
+          <div class="col-8">
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded", placeholder: "Entrer votre mot de passe actuel pour confirmer" %>
+          </div>
+        </div>
+
+        <!-- Bouton mise à jour -->
+        <div class="row py-3">
+          <div class="d-flex justify-content-end">
+            <%= f.submit "Mettre à jour le mot de passe", class: "btn btn-dark rounded-pill" %>
+          </div>
+        </div>
+
+        <% end %>
+    </div>
+  </div>
+

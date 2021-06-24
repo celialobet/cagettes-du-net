@@ -1,0 +1,10 @@
+<%= render 'orders/jumbotron' %> 
+  
+<%= render 'additional_products/index_card' %>
+
+<div class="row">
+    <div class="col-6"><%=link_to 'Retour aux cagettes', baskets_path, class:'btn btn-dark rounded', remote: true %>
+    </div>
+    <div class="col-6"><%=link_to 'Valider le panier', cart_path(current_user_cart), class:'btn btn-dark rounded', remote: true %>
+    </div>
+  </div>
