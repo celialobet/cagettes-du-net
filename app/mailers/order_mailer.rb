@@ -21,6 +21,7 @@ class OrderMailer < ApplicationMailer
   def delivery_email(delivery)
     @user = delivery.user
     @time = delivery.time.strftime("Le %d/%m à %H:%M")
+    @location = delivery.location
 
     mail(to: @user.email, subject: 'Récapitulatif avant livraison') 
 
