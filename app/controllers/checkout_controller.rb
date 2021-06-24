@@ -58,7 +58,7 @@ class CheckoutController < ApplicationController
       OrderMailer.order_email(@order).deliver_now   
 
     elsif @session.mode === "subscription"
-      OrderMailer.subscription_email.deliver_now   
+      OrderMailer.subscription_email(current_user).deliver_now   
     end
 
   end
