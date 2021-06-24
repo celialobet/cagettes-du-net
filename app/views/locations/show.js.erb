@@ -3,21 +3,21 @@
   <% @cart.step = 3 %>
   <% @cart.save %>
   window.scroll({top: 0});
-  document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
+  document.getElementById("order-area").innerHTML ="<%= j render 'orders/second_step'%>";
 
 <% elsif @cart.step == 1 %>
 
-  <% @cart.step = 3 %>
+  <% @cart.step = 2 %>
 
   <% @cart.save %>
   window.scroll({top: 0});
-  document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
+  document.getElementById("order-area").innerHTML ="<%= j render 'orders/second_step'%>";
 
 <% elsif @cart.step == 3 %>
 
   <%= current_user.location_id = @location.id %>
   <%= current_user.save %>
   window.scroll({top: 0});
-  document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
+  document.getElementById("order-area").innerHTML ="<%= j render 'orders/second_step'%>";
 <% end %>
 
