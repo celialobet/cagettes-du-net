@@ -12,7 +12,10 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find_by(user_id: current_user.id)
     @baskets = Basket.all
-
+    @locations = Location.all
+    if current_user.location_id != nil
+      @location = Location.find(current_user.location_id)
+    end
     basket_array = []
 
     @cart.selections.each do |selection|

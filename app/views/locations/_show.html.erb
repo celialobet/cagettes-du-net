@@ -1,5 +1,3 @@
-<%= render 'orders/jumbotron' %>
-
 <div class="jumbotron2 row align-items-center">
   <div class="container col-8"  >
     <h1 class="display-2 fw-bold text-primary "><%= @location.name %></h1>            
@@ -56,7 +54,7 @@
 <div class="container row" >
     
     <% if @location.id == current_user.location_id %>
-      <div class="col-6"><%=link_to 'Valider le lieu de livraison', new_order_path, class:'btn btn-dark rounded', remote: true %>
+      <div class="col-6"><%=link_to 'Valider le lieu de livraison', cart_path(current_user.cart), class:'btn btn-dark rounded', remote: true %>
       </div>
       <div class="col-6"><%=link_to 'Retourner à la liste des lieux de livraison', locations_path, class:'btn btn-dark rounded', remote: true %>
       </div>

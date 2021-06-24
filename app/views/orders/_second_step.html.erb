@@ -4,7 +4,7 @@
 <% if current_user.location_id == nil %>
   <%= render "locations/index" %>
 <% else %>
-  <%= render "locations/show/#{current_user.location_id}"%>
+  <%= render "locations/show" %>
 <% end %>
 
 
