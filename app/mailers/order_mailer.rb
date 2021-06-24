@@ -6,16 +6,15 @@ class OrderMailer < ApplicationMailer
     @order = order
     @user = @order.user
 
-    mail(to: @user.email, subject: 'Merci pour votre commande') 
+    mail(to: @user.email, subject: 'Merci pour votre commande !') 
 
   end
 
   def subscription_email(subscription)
     
-    @order = order
-    @user = @order.user
+    @user = current_user
 
-    mail(to: @user.email, subject: 'Merci pour votre commande') 
+    mail(to: @user.email, subject: 'Merci pour votre abonnement !') 
 
   end
 end

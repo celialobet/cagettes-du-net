@@ -62,6 +62,7 @@ class CheckoutController < ApplicationController
 
     elsif @session.mode === "subscription"
       puts @session  
+      OrderMailer.subscription_email.deliver_now   
     end
 
   end
