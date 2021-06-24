@@ -10,7 +10,7 @@
         <%if @user.avatar.attached?%>
           <%= image_tag @user.avatar, alt: 'avatar', class:"avatar-s"%>
           <%else%>
-          <p>Tu n'as pas encore d'avatar ! Tu peux en ajouter un via la formulaire ci-dessous. </p>
+          <p>Vous n'avez pas encore d'avatar ! Vous pouvez en ajouter un via la formulaire ci-dessous</p>
         <%end%>
         <%= form_tag user_avatars_path(@user), multipart: true do %>
           <small><%= file_field_tag :avatar %>
