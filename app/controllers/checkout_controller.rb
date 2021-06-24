@@ -1,27 +1,26 @@
 class CheckoutController < ApplicationController
 
   def create
-    @engagement = params[:engagement].to_s
+    puts params[:engagement]
+    puts params[:engagement].to_s
     @total = current_user.cart.total_cart
     @basket_price = params[:price].to_s
-    p = params
 
-    if @engagement == "subscription"
-      p[:engagement] = "subscription"
-      @mode = "subscription"
-      @line_items = [
-        {
-          price: @basket_price,
-          quantity: 1
-        },
-      ]
-    elsif @engagement == "single"
+    if params[:engagement] === "single"
       @mode = "payment"
       @line_items = [
         {
           name: 'Rails Stripe Checkout',
           amount: (@total*100).to_i,
           currency: 'eur',
+          quantity: 1
+        },
+      ]
+    elsif params[:engagement] === "subscription"
+      @mode = "subscription"
+      @line_items = [
+        {
+          price: @basket_price,
           quantity: 1
         },
       ]
@@ -49,7 +48,8 @@ class CheckoutController < ApplicationController
     @cart = Cart.find_by(user_id: current_user.id)
     @order = Order.create(user_id: current_user.id)
 
-    if @cart.selections.length != 0
+    if @session.mode === "payment"
+      puts @session  
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
       @cart.selections.each do |selection|
         selection.cart_id = nil
@@ -58,10 +58,10 @@ class CheckoutController < ApplicationController
       end
       @cart.step = 0
 
-      OrderMailer.order_email(@order).deliver_now
+      OrderMailer.order_email(@order).deliver_now   
 
-    else 
-      puts "Test if in success"
+    elsif @session.mode === "subscription"
+      puts @session  
     end
 
   end

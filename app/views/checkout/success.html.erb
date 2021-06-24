@@ -1,9 +1,9 @@
 <div class="container text-center my-5">
   <h1>Succès</h1>
-  <% if params[:mode] == "single" %>
+  <% if @session.mode === "subscription" %>
+  <p>Nous avons bien reçu votre inscription à nos livraisons hebdomadaires ! Merci :)</p> 
+  <% elsif @session.mode === "payment" %>
     <p>Nous avons bien reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
     <p>Le statut de votre paiement est : <%= @payment_intent.status %>.</p>
-  <% else %>
-    <p>Nous avons bien reçu votre inscription à nos livraisons hebdomadaires ! Merci :)</p>
   <% end %>
 </div>
