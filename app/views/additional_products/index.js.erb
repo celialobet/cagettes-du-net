@@ -1,5 +1,5 @@
 
-<% if @cart.baskets.length != 0 && @cart.step == 0%>
+<% if @cart.baskets.length != 0 && @cart.step = 0%>
   <% @cart = current_user_cart %>
   <% @cart.step = 1 %>
   <% @cart.save %>
