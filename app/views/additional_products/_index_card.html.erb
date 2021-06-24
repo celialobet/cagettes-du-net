@@ -20,7 +20,7 @@
                             <p class="mb-0 text-muted"><%= product.description %></p>
                             <p class="mb-0 text-muted"><%= product.price %>€</p>
                         </div>
-                        <div class="add-buttons position-absolute top-50 start-100 translate-middle m-0 p-0 g-0">
+                        <div class="add-buttons position-absolute top-50 end-0 translate-middle m-0 p-0 g-0">
                           <%= link_to additional_product_selections_path(product), class: 'btn btn-dark',  method:"POST", remote: true do %>
                             <span class="glyphicon glyphicon-eye-open"></span> <i class="fas fa-shopping-cart" id="cart-btn-value"> </i>
                           <% end %>
