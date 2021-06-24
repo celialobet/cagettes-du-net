@@ -4,6 +4,8 @@
 <% elsif @cart.step == 1 %>
 document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
 
+<% elsif @cart.step == 2 %>
+document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
 
 <% elsif @cart.step == 3 %>
 document.getElementById("order-area").innerHTML ="<%= j render 'orders/third_step'%>";
