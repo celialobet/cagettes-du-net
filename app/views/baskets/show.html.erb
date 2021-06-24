@@ -13,12 +13,14 @@
           </div>
         <% end %>        
       <div class="available text-center mt-3">En stock</div>
-      <div>
-      <h5 class="text-center">Si vous le souhaitez, vous pouvez aussi prendre un abonnement hebdomadaire pour cette cagette ! </h5>
-        <div class="accordion" id="order-options">
-        <%= button_to "Procéder à l'abonnement", checkout_create_path(total: current_user.cart.total_cart, :id => current_user.cart.id, price: @baskets.stripe_price, engagement: "subscription"), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
-      </div>
-      </div>
+      <% if user_signed_in? %>
+        <div>
+          <h5 class="text-center">Si vous le souhaitez, vous pouvez aussi prendre un abonnement hebdomadaire pour cette cagette ! </h5>
+          <div class="accordion" id="order-options">
+            <%= button_to "Procéder à l'abonnement", checkout_create_path(total: current_user.cart.total_cart, :id => current_user.cart.id, price: @baskets.stripe_price, engagement: "subscription"), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+          </div>
+        </div>
+      <% end %>  
     </div>
   </div>
 </div>
