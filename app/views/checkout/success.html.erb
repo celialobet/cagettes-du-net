@@ -1,5 +1,13 @@
-<div class="container text-center my-5">
-  <h1>Succès</h1>
-  <p>Nous avons bien reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
-  <p>Le statut de votre paiement est : <%= @payment_intent.status %>.</p>
-</div>
+<section>
+  <div class="row">
+    <div class="col-7 min-vh-100 text-center d-flex flex-column justify-content-center bg-image" style="background-image: url('https://images.pexels.com/photos/5709271/pexels-photo-5709271.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); background-repeat: none; background-size: cover; background-position: center;" >
+    </div>
+    <div class="col-5 align-self-center p-5">
+      <h1 class="text-dark fw-bold">Succès</h1>
+      <p>Nous avons bien reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
+      <p>Le statut de votre paiement est : <%= @payment_intent.status %>.</p>
+      <%=link_to "Retour à l'accueil", root_path, class:"btn btn-dark"%>
+    </div>
+  </div>
+
+</section>
