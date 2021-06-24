@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   
+  devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
   root 'baskets#index'
   
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  devise_for :admins
+  
   
   resources :carts, path: "mon_panier"
   
@@ -22,7 +25,9 @@ Rails.application.routes.draw do
     resources :avatars, only: [:create, :update]
   end
 
-  resources :locations
+  resources :locations do
+    resources :subscriptions
+  end
 
   resources :orders, only: [:new, :create, :index]
 
