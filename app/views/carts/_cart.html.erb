@@ -69,9 +69,11 @@
             <div class="accordion" id="order-options">
               
               <% if @cart.step == 0 || @cart.step == 1 %>
-                <%= link_to "Valider le panier", locations_path,  class:"btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+                <%= link_to "Choisir votre lieu de livraison", locations_path,  class:"btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
                 <% else %>
                 <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id, :engagement => "single"), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+                <p> Votre lieux de livraison </p>
+                 <p><%= current_user.location.address_number %> <%= current_user.location.address_street %>, <%= current_user.location.zip_code %> - PARIS</p>
               <% end %>
             </div>
           </div>
