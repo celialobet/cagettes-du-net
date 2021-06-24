@@ -1,4 +1,10 @@
 <%= render 'orders/jumbotron' %>
 
 
-<%= render "locations/index" %>
+<% if current_user.location_id == nil %>
+  <%= render "locations/index" %>
+<% else %>
+  <%= render "locations/show/#{current_user.location_id}"%>
+<% end %>
+
+
