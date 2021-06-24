@@ -25,7 +25,7 @@
                             </div>
                           </a>
                           <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
-                          <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger" %>
+                          <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
                           </div>
                         </div>
                       </li>
@@ -43,7 +43,7 @@
                             </div>
                           </a>
                           <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
-                          <%= link_to "Supprimer", [selection.additional_product, selection], method: "delete", class:"btn btn-link px-0 text-danger" %>
+                          <%= link_to "Supprimer", [selection.additional_product, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
                           </div>
                         </div>
                       </li>
@@ -67,7 +67,7 @@
               <h3 class="fw-normal"><%= @cart.total_cart %> €</h3>
             </div>
             <div class="accordion" id="order-options">
-              <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+              <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id, :engagement => "single"), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
             </div>
           </div>  
         </div>

@@ -2,7 +2,7 @@
   <div class="row mt-5">
 
     
-    <% if @cart.step != 0 %>
+    <% if @cart.step >= 0 %>
       <div class="col-md-3 text-center">
         <h2 class="text-center">1</h2>
         <%=link_to 'Retour au choix du panier', baskets_path, class:'btn btn-dark rounded', remote: true %>
@@ -37,7 +37,7 @@
         </div>
     <% else %>
       <div class="col-md-3 text-center">
-      <h2 class="text-center">4</h2>
+      <h2 class="text-center">3</h2>
       <p> Choix du lieu de livraison</p>
     </div>
     <% end %> 

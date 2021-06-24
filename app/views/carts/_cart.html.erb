@@ -67,7 +67,12 @@
               <h3 class="fw-normal"><%= @cart.total_cart %> €</h3>
             </div>
             <div class="accordion" id="order-options">
-              <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+              
+              <% if @cart.step == 0 || @cart.step == 1 %>
+                <%= link_to "Valider le panier", locations_path,  class:"btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+                <% else %>
+                <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -75,4 +80,12 @@
     </div>
     <%# <div class="col-6"><%=link_to 'Retour', new_order_path, class:'btn btn-dark rounded', remote: true %>
   </section>
+  <div class="container">
+    <div class="row">
+      <div class="col-6"><%= link_to "Retour aux cagettes", baskets_path, class:'btn btn-dark rounded', remote: true %>
+      </div>
+      <div class="col-6"><%= link_to "Retour aux produits additionnels", additional_products_path, class:'btn btn-dark rounded', remote: true %>
+      </div>
+    </div>
+  </div>
 </body>
