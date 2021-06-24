@@ -10,7 +10,7 @@ class OrderMailer < ApplicationMailer
 
   end
 
-  def subscription_email(subscription)
+  def subscription_email(delivery)
     
     @user = current_user
 

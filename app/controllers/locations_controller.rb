@@ -25,11 +25,6 @@ class LocationsController < ApplicationController
   def index
     @locations = Location.all
     @cart = current_user_cart
-    if current_user.location_id != nil
-      @location = Location.find(current_user.location_id)
-    else
-      @location = Location.find(params[:id])
-    end
   end
 
   private 
