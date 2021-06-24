@@ -5,6 +5,8 @@
     window.scroll({top: 0});
     document.getElementById("order-area").innerHTML ="<%= j render 'orders/second_step'%>";
   <% else %>
+    <% @cart.step = 2 %>
+    <% @cart.save %>
     document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
   <% end %>
   
