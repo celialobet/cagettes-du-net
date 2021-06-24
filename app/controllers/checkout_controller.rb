@@ -4,8 +4,10 @@ class CheckoutController < ApplicationController
     @engagement = params[:engagement].to_s
     @total = current_user.cart.total_cart
     @basket_price = params[:price].to_s
+    p = params
 
     if @engagement == "subscription"
+      p[:engagement] = "subscription"
       @mode = "subscription"
       @line_items = [
         {
@@ -47,14 +49,20 @@ class CheckoutController < ApplicationController
     @cart = Cart.find_by(user_id: current_user.id)
     @order = Order.create(user_id: current_user.id)
 
-    @cart.selections.each do |selection|
-      selection.cart_id = nil
-      selection.order_id = @order.id
-      selection.save
-    end
-    @cart.step = 0
+    if @cart.selections.length != 0
+      @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+      @cart.selections.each do |selection|
+        selection.cart_id = nil
+        selection.order_id = @order.id
+        selection.save
+      end
+      @cart.step = 0
 
-    OrderMailer.order_email(@order).deliver_now
+      OrderMailer.order_email(@order).deliver_now
+
+    else 
+      puts "Test if in success"
+    end
 
   end
 
