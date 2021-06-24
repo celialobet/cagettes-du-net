@@ -6,7 +6,9 @@ class BasketsController < ApplicationController
 
   def index
     @baskets = Basket.all
-    
+    @additional_products = AdditionalProduct.all
+    a = @additional_products
+    @stars = a.last(5)
     @locations = Location.all
     city_list(@locations)
     if user_signed_in?
