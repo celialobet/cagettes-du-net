@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2021_06_23_145638) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
-    t.string "stripe_price"
   end
 
   create_table "carts", force: :cascade do |t|
