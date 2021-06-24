@@ -57,8 +57,7 @@ class CheckoutController < ApplicationController
       
       OrderMailer.order_email(@order).deliver_now   
 
-    elsif @session.mode === "subscription"  
-      @delivery = Delivery.create(user_id: current_user.id, order_id: @order.id, location_id: current_user.location_id, time: current_user.location.time)
+    elsif @session.mode === "subscription"
       OrderMailer.subscription_email.deliver_now   
     end
 
