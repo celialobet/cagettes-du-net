@@ -1,12 +1,20 @@
 <% if @cart.step == 0 %>
-  document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
+  <% if @cart.baskets.length != 0 %>
+    <% @cart.step = 1 %>
+    <% @cart.save %>
+    document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
+  <% elsif @cart.baskets.length == 0%>
+    alert("Veuillez sélectionner un panier pour pouvoir passer à l'étape suivante");
+
+  <% end %>
+  
 
 <% elsif @cart.step == 1 %>
-document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
+  document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
 
 <% elsif @cart.step == 2 %>
-document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
+  document.getElementById("order-area").innerHTML ="<%= j render 'cart'%>";
 
 <% elsif @cart.step == 3 %>
-document.getElementById("order-area").innerHTML ="<%= j render 'orders/third_step'%>";
+  document.getElementById("order-area").innerHTML ="<%= j render 'orders/third_step'%>";
 <% end %>
