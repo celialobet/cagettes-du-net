@@ -1,5 +1,5 @@
-<section class="container p-3 my-5 bg-light">
-  <h2 class="text-center py-3 mb-3">Ajouter des produits supplémentaires ?</h2>
+<section class="container p-3 my-5">
+  <h2 class="text-center fw-bold py-3 mb-3">Ajouter des produits supplémentaires ?</h2>
   <div class="row">
     <div class="card-group">
       <% @additional_products.each do |product|%>
@@ -15,7 +15,7 @@
               <div class="card-footer d-flex justify-content-between">
                 <div class= "d-flex align-items-center mb-0 fw-bolder fs-5"> <%= product.price %>€</div>
                 <div class="add-buttons">
-                  <%= link_to additional_product_selections_path(product), class: 'btn btn-primary',  method:"POST" do %>
+                  <%= link_to additional_product_selections_path(product), class: 'btn btn-dark',  method:"POST" do %>
                     <span class="glyphicon glyphicon-eye-open"></span> <i class="fas fa-shopping-cart" id="cart-btn-value"> </i>
                   <% end %>
                 </div>  
