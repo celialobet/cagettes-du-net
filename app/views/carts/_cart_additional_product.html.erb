@@ -9,52 +9,54 @@
             <% else %>
               <h4 class="text-primary">Cagettes</h4>
             <% end %>
+            <% if @cart.selections.length > 0 %>
+              <% @basket_array.each do |selection| %>
+                <li class="list-group-item" id="<%= selection.id%>">
+                  <div class="row d-flex align-items-center justify-content-between">
+                    <div class="col-4">
+                      <%= image_tag selection.basket.image_url, alt: 'photo de panier', class: 'rounded mx-auto d-block  h-auto', style: "width: 200px;" %>
+                    </div>
+                    <div class="col ml-lg-3 mt-2">
+                      <h4 class="mb-O text-secondary text-center"><%= selection.basket.title %></h4>
+                      <p class="mb-0 text-muted text-center"><%=selection.basket.description%></p>
+                      <div class="fs-lg text-accent pt-2 d-flex justify-content-center"><%= selection.basket.price %> €
+                      </div>
+                        <%= link_to "Fiche de la cagette", basket_path(selection.basket.id), class:"btn btn-warning m-2 d-flex justify-content-center" %>
+                    </div>
+                    <div class=" col-2 pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start" style="max-width: 9rem;">
+                      <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
           </div>
-          <% if @cart.selections.length > 0 %>
-            <% @basket_array.each do |selection| %>
-              <li class="list-group-item" id="<%= selection.id%>">
-                <div class="row d-flex align-items-center justify-content-between">
+          <div class="card-body text-center">
+            <h4 class="text-primary">Produits supplémentaires</h4>
+            <% if @cart.selections.length > 0 %>
+              <% @additional_product_array.each do |selection| %>
+                <div class="card" id="<%= selection.id%>">
+                  <div class="row d-flex card-body justify-content-evenly">
                   <div class="col-4">
-                    <%= image_tag selection.basket.image_url, alt: 'photo de panier', class: 'rounded mx-auto d-block  h-auto', style: "width: 200px;" %>
+                    <%= image_tag selection.additional_product.image_url, alt: 'photo de panier', class: 'rounded mx-auto d-block  h-auto', style: "width: 100px;" %>
                   </div>
-                  <div class="col ml-lg-3 mt-2">
-                    <h4 class="mb-O text-secondary text-center"><%= selection.basket.title %></h4>
-                    <p class="mb-0 text-muted text-center"><%=selection.basket.description%></p>
-                    <div class="fs-lg text-accent pt-2 d-flex justify-content-center"><%= selection.basket.price %> €
-                    </div>
-                      <%= link_to "Fiche de la cagette", basket_path(selection.basket.id), class:"btn btn-warning m-2 d-flex justify-content-center" %>
-                  </div>
-                  <div class=" col-2 pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start" style="max-width: 9rem;">
-                    <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
-                  </div>
-                </div>
-              </li>
-            <% end %>
-            <% @additional_product_array.each do |selection| %>
-              <li class="list-group-item" id="<%= selection.id%>">
-                <div class="row d-flex align-items-center justify-content-between">
-                  <div class="col-4">
-                    <%= image_tag selection.additional_product.image_url, alt: 'photo de panier', class: 'rounded mx-auto d-block  h-auto', style: "width: 200px;" %>
-                  </div>
-                  <div class="col-6 ml-lg-3 mt-2">
-                    <h4 class="mb-O text-secondary text-center"><%= selection.additional_product.title %></h4>
-                    <p class="mb-0 text-muted text-center"><%=selection.additional_product.description%></p>
-                    <div class="fs-lg text-accent pt-2 d-flex justify-content-center"><%= selection.additional_product.price %> €
-                    </div>
+                    <div class="col-5">
+                      <h4 class="card-title"><%= selection.additional_product.title %></h4>
+                      <p class="card-text"><%=selection.additional_product.description%></p>
+                      <h6 class="card-subtitle mb-2 text-muted"><%= selection.additional_product.price %> €</h6>
                       <%= link_to "Fiche du produit", additional_product_path(selection.additional_product.id), class:"btn btn-warning m-2 d-flex justify-content-center" %>
-                  </div>
-                  <div class=" col-2 pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start"     style="max-width: 9rem;">
-                    <%= link_to "Supprimer", [selection.additional_product, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
+                      <%= link_to "Supprimer", [selection.additional_product, selection], method: "delete", class:"btn btn-link px-0 text-danger", remote: true %>
+                    </div>
                   </div>
                 </div>
-              </li>
+              <% end %>
+              <% else %>
+              <div class="flex center">
+                <p class="text-center">Vous n'avez pas encore choisi votre cagette</p>
+                <img src="https://media.giphy.com/media/TjS7u7yoMC2KubI5wE/giphy.gif" class="rounded mx-auto d-block" alt="this slowpoke moves"  width="250" />
+              </div>
             <% end %>
-            <% else %>
-            <div class="flex center">
-              <p class="text-center">Vous n'avez pas encore choisi votre cagette</p>
-              <img src="https://media.giphy.com/media/TjS7u7yoMC2KubI5wE/giphy.gif" class="rounded mx-auto d-block" alt="this slowpoke moves"  width="250" />
-            </div>
-          <% end %>
+          </div>
         </div>
       </div>
       <div class="col-lg-3 align-self-center">
