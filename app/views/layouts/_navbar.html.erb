@@ -39,7 +39,11 @@
                 </ul>
               </li>
               <li class="nav_item">
-                <%=link_to 'Commander', new_order_path, class:'btn btn-dark rounded'%>
+              
+                <%=link_to cart_path(current_user), class:'btn btn-dark rounded' do %>
+                  <span class="glyphicon glyphicon-eye-open"></span> <i class="fas fa-shopping-cart" id="cart-btn-value"> <%=Cart.find_by(user_id: current_user.id).selections.length %></i>
+                <% end %>
+                
               </li>
             </ul>  
             <% else %>
