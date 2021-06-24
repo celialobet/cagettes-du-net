@@ -9,7 +9,6 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      flash[:success] = "Formulaire soumis!"
       redirect_to(root_path)
     else
       render "new"
@@ -17,7 +16,7 @@ class LocationsController < ApplicationController
   end
 
   def show
-  @location = Location.find(params[:id])
+    @location = Location.find(params[:id])
     
     @cart = current_user_cart
   end
