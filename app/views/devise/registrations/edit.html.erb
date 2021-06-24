@@ -29,7 +29,7 @@
           <h6>Mes lieux de livraisons</h6>
           <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link text-muted fs-6" href="#">Changer de lieux de livraison</a>
+                <%= link_to "Mes lieux de livraisons", location_path(current_user.location_id, go: 'go'), class:"nav-link text-muted fs-6", remote: true %>
               </li>
           </ul>
           <div>
