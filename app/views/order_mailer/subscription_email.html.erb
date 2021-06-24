@@ -13,9 +13,8 @@
 
     <p>Votre cagette vous sera livrée automatiquement, chaque semaine, dans votre lieu de livraison par défaut. Même si vous en changez, on s'occupe de tout, la livraison suivra quand même (sauf changement dans les 24h précédant la livraison).</p>
     <ul>
-    <li>Lieu de livraison : <%= @delivery.location.name %></li>
-    <li>Jour de lviraison : Le <%= @delivery.location.day %></li>
-    <%= link_to "Page du lieu de livraison", location_path(@delivery.location_id) %>
+    <li>Lieu de livraison : <%= @user.location.name %></li>
+    <li>Jour de lviraison : Le <%= @user.location.day %></li>
     </ul>
     
     <p>A bientôt sur les Cagettes du net!</p>
