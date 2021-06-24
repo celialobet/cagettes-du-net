@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h1>Votre prochaine livraison, c'est pour bientôt !</h1>
+    
+    <h3>Votre prochaine commande vous sera livrée : </h3>
+    <div>
+        <ul>
+          <li><%= @time %></li>
+          <li>à <%= @location.name %></li>
+        </ul>
+    </div>
+
+    Merci et à bientôt!
+
+  </body>
+</html>
