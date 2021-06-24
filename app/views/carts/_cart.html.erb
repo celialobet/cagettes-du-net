@@ -71,7 +71,7 @@
               <% if @cart.step == 0 || @cart.step == 1 %>
                 <%= link_to "Valider le panier", locations_path,  class:"btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
                 <% else %>
-                <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+                <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id, :engagement => "single"), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
               <% end %>
             </div>
           </div>
