@@ -2,6 +2,15 @@ Merci pour votre commande |n° <%= @order.id %>| !
 ---------------------------------------------------------
 
 Voici votre commande : 
+<<<<<<< HEAD
+<% @order.selections.each do |selection| %>
+<% if selection.basket_id == nil %>
+1 <%= selection.additional_product.title %> - <%= selection.additional_product.price %> €
+<% elsif selection.additional_product_id == nil %>
+1 <%= selection.basket.title %> - <%= selection.basket.price %> €
+<% end %>
+<% end %>
+=======
 <ul>
           <% @order.selections.each do |selection| %>
             <% if selection.basket_id == nil %>
@@ -11,6 +20,7 @@ Voici votre commande :
             <% end %>
           <% end %>
         </ul>
+>>>>>>> development
        
     
 ---------------------------
