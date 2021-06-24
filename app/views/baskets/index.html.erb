@@ -1,25 +1,35 @@
-
-<%= render "layouts/flash" %>
-<%= render 'layouts/jumbotron_home' %>
+<body id="order-area">
+  <%= render "layouts/flash" %>
+  <%= render 'layouts/jumbotron_home' %>
     
-  <div class="container text-center">
-    <div class="row mt-5">
-      <div class="col-md-4 text-center">
-        <h2 class="text-center">1</h2>
-        <p> Choisissez un de nos paniers </p>
+  <div class="container d-flex py-5">
+    <div class="row justify-content-between w-100 text-center mt-5 p-5">
+      <div class="col-lg-2">
+        <div id="cercle">
+          <p class="text-white fs-3">1</p>
+        </div>
+        <p class="fs-5 pt-3"> Choisissez un <br> de nos paniers </p>
       </div>
-
-        
-      <div class="col-md-4 text-center">
-        <h2 class="text-center">2</h2>
-        <p> Sélectionnez un lieu de livraison ou créez-en un  </p>
+      <div class="col-lg-2 py-3 w-25">
+        <hr class="dashed">
       </div>
-
-      <div class="col-md-4 text-center">
-        <h2 class="text-center">3</h2>
-        <p> Récupérez votre panier au lieu et à l'horaire choisis </p>
+      <div class="col-lg-2">
+        <div id="cercle">
+          <p class="text-white fs-3">2</p>
+        </div>
+        <p class="fs-5 pt-3"> Sélectionnez un lieu de livraison  ou créez-en un  </p>
+      </div>
+      <div class="col-lg-2 py-3 w-25">
+        <hr class="dashed">
+      </div>
+      <div class="col-lg-2">
+        <div id="cercle">
+          <p class="text-white fs-3">3</p>
+        </div>
+        <p class="fs-5 pt-3"> Récupérez votre panier au lieu  et à l'horaire choisis </p>
       </div>    
     </div>
   </div>  
 <%= render 'index_card' %>
 <%= render 'city_list' %>
+</body>

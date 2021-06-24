@@ -1,0 +1,9 @@
+
+<% if @selection.basket_id == nil %>
+  var titleAdditionalProduct = "<%= @additional_product.title %>"
+  alert("La " + titleAdditionalProduct.toLowerCase() + " a été ajoutée");
+
+<% elsif @selection.additional_product_id == nil %>
+  var titleBasket = "<%= @basket.title %>"
+  alert("La " + titleBasket.toLowerCase() + " a été ajoutée");
+<% end %>

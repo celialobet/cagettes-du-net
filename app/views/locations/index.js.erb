@@ -1,0 +1,5 @@
+  <% @cart = current_user_cart %>
+  <% @cart.step = 2 %>
+  <% @cart.save %>
+  alert("Veuillez sélectionner un lieu de livraison pour avoir accés à votre panier final");
+  document.getElementById("order-area").innerHTML ="<%= j render 'index'%>";

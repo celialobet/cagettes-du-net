@@ -1,0 +1,21 @@
+alert("La cagette a bien été supprimée");
+
+
+document.getElementById("<%=@selection.id%>").remove();
+
+<% basket_array = [] %>
+
+<% @cart = current_user.cart  %>
+
+<% @cart.selections.each do |selection|%>
+  <% if selection.additional_product_id == nil %>
+    <% selection.id >> basket_array %>    
+  <% end %>  
+<% end %>
+
+<% if basket_array.length == 0 %>
+  <% @cart.step = 0  %>
+  <% @cart.save %>
+  document.getElementById("order-area").innerHTML ="<%= j render 'orders/first_step'%>";
+<% end %>
+

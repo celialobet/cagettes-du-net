@@ -20,6 +20,15 @@
             </ul>
             <%if user_signed_in? %>
             <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Nos lieux de livraison
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><%=link_to 'Lieux de livraison existants', locations_path, class:'dropdown-item text-dark fw-normal'%></li>
+                  <li><%=link_to 'Proposer un nouveau lieu', new_location_path, class:'dropdown-item text-dark fw-normal'%></li>
+                </ul>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Mon profil
@@ -32,7 +41,7 @@
                 </ul>
               </li>
               <li class="nav_item">
-                <%=link_to 'Mon panier', cart_path(:id), class:'btn btn-dark rounded'%>
+                <%=link_to 'Commander', new_order_path, class:'btn btn-dark rounded'%>
               </li>
             </ul>  
             <% else %>
