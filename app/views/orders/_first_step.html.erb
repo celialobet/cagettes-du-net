@@ -2,13 +2,10 @@
   
 <%= render 'baskets/index_basket' %>
 
-<div class="row">
 
-    <div class="mx-5 col-3"><%=link_to 'Ajouter des produits additionnels', additional_products_path, class:'btn btn-dark rounded', remote: true %>
-    </div>
-  
-
-    
-    <div class="col-6"><%=link_to 'Valider le panier', cart_path(current_user_cart), class:'btn btn-dark rounded', remote: true %>
-    </div>
+<div class="row py-5 align-items-center justify-content-center">
+  <div class="col-3 flex-column d-flex justify-content-center ">
+    <%=link_to 'Ajouter des produits additionnels', additional_products_path, class:'btn btn-dark btn-lg rounded my-2', remote: true %>
+    <%=link_to 'Valider le panier', cart_path(current_user.cart), class:'btn btn-outline-dark btn-lg rounded my-2', remote: true %>
   </div>
+</div>

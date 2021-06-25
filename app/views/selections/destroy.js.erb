@@ -3,15 +3,22 @@ alert("La cagette a bien été supprimée");
 
 document.getElementById("<%=@selection.id%>").remove();
 
+
 <% basket_array = [] %>
+<% @total_cart = 0 %>
 
 <% @cart = current_user.cart  %>
 
 <% @cart.selections.each do |selection|%>
   <% if selection.additional_product_id == nil %>
-    <% basket_array.push(selection.id) %>    
+    <% basket_array.push(selection.id) %> 
+    <% @total_cart = @total_cart + selection.basket.price %>  
+  <% else %>
+    <% @total_cart = @total_cart + selection.additional_product.price %> 
   <% end %>  
 <% end %>
+
+document.getElementById("total-cart").innerHTML ="<%= @total_cart%>";
 
 <% if basket_array.length == 0 %>
   <% @cart.step = 0  %>

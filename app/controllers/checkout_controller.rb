@@ -28,6 +28,7 @@ class CheckoutController < ApplicationController
 
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
+      customer: current_user.stripe_customer_id,
       mode: @mode,
       line_items: @line_items,
       success_url: checkout_success_url + '?session_id={CHECKOUT_SESSION_ID}',
@@ -43,9 +44,10 @@ class CheckoutController < ApplicationController
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
 
     @cart = Cart.find_by(user_id: current_user.id)
-    @order = Order.create(user_id: current_user.id)
+   
 
     if @session.mode === "payment"
+      @order = Order.create(user_id: current_user.id)
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
       @cart.selections.each do |selection|
         selection.cart_id = nil

@@ -1,9 +1,11 @@
 
 <% if @selection.basket_id == nil %>
   var titleAdditionalProduct = "<%= @additional_product.title %>"
-  alert("La " + titleAdditionalProduct.toLowerCase() + " a été ajoutée");
+  alert("Le produit (" + titleAdditionalProduct.toLowerCase() + ") a été ajouté au panier");
 
 <% elsif @selection.additional_product_id == nil %>
   var titleBasket = "<%= @basket.title %>"
   alert("La " + titleBasket.toLowerCase() + " a été ajoutée");
 <% end %>
+
+document.getElementById("cart-btn-value").innerHTML = " <%= @cart.selections.length %>"

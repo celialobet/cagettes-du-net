@@ -56,7 +56,15 @@
                   <p class="card-text "><%= location.address_number %> <%= location.address_street %> , <%= location.zip_code %>, Paris</p>
                   <div class="card-footer p-0">
                     <div class="row justify-content-between align-items-center ">
-                      <p class="col-8 pt-3 text-muted d-inline"> <%= link_to "Je m'inscris", new_location_subscription_path(@location) %>
+                    <% if user_signed_in? %>
+                      <% if is_current_user_subscriber(location) != true %>
+                        <p class="col-8 pt-3 text-muted d-inline"> <%= link_to "Je m'inscris", new_location_subscription_path(location), class: "btn btn-info btn-sm" %> - <%= location.subscriptions.length %> inscrit(s)</p>
+                      <% else %> 
+                        <p class="col-8 pt-3 text-muted d-inline"> <%= link_to "Se désinscrire", [@subscription.location, @subscription], method: "delete", class: "btn btn-warning btn-sm" %> - <%= location.subscriptions.length %> inscrit(s) !</p>   
+                      <% end %>
+                    <% else %> 
+                        <p class="col-8 pt-3 text-muted d-inline"><%= location.subscriptions.length %> inscrit(s) !</p>                    
+                    <% end %>
                       <%= link_to "Voir le lieu", location_path(location.id), class:"btn btn-dark d-inline col-4"%>
                     </div>                           
                   </div>
@@ -73,7 +81,7 @@
     <h4>Pas convaincu ?</h4>
       <p>
       Si vous êtes arrivés jusqu'ici, c'est peut-être parce que vous n'avez pas trouvé votre bonheur, et nous en sommes navrés...</p> 
-      <p>Mais pas de panique ! Si vous le souhaitez, vous pouvez aussi nous proposer de nouveaux lieux de livraisons, au plus près de chez vous. Cliquez sur le bouton ci-dessous, prenez 2 minutes pour lire les quelques consignes, et lancez vous, on attend que ça! :)</p>
+      <p>Mais pas de panique ! Si vous le souhaitez, vous pouvez aussi nous proposer de nouveaux lieux de livraison, au plus près de chez vous. Cliquez sur le bouton ci-dessous, prenez 2 minutes pour lire les quelques consignes, et lancez vous, on attend que ça! :)</p>
       
       <%= link_to "Proposer un lieu", new_location_path, class:"btn btn-primary" %>
     </div>

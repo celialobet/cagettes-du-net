@@ -8,10 +8,15 @@
 
 require 'faker'
 
+User.destroy_all
 Basket.destroy_all
 Location.destroy_all
 Selection.destroy_all
 AdditionalProduct.destroy_all
+Order.destroy_all
+Delivery.destroy_all
+Cart.destroy_all
+Subscription.destroy_all
 
 i = 0
 10.times do 

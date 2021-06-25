@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  
+
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root 'baskets#index'
   
-  
+  get '/team', to: 'static_pages#team'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:new, :create, :index]
+
+  resources :customer_portal_sessions, only: [:create]
 
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
