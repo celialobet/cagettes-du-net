@@ -36,7 +36,7 @@
           <ul class="nav flex-column">
               <% if current_user.location_id != nil %>
                 <li class="nav-item">
-                  <%= link_to "Mes lieux de livraisons", location_path(current_user.location_id, go: 'go'), class:"nav-link text-muted fs-6", remote: true %>
+                  <%= link_to "Mes lieux de livraison", location_path(current_user.location_id, go: 'go'), class:"nav-link text-muted fs-6", remote: true %>
                 </li>
               <% else %>
                 <li class="nav-item">
