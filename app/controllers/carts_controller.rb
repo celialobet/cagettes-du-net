@@ -42,4 +42,9 @@ class CartsController < ApplicationController
   def index
 
   end
+
+  def update
+    @cart = current_user.cart
+    @baskets = Basket.all
+  end
 end

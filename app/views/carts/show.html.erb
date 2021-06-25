@@ -62,6 +62,7 @@
                   <% end %>
                 </div>
             </div>
+            <%= link_to "Vider le panier", cart_path(current_user.cart), method: "PATCH", class:"btn btn-danger ms-4", remote: true %>
         </div>
         <div class="col-lg-4 col-md-4 col-12">
             <div class="card d-flex border-0 mb-4 shadow">
