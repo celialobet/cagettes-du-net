@@ -11,12 +11,12 @@
         <div class="card-body ">
           <h6>Mon compte</h6>
           <ul class="nav flex-column pb-4">
-              <li class="nav-item ">
-                <%= link_to "Modifier mes informations personnelles", edit_user_registration_path, class:"nav-link text-muted px-0 fs-6", remote: true, method: :get %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Modifier mon mot de passe", edit_user_registration_path(password: 'password'), class:"nav-link text-muted px-0 pb-2 fs-6", remote: true, method: :get %>
-              </li>
+            <li class="nav-item ">
+              <%= link_to "Modifier mes informations personnelles", edit_user_registration_path, class:"nav-link text-muted px-0 fs-6", remote: true, method: :get %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Modifier mon mot de passe", edit_user_registration_path(password: 'password'), class:"nav-link text-muted px-0 pb-2 fs-6", remote: true, method: :get %>
+            </li>
           </ul>
           <h6>Mes commandes</h6>
           <ul class="nav flex-column pb-4">
@@ -29,15 +29,15 @@
           </ul>
           <h6>Mes lieux de livraison</h6>
           <ul class="nav flex-column">
-              <% if current_user.location_id != nil %>
-                <li class="nav-item">
-                  <%= link_to "Mes lieux de livraison", location_path(current_user.location_id, go: 'go'), class:"nav-link text-muted px-0 fs-6", remote: true %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to "Choisir un lieu de livraison", locations_path, class:"nav-link text-muted fs-6 px-0"  %>
-                </li>
-              <% end %>
+            <% if current_user.location_id != nil %>
+              <li class="nav-item">
+                <%= link_to "Mes lieux de livraison", location_path(current_user.location_id, go: 'go'), class:"nav-link text-muted px-0 fs-6", remote: true %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Choisir un lieu de livraison", locations_path, class:"nav-link text-muted fs-6 px-0"  %>
+              </li>
+            <% end %>
           </ul>
           <div>
             <%= link_to "Supprimer mon profil",  user_registration_path, class:"nav-link text-danger fs-6 px-0 pt-3", data: { confirm: "Êtes vous sûr ? Il ne sera pas possible de revenir en arrière" }, method: :delete %>
@@ -48,8 +48,5 @@
     <div class="col-lg-8 col-md-8 col-12" id="editpage">
       <%= render "edit" %>
     </div>
-  </div>     
-
-
-  
+  </div> 
 </section>

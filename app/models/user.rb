@@ -8,14 +8,11 @@ class User < ApplicationRecord
   after_create :welcome_send
   after_create :create_stripe_customer
 
-  
-
   has_many :subscriptions
   has_many :deliveries
   has_many :orders
   belongs_to :location, optional: true
   has_one :cart
-
   has_one_attached :avatar
 
 
