@@ -23,9 +23,7 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
-    @cart = current_user_cart
     @subscription = Subscription.find_by(user_id: current_user.id)
-
   end
 
   private 
