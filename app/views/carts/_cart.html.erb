@@ -13,7 +13,7 @@
                 <ul class="list-group list-group-flush w-100">
                 <% if @cart.selections.length > 0 %>
                 <% @basket_array.each do |selection| %>
-                    <li class="list-group-item px-0 pb-3 pt-0 w-100" >
+                    <li class="list-group-item px-0 pb-3 pt-0 w-100" id="<%= selection.id%>">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="d-lg-flex align-items-center">
                                 <div>
