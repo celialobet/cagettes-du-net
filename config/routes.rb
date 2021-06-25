@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   
   get '/notre_equipe', to: 'static_pages#team'
 
-  resources :carts, path: "mon_panier", only: [:create, :show]
+  resources :carts, path: "mon_panier", only: [:create, :show, :update]
   
   resources :baskets, path: "cagette", only: [:show, :index] do 
     resources :selections, only: [:create, :destroy]
   end
 
-  resources :additional_products, only: [:show, :index] do
+  resources :additional_products, only: [:index] do
     resources :selections, only: [:create, :destroy]
   end
 
@@ -23,10 +23,10 @@ Rails.application.routes.draw do
   end
 
   resources :locations, path: "nos_lieux", only: [:new, :create, :show, :index] do
-    resources :subscriptions, only: [:create, :destroy]
+    resources :subscriptions, only: [:new, :destroy]
   end
 
-  resources :orders, path: "ma_commande", only: [:new, :create, :index]
+  resources :orders, path: "ma_commande", only: [:new]
 
   resources :customer_portal_sessions, only: [:create]
 
