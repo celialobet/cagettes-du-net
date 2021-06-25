@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h1>Ô Grand Chef,</h1>
+    
+    <h3>Un nouveau lieu proposé par la communauté a atteint le seuil des 5 inscrits : </h3>
+    <div>
+        <ul>
+          <li><%= @new_location.name %></li>
+        </ul>
+    </div>
+
+    <%= "https://cagettes-du-net.herokuapp.com/locations/#{@new_location.id}" %>
+
+    <p>Si tout a été confirmé avec ses propriétaires, n'oubliez pas de le valider depuis votre dashboard: https://cagettes-du-net.herokuapp.com/admin </p>
+
+    <p>A bientôt!</p>
+
+  </body>
+</html>
