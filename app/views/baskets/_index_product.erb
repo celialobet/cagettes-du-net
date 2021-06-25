@@ -1,5 +1,5 @@
 <section class="container py-4">
-  <h2 class=" fw-bold text-dark py-5 text-center"> N'oubliez pas de rajouter les produits dont vous pourriez avoir besoin</h2>
+  <h2 class=" fw-bold text-dark py-5">Une fois votre cagette choisie, <br> vous pourrez ajouter des produits supplémentaires</h2>
   <div class="row row-cols-1 row-cols-lg-12 g-4" >
     <div class="card-group">
       <% @stars.each do |product|%>
@@ -14,13 +14,6 @@
               </div>
               <div class="d-flex justify-content-between align-items-center mx-4 pt-0 pb-4">
                 <p class="d-inline pt-3 fs-5 text-dark"> <%= product.price %>€</p>
-                <% if user_signed_in? %>
-                  <%= link_to additional_product_selections_path(product), method:"POST", remote: true do %>
-                  <div class="d-inline bg-dark text-white p-3">
-                    <i class="fas fa-shopping-cart"></i> 
-                  </div>
-                  <% end %>
-                <% end %>
               </div>
             </div>
           </div>
