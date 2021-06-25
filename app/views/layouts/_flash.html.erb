@@ -1,3 +1,7 @@
-<% flash.each do |name, msg|%>
-  <div class="alert position-absolute alert-info w-100"><%= msg %></div>
+<% flash.each do |key, msg|%>
+  <div class="alert alert-<%= key %> position-absolute  w-100">
+    <%= msg %>
+  </div>
 <% end %>
+
+<% flash.clear %>

@@ -19,6 +19,9 @@
               <li class="nav-item">
                 <%= link_to "Modifier mes informations personnelles", edit_user_registration_path, class:"nav-link text-muted fs-6", remote: true, method: :get %>
               </li>
+              <li class="nav-item">
+                <%= link_to "Modifier mon mot de passe", edit_user_registration_path(password: 'password'), class:"nav-link text-muted fs-6", remote: true, method: :get %>
+              </li>
           </ul>
           <h6>Mes commandes</h6>
           <ul class="nav flex-column">
