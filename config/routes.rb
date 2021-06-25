@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'baskets#index'
   
-  get '/team', to: 'static_pages#team'
+  get '/notre_equipe', to: 'static_pages#team'
 
   resources :carts, path: "mon_panier", only: [:create, :show]
   
@@ -22,11 +22,11 @@ Rails.application.routes.draw do
     resources :avatars, only: [:create, :update]
   end
 
-  resources :locations, only: [:new, :create, :show, :index] do
+  resources :locations, path: "nos_lieux", only: [:new, :create, :show, :index] do
     resources :subscriptions, only: [:create, :destroy]
   end
 
-  resources :orders, only: [:new, :create, :index]
+  resources :orders, path: "ma_commande", only: [:new, :create, :index]
 
   resources :customer_portal_sessions, only: [:create]
 
