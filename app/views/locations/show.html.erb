@@ -43,10 +43,12 @@
             </li>
           </ul>
         </div>
-        <% if @location.id == current_user.location_id %>
-          <%=link_to 'Changer de lieu de livraison', locations_path, class:'btn btn-dark mt-0' %>
-        <% else %>
-          <%=link_to 'En faire votre lieu de livraison', user_path(current_user, location_id: @location.id), class:'btn btn-dark mt-0', method: "PUT" %>
+        <% if user_signed_in? %>
+          <% if @location.id == current_user.location_id %>
+            <%=link_to 'Changer de lieu de livraison', locations_path, class:'btn btn-dark mt-0' %>
+          <% else %>
+            <%=link_to 'En faire votre lieu de livraison', user_path(current_user, location_id: @location.id), class:'btn btn-dark mt-0', method: "PUT" %>
+          <% end %>
         <% end %>
       </div>
     </div>

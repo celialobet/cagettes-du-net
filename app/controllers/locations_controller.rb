@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show]
   
   def new
     @location = Location.new
@@ -17,14 +18,17 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    
-    @cart = current_user.cart
+    if user_signed_in?
+      @cart = current_user.cart
+    end
   end
 
   def index
     @locations = Location.all
-    @subscription = Subscription.find_by(user_id: current_user.id)
-    @cart = current_user.cart
+    if user_signed_in?
+      @cart = current_user.cart
+      @subscription = Subscription.find_by(user_id: current_user.id)
+    end
   end
 
   private 
