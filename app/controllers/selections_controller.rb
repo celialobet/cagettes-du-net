@@ -13,7 +13,6 @@ class SelectionsController < ApplicationController
       @additional_product = AdditionalProduct.find(@selection.additional_product_id)
     end
     if @selection.save
-      flash[:success] = "Produit ajouté au panier!"
       respond_to do |format|
         format.html {redirect_to root_path}
         format.js { }
@@ -22,10 +21,7 @@ class SelectionsController < ApplicationController
       flash[:error] = @selection.errors.messages
     end
   end
-  
-  
-  
-  
+ 
   def destroy
     @baskets = Basket.all
     @selection = Selection.find(params[:id])
@@ -35,7 +31,6 @@ class SelectionsController < ApplicationController
       format.html {redirect_to new_order_path}
       format.js { }
     end
-    flash[:success] = "Produit supprimé du panier avec succès!"
   end
 
 end
