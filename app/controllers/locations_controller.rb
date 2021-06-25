@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  include ApplicationHelper
+
   
   def new
     @location = Location.new
@@ -9,7 +9,6 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      flash[:success] = "Formulaire soumis!"
       redirect_to(root_path)
     else
       render "new"
@@ -19,13 +18,14 @@ class LocationsController < ApplicationController
   def show
     @location = Location.find(params[:id])
     
-    @cart = current_user_cart
+    @cart = current_user.cart
   end
 
   def index
     @locations = Location.all
     @cart = current_user_cart
     @subscription = Subscription.find_by(user_id: current_user.id)
+
   end
 
   private 

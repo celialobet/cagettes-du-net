@@ -1,23 +1,30 @@
+<% if params[:go] == 'go' %>
+  <% if current_user.location_id == nil %>
+    document.getElementById("editpage").innerHTML ="<%= j render 'locations/show_edit_error'%>";
+  <% else %>
+    document.getElementById("editpage").innerHTML ="<%= j render 'locations/show_edit'%>";
+  <% end %>
+<%else%>
+  <% if @cart.step == 2 %>
+    <% @cart.step = 3 %>
+    <% @cart.save %>
+    window.scroll({top: 0});
+    document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
 
-<% if @cart.step == 2 %>
-  <% @cart.step = 3 %>
-  <% @cart.save %>
-  window.scroll({top: 0});
-  document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
+  <% elsif @cart.step == 1 %>
 
-<% elsif @cart.step == 1 %>
+    <% @cart.step = 2 %>
 
-  <% @cart.step = 2 %>
+    <% @cart.save %>
+    window.scroll({top: 0});
+    document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
 
-  <% @cart.save %>
-  window.scroll({top: 0});
-  document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
+  <% elsif @cart.step == 3 %>
 
-<% elsif @cart.step == 3 %>
+    <%= current_user.location_id = @location.id %>
+    <%= current_user.save %>
 
-  <%= current_user.location_id = @location.id %>
-  <%= current_user.save %>
-  window.scroll({top: 0});
-  document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
+    document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
+  <% end %>  
+
 <% end %>
-

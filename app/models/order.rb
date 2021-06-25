@@ -36,10 +36,8 @@ class Order < ApplicationRecord
     end
 
     today = Date.today
-
     @delivery.time = today.next_occurring(delivery)
     @delivery.time = @delivery.time + (@delivery.location.time * 3600)
-
     @delivery.save
 
     OrderMailer.delivery_email(@delivery).deliver_now 

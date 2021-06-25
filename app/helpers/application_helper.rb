@@ -10,9 +10,5 @@ module ApplicationHelper
     end
     return @city_list_array
   end 
-  
-  def current_user_cart
-    @cart = current_user.cart
-    return @cart
-  end
+
 end

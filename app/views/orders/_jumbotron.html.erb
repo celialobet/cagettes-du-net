@@ -3,13 +3,19 @@
 
     
     <% if @cart.step >= 0 %>
-      <div class="col-md-3 text-center">
-        <h2 class="text-center">1</h2>
-        <%=link_to 'Retour au choix du panier', baskets_path, class:'btn btn-dark rounded', remote: true %>
-        </div>
+      <div class="col-lg-3 text-center">
+        <%= link_to  baskets_path, remote: true do %> 
+          <div id="cercle">
+            <h2 class="text-center text-white">1</h2>
+          </div>
+          <p class="pt-3">Retour <br> au choix du panier</p>
+        <% end %>
+      </div>
     <% else %>
-      <div class="col-md-3 text-center">
-        <h2 class="text-center">1</h2>
+      <div class="col-lg-3 text-center">
+        <div id="cercle-bis">
+          <h2 class="text-center text-white">1</h2>
+        </div>
         <p> Choix du panier </p>
       </div>  
     <% end %>
@@ -18,40 +24,58 @@
 
     
     <% if @cart.step >= 1 %>
-      <div class="col-md-3 text-center">
-        <h2 class="text-center">2</h2>
-        <%=link_to 'Choix des produits additionnels', additional_products_path, class:'btn btn-dark rounded', remote: true %>
-        </div>
+      <div class="col-lg-3 text-center">
+        <%= link_to additional_products_path, remote: true do %> 
+          <div id="cercle">
+            <h2 class="text-center text-white">2</h2>
+          </div>
+          <p class="pt-3">Choix des <br> produits additionnels</p>
+        <% end %>
+      </div>
     <% else %>
-      <div class="col-md-3 text-center">
-      <h2 class="text-center">2</h2>
-      <p> Choix des produits additionnels</p>
-    </div>
+      <div class="col-lg-3 text-center">
+        <div id="cercle-bis">
+          <h2 class="text-center text-dark">2</h2>
+        </div>
+        <p class="pt-3"> Choix des <br> produits additionnels</p>
+      </div>
     <% end %>
     
     
     <% if @cart.step >= 2 %>
-      <div class="col-md-3 text-center">
-        <h2 class="text-center">3</h2>
-        <%=link_to 'Choix du lieu de livraison', locations_path, class:'btn btn-dark rounded', remote: true %>
-        </div>
+      <div class="col-lg-3 text-center m-0">
+        <%= link_to  locations_path, remote: true do %> 
+          <div id="cercle">
+            <h2 class="text-center text-white">3</h2>
+          </div>
+          <p class="pt-3">Choix du<br>  lieu de livraison</p>
+        <% end %>
+      </div>
     <% else %>
-      <div class="col-md-3 text-center">
-      <h2 class="text-center">3</h2>
-      <p> Choix du lieu de livraison</p>
-    </div>
+      <div class="col-lg-3 text-center m-0">
+          <div id="cercle-bis">
+            <h2 class="text-center text-dark">3</h2>
+          </div>
+          <p class="pt-3">Choix du <br>lieu de livraison</p>
+      </div>
     <% end %> 
 
     <% if @cart.step >= 3 %>
-      <div class="col-md-3 text-center">
-        <h2 class="text-center">4</h2>
-        <%=link_to 'Validation', cart_path(current_user), class:'btn btn-dark rounded', remote: true %>
-        </div>
+      <div class="col-lg-3 text-center p-0">
+        <%= link_to  cart_path(current_user), remote: true do %> 
+          <div id="cercle">
+            <h2 class="text-center text-white">4</h2>
+          </div>
+          <p class="pt-3">Validation</p>
+        <% end %>
+      </div>
     <% else %>
-      <div class="col-md-3 text-center">
-      <h2 class="text-center">4</h2>
-      <p> Validation</p>
-    </div>
+      <div class="col-lg-3 text-center p-0">
+          <div id="cercle-bis">
+            <h2 class="text-center text-dark">4</h2>
+          </div>
+          <p class="pt-3">Validation</p>
+      </div>
     <% end %> 
          
   </div>
