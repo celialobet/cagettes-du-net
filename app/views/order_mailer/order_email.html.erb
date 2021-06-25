@@ -15,9 +15,9 @@
         <ul>
           <% @order.selections.each do |selection| %>
             <% if selection.basket_id == nil %>
-              <p>1 <%= selection.additional_product.title %> - <%= selection.additional_product.price %> €</p>
+              <p>1 x <%= selection.additional_product.title %> - <%= selection.additional_product.price %> €</p>
             <% elsif selection.additional_product_id == nil %>
-              <p>1 <%= selection.basket.title %> - <%= selection.basket.price %> €</p>
+              <p>1 x <%= selection.basket.title %> - <%= selection.basket.price %> €</p>
             <% end %>
           <% end %>
         </ul>

@@ -5,9 +5,9 @@ Voici votre commande :
 <ul>
   <% @order.selections.each do |selection| %>
     <% if selection.basket_id == nil %>
-      1 <%= selection.additional_product.title %> - <%= selection.additional_product.price %> €
+      1 x <%= selection.additional_product.title %> - <%= selection.additional_product.price %> €
     <% elsif selection.additional_product_id == nil %>
-      1 <%= selection.basket.title %> - <%= selection.basket.price %> €
+      1 x <%= selection.basket.title %> - <%= selection.basket.price %> €
     <% end %>
   <% end %>
 </ul>
