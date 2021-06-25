@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   def new
     @baskets = Basket.all
     @locations = Location.all

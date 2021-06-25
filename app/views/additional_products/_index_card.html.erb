@@ -4,28 +4,32 @@
     <h2 class="text-center fw-bold py-3 mb-3">Ajouter des produits supplémentaires ?</h2>
     <div class="row">
       <div class="card-group">
+      <ul class="list-group list-group-flush w-100">
+      
         <% @additional_products.each do |product|%>
         <% if product.is_available == true%>
-          <div class="col d-flex justify-content-around py-3">
-            <div class="card border-0 rounded shadow" style="width:18rem;">
-              <div class="bg-image" style="background-image: url('<%= rails_blob_url(product.image_url) %>');  height: 18rem; max-width: auto; background-size: cover; background-position: center;">              
-              </div>
-              <div class="card-body align-self-center">
-                <h4 class="card-title"><%= product.title %></h4>
-                <p class="card-text"><%= product.description %></p>
-              </div>
-              <div class="card-footer d-flex justify-content-between">
-                <div class= "d-flex align-items-center mb-0 fw-bolder fs-5"> <%= product.price %>€</div>
-                <div class="add-buttons">
-                  <%= link_to additional_product_selections_path(product), class: 'btn btn-dark',  method:"POST", remote: true do %>
-                    <span class="glyphicon glyphicon-eye-open"></span> <i class="fas fa-shopping-cart" id="cart-btn-value"> </i>
-                  <% end %>
-                </div>  
-              </div>
+
+        <li class="list-group-item px-0 pb-3 pt-0 w-100" >
+            <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-lg-flex align-items-center">
+                      <div>
+                        <%= image_tag product.image_url, alt: 'photo de panier', class:"rounded img-4by3-lg m-4", style: "height: 100px; width: 100px; object-fit: cover;" %>  
+                      </div>
+                        <div class="ml-lg-3 mt-2 mt-lg-0">
+                            <h4 class="mb-O text-secondary"><%= product.title %></h4>
+                            <p class="mb-0 text-muted"><%= product.description %></p>
+                            <p class="mb-0 text-muted"><%= product.price %>€</p>
+                        </div>
+                        <div class="add-buttons position-absolute top-50 end-0 translate-middle m-0 p-0 g-0">
+                          <%= link_to additional_product_selections_path(product), class: 'btn btn-dark',  method:"POST", remote: true do %>
+                            <span class="glyphicon glyphicon-eye-open"></span> <i class="fas fa-shopping-cart" id="cart-btn-value"> </i>
+                          <% end %>
+                        </div>
+                    </div>
             </div>
-          </div>
+        </li>
         <% end %>
         <% end %>
-      </div>
+      </ul>
     </div>
 </section>
