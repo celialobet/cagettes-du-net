@@ -38,4 +38,13 @@ class CartsController < ApplicationController
       format.js { }
     end
   end
+
+  def index
+
+  end
+
+  def update
+    @cart = current_user.cart
+    @baskets = Basket.all
+  end
 end

@@ -1,11 +1,12 @@
-  <div class="card p-5">
+  <div class="card p-5 border-0 rounded-3 text-start shadow">
     <div class="card-body">
       <h4 class="text-muted ">Mes informations personnelles</h4>
+      <hr>
       <div class="row pt-5">
         <div class="col-4">
           <label for="inputPassword6" class="col-form-label">Photo de profil</label>
         </div>
-        <div class="col-8 pt-3 ">
+        <div class="col-8 pb-4">
         <%if @user.avatar.attached?%>
           <%= image_tag @user.avatar, alt: 'avatar', class:"avatar-s"%>
           <%else%>
@@ -60,19 +61,20 @@
         </div>
         
         <!-- Mot de passe actuel -->
-        <div class="row py-3">
-          <div class="col-4 ">
-            <%= f.label :mot_de_passe_actuel %>
-          </div>
-          <div class="col-8">
-            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded", placeholder: "Entrer votre mot de passe actuel pour confirmer" %>
-          </div>
-        </div>
+        <hr class="my-5">
 
         <!-- Bouton mise à jour -->
         <div class="row py-3">
+
+          <div class="col-4 ">
+            <%= f.label :mot_de_passe_actuel %>
+          </div>
+          <div class="col-8 pb-3">
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control rounded", placeholder: "Pour confirmer, entrez votre mot de passe actuel" %>
+          </div>
+
           <div class="d-flex justify-content-end">
-            <%= f.submit "Mettre à jour mes informations personnelles", class: "btn btn-dark rounded-pill" %>
+            <%= f.submit "Mettre à jours mes informations", class: "btn btn-dark rounded-pill" %>
           </div>
         </div>
 

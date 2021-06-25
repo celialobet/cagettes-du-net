@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  
+
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root 'baskets#index'
+  
+  get '/team', to: 'static_pages#team'
 
   resources :carts, path: "mon_panier", only: [:create, :show]
   

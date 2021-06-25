@@ -1,31 +1,50 @@
-<div class="container align-items-center border border-dark rounded-3 shadow p-3 mb-5 mt-3 bg-body rounded">
-  <div class="row">
-    <div class="col-12 col-lg-8 align-self-center">
-      <%= image_tag @baskets.image_url, alt: 'photo de panier', class: 'rounded mx-auto d-block  h-auto', style: "width: 600px;" %>  
-    </div>
-    <div class="col-12 col-lg-4 align-self-center">
-      <h3 class="title text-center fw-bold display-6"> <%= @baskets.title %></h3>
-        <p class="text-center"><%= @baskets.description %></p>
-        <p class="price text-center fs-3"> <%= @baskets.price %> €</p>
-        <% if user_signed_in? %>
-          <div class="add-buttons text-center">
-            <%= link_to "Ajouter au panier", basket_selections_path(@baskets), class:"btn btn-dark",  method:"POST" %>
-          </div>
-        <% end %>        
-      <div class="available text-center mt-3">En stock</div>
-      <% if user_signed_in? %>
-        <div>
-          <h5 class="text-center">Si vous le souhaitez, vous pouvez aussi prendre un abonnement hebdomadaire pour cette cagette ! </h5>
-          <% if current_user.location_id != nil %>
-            <div class="accordion" id="order-options">
-              <%= button_to "Procéder à l'abonnement", checkout_create_path(total: current_user.cart.total_cart, :id => current_user.cart.id, price: @baskets.stripe_price, engagement: "subscription"), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
-            </div>
-          <% else %>
-            <p>Mais pour ça, veuillez d'abord choisir un lieu de livraison, puis revenez me voir ! :)</p>
-            <%= link_to "Nos lieux de livraison", locations_path, class: "btn btn-primary btn-shadow d-block w-100 mt-4" %>
-          <% end %>
+<header>
+  <section class="jumbotron2">
+  </section>
+</header>
+<section class="min-vh-100 d-flex flex-column justify-content-between" style="margin-top: -300px;">
+
+  <div class="container py-5">
+    <div class="row bg-white shadow" style="height: 650px;">
+      <div class="col-lg-6 col-sm-12 g-0 d-flex justify-content-center align-self-center">
+        <div class="card h-100 w-100 border-0">
+          <div class="align-self-center">
+          <%= image_tag @baskets.image_url, alt: 'photo de panier', class: 'rounded', style: "height: 600px; width: 600px; object-fit: cover;" %>  
         </div>
-      <% end %>  
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-12 g-0 d-flex justify-content-center align-self-center">
+        <div class="card border-0 h-100 w-75 ">
+          <div class="px-5">
+            <h3 class="card-title text-dark fw-bold display-6 py-3"> <%= @baskets.title %></h3>
+            <p class="card-text pb-3"><%= @baskets.description %></p>
+            <p class="fs-3 pb-3"> <%= @baskets.price %> €</p>
+            <% if user_signed_in? %>
+              <%= link_to "Ajouter au panier", basket_selections_path(@baskets), class:"btn btn-dark w-100",  method:"POST" %>
+            <% end %> 
+          </div>
+          <hr class="mx-5 my-3">
+          <% if user_signed_in? %>
+          <div class="px-5">
+            <small>
+              <p class="text-center text-muted">Si vous le souhaitez, vous pouvez aussi prendre un abonnement hebdomadaire pour cette cagette ! </p>
+            </small>
+            <% if current_user.location_id != nil %>
+              <div class="accordion" id="order-options">
+                <%= button_to "Procéder à l'abonnement", checkout_create_path(total: current_user.cart.total_cart, :id => current_user.cart.id, price: @baskets.stripe_price, engagement: "subscription"), class: "btn btn-primary btn-shadow d-block w-100 mt-4", remote: true %>
+              </div>
+            <% else %>
+              <%= link_to "Nos lieux de livraison", locations_path, class: "btn btn-warning btn-shadow w-100" %>
+              <small>
+              <p>Mais pour ça, veuillez d'abord choisir un lieu de livraison, puis revenez me voir ! :)</p>
+              </small>
+            <% end %>
+          </div>
+          <% end %>  
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+

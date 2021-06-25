@@ -4,6 +4,7 @@ class SelectionsController < ApplicationController
   def create
     @selection = Selection.new(cart_id: current_user.cart.id)
     @locations = Location.all
+    @cart = current_user.cart
 
     if params[:basket_id]
       @selection.basket_id = params[:basket_id]
@@ -21,10 +22,7 @@ class SelectionsController < ApplicationController
       flash[:error] = @selection.errors.messages
     end
   end
-  
-  
-  
-  
+ 
   def destroy
     @baskets = Basket.all
     @selection = Selection.find(params[:id])
