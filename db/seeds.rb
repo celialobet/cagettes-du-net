@@ -27,7 +27,7 @@ end
 basket_1 = Basket.create(title: "Petite cagette mélangée", description: "Voici un petit panier pour 1 à 2 petits mangeurs de fruits et légumes. Idéal pour découvrir nos meilleurs produits frais ! :)", price: 9.99, stripe_price: "price_1J540VGYs66l4gchNLcNhx9U")
 basket_1.image_url.attach(io:File.open("app/assets/images/basket_1_petite_cagette_melangee.jpeg"), filename: "basket_1_petite_cagette_melangee.jpeg")
 
-basket_2 = Basket.create(title: "Petit cagette de fruit", description: "Voici un petit panier pour 1 à 2 fruits-addict. Idéal pour compléter vos achats de la semaine et déguster de bons fruits de saison !", price: 9.99, stripe_price: "price_1J541KGYs66l4gchfXhWhnAW")
+basket_2 = Basket.create(title: "Petite cagette de fruit", description: "Voici un petit panier pour 1 à 2 fruits-addict. Idéal pour compléter vos achats de la semaine et déguster de bons fruits de saison !", price: 9.99, stripe_price: "price_1J541KGYs66l4gchfXhWhnAW")
 basket_2.image_url.attach(io:File.open("app/assets/images/basket_2_petite_cagette_de_fruits.jpeg"), filename: "basket_1_petite_cagette_de_fruits.jpeg")
 
 basket_3 = Basket.create(title: "Cagette moyenne mélangée", description: "Avec cette cagette de 5kg environ, vous aurez de quoi régaler 3 à 4 personnes avec des produits variés... jusqu'à votre commande de la semaine prochaine ;)", price: 14.99, stripe_price: "price_1J5429GYs66l4gchl99sFRRF")
