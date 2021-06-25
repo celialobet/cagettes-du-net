@@ -4,10 +4,10 @@
         <div class="col-lg-8 col-md-8 col-12">
             <div class="card p-3 mb-4 shadow border-0">
                 <div class="card-body">
-                    <% if @basket_array.length == 1 %>
-                    <h4 class="mb-0 card-title fw-bold text-dark">Cagette</h4>
-                    <% else %>
+                    <% if @basket_array.length > 1 %>
                     <h4 class="mb-0 card-title fw-bold text-dark">Cagettes</h4>
+                    <% else %>
+                    <h4 class="mb-0 card-title fw-bold text-dark">Cagette</h4>
                     <% end %>
                 </div>
                 <ul class="list-group list-group-flush w-100">
@@ -87,8 +87,8 @@
                     <% else %>
                       <h5>Votre lieu de livraison</h5>
                       <small>
-                      <p class="m-0 text-muted">Le petit poucet</p>
-                      <p class="m-0 text-muted"><%= current_user.location.address_number %> <%= current_user.location.address_number %></p>
+                      <p class="m-0 text-muted"><%= current_user.location.name %></p>
+                      <p class="m-0 text-muted"><%= current_user.location.address_number %> <%= current_user.location.address_street %></p>
                       <p class="m-0 text-muted"><%= current_user.location.zip_code %></p>  
                       <p class="m-0 text-muted"> PARIS</p>
                       <%= link_to "Modifier", locations_path, class: "m-0 text-dark", remote: true %>

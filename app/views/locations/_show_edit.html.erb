@@ -1,25 +1,53 @@
-<div class="card-group">
-        <div class="row justify-content-center align-items-center m-3 w-100">
-          <div class="card p-0 shadow-3 shadow rounded border-0 h-auto" style="max-width: 1000px;">
-            <div class="row g-0 ">
-              <div class="col-md-4 col-lg-4 bg-image" style="background-image: url('https://media.gettyimages.com/photos/lesbian-couple-groceries-shopping-picture-id1012106882?s=2048x2048'); height: 200px; max-width: auto; background-size: cover; background-position: center;">
-              </div>
-                <div class="d-flex col-md-8 col-lg-8 px-3 align-self-center ">
-                  <div class="card-body my-3 pb-0 ">
-
-                    <h5 class="card-title fs-4 fw-bold text-dark "><%= @location.name %></h5>
-                    <p class="card-text "><%= @location.address_number %> <%= @location.address_street %> , <%= @location.zip_code %>, Paris</p>
-                    
-                      <div class="card-footer p-0">
-                        <div class="row justify-content-between align-items-center ">
-                          <p class="col-8 pt-3 text-muted d-inline"><small> Partenaire officiel des Cagettes du net </small></p>
-                          <%= link_to "Voir le lieu", location_path(@location.id), class:"btn btn-dark d-inline col-4", remote: true%>
-                        </div>                           
-                      </div>
-                      
-                  </div>
-                </div>
-            </div>
+<div class="card p-5 border-0 rounded-3 text-start shadow">
+  <div class="">
+    <h4>Mon lieu de livraison</h4>
+    <hr>
+  </div>
+  <div class="row px-4">
+    <div class="card p-0 shadow-3 shadow rounded border-0 h-auto" style="max-width: 1000px;">
+        <div class="row g-0 ">
+          <div class="col-md-4 col-lg-4 bg-image" style="background-image: url('https://media.gettyimages.com/photos/lesbian-couple-groceries-shopping-picture-id1012106882?s=2048x2048'); height: 200px; max-width: auto; background-size: cover; background-position: center;">
           </div>
-        </div>            
+            <div class="d-flex col-md-8 col-lg-8 px-3 align-self-center ">
+              <div class="card-body my-3 pb-0 ">
+                <h5 class="card-title fs-4 fw-bold text-dark "><%= @location.name %></h5>
+                <p class="card-text "><%= @location.address_number %> <%= @location.address_street %> , <%= @location.zip_code %>, Paris</p>
+                  <div class="card-footer p-0">
+                    <div class="row justify-content-between align-items-center ">
+                      <p class="col-8 pt-3 text-muted d-inline"><small> Partenaire officiel des Cagettes du net </small></p>
+                      <%= link_to "Voir le lieu", location_path(@location.id), class:"btn btn-dark d-inline col-4" %>
+                    </div>                           
+                  </div>
+              </div>
+            </div>
+        </div>
       </div>
+    </div>  
+</div>
+
+<div class="card p-5 border-0 rounded-3 text-start shadow">
+  <div class="">
+    <h4>Mes inscriptions</h4>
+    <hr>
+  </div>
+  <div class="row px-4">
+    <div class="card p-0 shadow-3 shadow rounded border-0 h-auto" style="max-width: 1000px;">
+        <div class="row g-0 ">
+          <div class="col-md-4 col-lg-4 bg-image" style="background-image: url('https://media.gettyimages.com/photos/lesbian-couple-groceries-shopping-picture-id1012106882?s=2048x2048'); height: 200px; max-width: auto; background-size: cover; background-position: center;">
+          </div>
+            <div class="d-flex col-md-8 col-lg-8 px-3 align-self-center ">
+              <div class="card-body my-3 pb-0 ">
+                <h5 class="card-title fs-4 fw-bold text-dark "><%= @location.name %></h5>
+                <p class="card-text "><%= @location.address_number %> <%= @location.address_street %> , <%= @location.zip_code %>, Paris</p>
+                  <div class="card-footer p-0">
+                    <div class="row justify-content-between align-items-center ">
+                      <p class="col-8 pt-3 text-muted d-inline"><small> Partenaire officiel des Cagettes du net </small></p>
+                      <%= link_to "Voir le lieu", location_path(@location.id), class:"btn btn-dark d-inline col-4" %>
+                    </div>                           
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>  
+</div>
