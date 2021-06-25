@@ -39,10 +39,6 @@ class CartsController < ApplicationController
     end
   end
 
-  def index
-
-  end
-
   def update
     @cart = current_user.cart
     @baskets = Basket.all
