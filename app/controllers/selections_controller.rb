@@ -1,8 +1,8 @@
 class SelectionsController < ApplicationController
-  include ApplicationHelper
+
 
   def create
-    @selection = Selection.new(cart_id: current_user_cart.id)
+    @selection = Selection.new(cart_id: current_user.cart.id)
     @locations = Location.all
 
     if params[:basket_id]
