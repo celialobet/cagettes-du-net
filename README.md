@@ -29,11 +29,12 @@ Ce projet nécessite l'utilisation des API suivantes:
 
 - Mailjet
 - Stripe
+- Amazon Web Services
 
 ## La base de données
 
 La base de données a été développé sous postgresql. Voici le diagramme de présentation:
-![BDD Les Cagettes](https://zupimages.net/up/21/24/slpz.jpg)
+![BDD Les Cagettes](https://zupimages.net/up/21/25/4rnu.png)
 
 ## Accéder au site
 
@@ -80,7 +81,7 @@ http://localhost:3000/
 ### Achat de produits
 
 - Sélection d'un ou plusieurs produits
-- Séléction possible de produits supplémentaires
+- Sélection possible de produits supplémentaires
 - Possibilité d'abonnement par carte bancaire
 - Affichage du total du panier
 - Paiement par carte bancaire

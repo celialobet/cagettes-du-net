@@ -77,7 +77,7 @@
             <h2 class="text-dark fw-bold display-5 p-5 pt-0", id="total-cart"><%= @cart.total_cart %> €</h2>
           </div>
           <div class="card-body p-5" id="order-options">
-            <% if @cart.step == 0 || @cart.step == 1 %>
+            <% if @cart.step == 0 || @cart.step == 1 || @cart.step == 2 %>
               <% if current_user.location_id == nil %>
                 <%= link_to "Choisir votre lieu de livraison", locations_path, class:"btn btn-dark btn-shadow d-block w-100 mt-4", remote: true %>
               <% else %>

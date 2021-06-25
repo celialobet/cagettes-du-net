@@ -1,8 +1,11 @@
   <% @cart.selections.each do |selection|
-        selection.cart_id = nil
-        selection.save
-      end
-      @cart.step = 0
-      @cart.save %>
-  
+    selection.cart_id = nil
+    selection.save
+    end
+    @cart.step = 0
+    @cart.save %>
   document.getElementById("order-area").innerHTML ="<%= j render 'orders/first_step'%>";
+
+
+
+  
