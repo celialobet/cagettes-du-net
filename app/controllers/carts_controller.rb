@@ -38,8 +38,4 @@ class CartsController < ApplicationController
       format.js { }
     end
   end
-
-  def index
-
-  end
 end

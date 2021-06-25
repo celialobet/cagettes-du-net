@@ -5,28 +5,23 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root 'baskets#index'
-  
-  
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  resources :carts, path: "mon_panier", only: [:create, :show]
   
-  
-  resources :carts, path: "mon_panier"
-  
-  resources :baskets do
-    resources :selections
+  resources :baskets, path: "cagette", only: [:show, :index] do 
+    resources :selections, only: [:create, :destroy]
   end
 
-  resources :additional_products do
-    resources :selections
+  resources :additional_products, only: [:show, :index] do
+    resources :selections, only: [:create, :destroy]
   end
 
-  resources :users do
+  resources :users, path: "mon_profil", only: [:create, :show, :edit, :update] do
     resources :avatars, only: [:create, :update]
   end
 
-  resources :locations do
-    resources :subscriptions
+  resources :locations, only: [:new, :create, :show, :index] do
+    resources :subscriptions, only: [:create, :destroy]
   end
 
   resources :orders, only: [:new, :create, :index]
