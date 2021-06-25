@@ -67,7 +67,9 @@
             <%= link_to "Rajouter un produit", additional_products_path, class:'text-muted', remote: true %>
           </div>
         </div>
+          <%= link_to "Vider le panier", cart_path(current_user.cart), method: "PATCH", class:"btn btn-danger ms-4", remote: true %>
       </div>
+      
       <div class="col-lg-4 col-md-4 col-12">
         <div class="card d-flex border-0 mb-4 shadow">
           <div class="bg-light w-100 p-5 text-center">
@@ -100,4 +102,5 @@
       </div>
     </div>  
   </section>
+
 </body>
