@@ -21,10 +21,7 @@ class SelectionsController < ApplicationController
       flash[:error] = @selection.errors.messages
     end
   end
-  
-  
-  
-  
+ 
   def destroy
     @baskets = Basket.all
     @selection = Selection.find(params[:id])
