@@ -1,105 +1,103 @@
 <body class="min-vh-100 d-flex flex-column justify-content-between">
   <section class="container col-12 py-5"> 
     <div class="row py-5">
-        <div class="col-lg-8 col-md-8 col-12">
-            <div class="card p-3 mb-4 shadow border-0">
-                <div class="card-body">
-                    <% if @basket_array.length > 1 %>
-                    <h4 class="mb-0 card-title fw-bold text-dark">Cagettes</h4>
-                    <% else %>
-                    <h4 class="mb-0 card-title fw-bold text-dark">Cagette</h4>
-                    <% end %>
-                </div>
-                <ul class="list-group list-group-flush w-100">
-                <% if @cart.selections.length > 0 %>
-                <% @basket_array.each do |selection| %>
-                    <li class="list-group-item px-0 pb-3 pt-0 w-100" id="<%= selection.id%>">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="d-lg-flex align-items-center">
-                                <div>
-                                  <%= image_tag selection.basket.image_url, alt: 'photo de panier', class:"rounded img-4by3-lg m-4", style: "height: 100px; width: 100px; object-fit: cover;" %> 
-                                </div>
-                                <div class="flex-colum">
-                                    <div class="row ml-lg-3 mt-2 mt-lg-0 col-lg-12 w-100">
-                                        <h4 class="mb-O fw-bold"><%= selection.basket.title %></h4>
-                                        <p class="mb-0 text-muted"><%= selection.basket.price %> €</p>
-                                    
-                                    </div>
-                                    <div class="position-absolute top-50 end-0 translate-middle">
-                                        <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"text-danger", remote: true %>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                  <% end %>
-                <% end %>
-                </ul>
-                <div class="ms-4 mb-4">
-                    <%= link_to "Rajouter un panier", baskets_path, class:'text-muted', remote: true %>
-                </div>
-                <hr>
-                <div class="p-3">
-                    <h4 class="mb-4 card-title fw-bold text-dark">Produits additionels</h4>
-                    <ul class="list-group list-group-flush w-100">
-                    <% if @cart.selections.length > 0 %>
-                    <% @additional_product_array.each do |selection| %>
-                        <li class="list-group-item pb-3 pt-0" id="<%= selection.id%>" >
-                            <div class="d-flex align-items-center">
-                                <div class="mt-2 mx-0">
-                                    <p class="mb-O"><%= selection.additional_product.title %></p>
-                                    <p class="mb-0 text-muted"><%= selection.additional_product.price %> €</p>
-                                </div>
-                                <div class="position-absolute top-50 end-0 translate-middle">
-                                   <%= link_to "Supprimer", [selection.additional_product, selection], method: "delete", class:"text-danger", remote: true %>
-                                </div>
-                            </div>
-                        </li>
-                    <% end %>
-                    </ul>
-                  <% else %>
-                    <div class="flex center">
-                      <p class="text-center">Vous n'avez pas encore choisi votre cagette</p>
-                      <img src="https://media.giphy.com/media/TjS7u7yoMC2KubI5wE/giphy.gif" class="rounded mx-auto d-block" alt="this slowpoke moves"  width="250" />
-                    </div>
-                  <% end %>
-                </div>
-                <div class="ms-4 mb-4">
-                    <%= link_to "Rajouter un produit", additional_products_path, class:'text-muted', remote: true %>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-12">
-            <div class="card d-flex border-0 mb-4 shadow">
-                <div class="bg-light w-100 p-5 text-center">
-                    <p class="text-muted pt-5 pb-0">Total</p>
-                    <h2 class="text-dark fw-bold display-5 p-5 pt-0", id="total-cart"><%= @cart.total_cart %> €</h2>
-
-                </div>
-                <div class="card-body p-5" id="order-options">
-                    <% if @cart.step == 0 || @cart.step == 1 %>
-                      
-                      <% if current_user.location_id == nil %>
-                        <%= link_to "Choisir votre lieu de livraison", locations_path,  class:"btn btn-dark btn-shadow d-block w-100 mt-4", remote: true %>
-                      <% else %>
-                        <%= link_to "Valider votre lieu de livraison", location_path(current_user.location_id),  class:"btn btn-dark btn-shadow d-block w-100 mt-4", remote: true %>
-                      <% end %>
-                    <% else %>
-                      <h5>Votre lieu de livraison</h5>
-                      <small>
-                      <p class="m-0 text-muted"><%= current_user.location.name %></p>
-                      <p class="m-0 text-muted"><%= current_user.location.address_number %> <%= current_user.location.address_street %></p>
-                      <p class="m-0 text-muted"><%= current_user.location.zip_code %></p>  
-                      <p class="m-0 text-muted"> PARIS</p>
-                      <%= link_to "Modifier", locations_path, class: "m-0 text-dark", remote: true %>
-                      
-                      </small> 
-                      <div class="w-100 m-0">
-                        <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id, :engagement => "single"), class: "btn btn-success btn-shadow d-block w-100 mt-4", remote: true %>
+      <div class="col-lg-8 col-md-8 col-12">
+        <div class="card p-3 mb-4 shadow border-0">
+          <div class="card-body">
+            <% if @basket_array.length > 1 %>
+            <h4 class="mb-0 card-title fw-bold text-dark">Cagettes</h4>
+            <% else %>
+            <h4 class="mb-0 card-title fw-bold text-dark">Cagette</h4>
+            <% end %>
+          </div>
+          <ul class="list-group list-group-flush w-100">
+            <% if @cart.selections.length > 0 %>
+              <% @basket_array.each do |selection| %>
+                <li class="list-group-item px-0 pb-3 pt-0 w-100" id="<%= selection.id%>">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-lg-flex align-items-center">
+                      <div>
+                        <%= image_tag selection.basket.image_url, alt: 'photo de panier', class:"rounded img-4by3-lg m-4", style: "height: 100px; width: 100px; object-fit: cover;" %> 
                       </div>
-                    <% end %>
-                </div>
-            </div>
+                      <div class="flex-colum">
+                        <div class="row ml-lg-3 mt-2 mt-lg-0 col-lg-12 w-100">
+                          <h4 class="mb-O fw-bold"><%= selection.basket.title %></h4>
+                          <p class="mb-0 text-muted"><%= selection.basket.price %> €</p>
+                        </div>
+                        <div class="position-absolute top-50 end-0 translate-middle">
+                          <%= link_to "Supprimer", [selection.basket, selection], method: "delete", class:"text-danger", remote: true %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+          <div class="ms-4 mb-4">
+            <%= link_to "Rajouter un panier", baskets_path, class:'text-muted', remote: true %>
+          </div>
+          <hr>
+          <div class="p-3">
+            <h4 class="mb-4 card-title fw-bold text-dark">Produits additionels</h4>
+            <ul class="list-group list-group-flush w-100">
+              <% if @cart.selections.length > 0 %>
+                <% @additional_product_array.each do |selection| %>
+                  <li class="list-group-item pb-3 pt-0" id="<%= selection.id%>" >
+                    <div class="d-flex align-items-center">
+                        <div class="mt-2 mx-0">
+                            <p class="mb-O"><%= selection.additional_product.title %></p>
+                            <p class="mb-0 text-muted"><%= selection.additional_product.price %> €</p>
+                        </div>
+                        <div class="position-absolute top-50 end-0 translate-middle">
+                            <%= link_to "Supprimer", [selection.additional_product, selection], method: "delete", class:"text-danger", remote: true %>
+                        </div>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              <div class="flex center">
+                <p class="text-center">Vous n'avez pas encore choisi votre cagette</p>
+                <img src="https://media.giphy.com/media/TjS7u7yoMC2KubI5wE/giphy.gif" class="rounded mx-auto d-block" alt="this slowpoke moves"  width="250" />
+              </div>
+            <% end %>
+          </div>
+          <div class="ms-4 mb-4">
+            <%= link_to "Rajouter un produit", additional_products_path, class:'text-muted', remote: true %>
+          </div>
         </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-12">
+        <div class="card d-flex border-0 mb-4 shadow">
+          <div class="bg-light w-100 p-5 text-center">
+            <p class="text-muted pt-5 pb-0">Total</p>
+            <h2 class="text-dark fw-bold display-5 p-5 pt-0", id="total-cart"><%= @cart.total_cart %> €</h2>
+          </div>
+          <div class="card-body p-5" id="order-options">
+            <% if @cart.step == 0 || @cart.step == 1 %>
+              <% if current_user.location_id == nil %>
+                <%= link_to "Choisir votre lieu de livraison", locations_path, class:"btn btn-dark btn-shadow d-block w-100 mt-4", remote: true %>
+              <% else %>
+                <%= link_to "Valider votre lieu de livraison", location_path(current_user.location_id), class:"btn btn-dark btn-shadow d-block w-100 mt-4", remote: true %>
+              <% end %>
+            <% else %>
+              <h5>Votre lieu de livraison</h5>
+              <small>
+              <p class="m-0 text-muted"><%= current_user.location.name %></p>
+              <p class="m-0 text-muted"><%= current_user.location.address_number %> <%= current_user.location.address_street %></p>
+              <p class="m-0 text-muted"><%= current_user.location.zip_code %></p>  
+              <p class="m-0 text-muted"> PARIS</p>
+              <%= link_to "Modifier", locations_path, class: "m-0 text-dark", remote: true %>
+              
+              </small> 
+              <div class="w-100 m-0">
+                <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id, :engagement => "single"), class: "btn btn-success btn-shadow d-block w-100 mt-4", remote: true %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>  
-   </section>
+  </section>
+</body>
