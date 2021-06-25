@@ -1,7 +1,7 @@
 
 <% if @cart.baskets.length != 0 %>
   <% if @cart.step == 0%>
-    <% @cart = current_user_cart %>
+    <% @cart = current_user.cart %>
     <% @cart.step = 1 %>
     <% @cart.save %>
     window.scroll({top: 0});
