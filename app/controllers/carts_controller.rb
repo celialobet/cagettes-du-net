@@ -46,5 +46,12 @@ class CartsController < ApplicationController
   def update
     @cart = current_user.cart
     @baskets = Basket.all
+    @cart.selections.each do |selection|
+      selection.cart_id = nil
+      selection.save
+      end
+    @cart.step = 0
+    @cart.save
+    redirect_to new_order_path
   end
 end
