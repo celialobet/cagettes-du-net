@@ -7,3 +7,5 @@
   var titleBasket = "<%= @basket.title %>"
   alert("La " + titleBasket.toLowerCase() + " a été ajoutée");
 <% end %>
+
+document.getElementById("cart-btn-value").innerHTML = " <%= @cart.selections.length %>"
