@@ -1,12 +1,12 @@
-  <% if current_user.location_id == nil %>
-    <% @cart.step = 2 %>
-    <% @cart.save %>
-    window.scroll({top: 0});
-    document.getElementById("order-area").innerHTML ="<%= j render 'orders/second_step'%>";
-  <% else %>
-    <% @cart.step = 2 %>
-    <% @cart.save %>
-    window.scroll({top: 0});
-    document.getElementById("order-area").innerHTML ="<%= j render 'index'%>";
-  <% end %>
+<% if current_user.location_id == nil %>
+  <% @cart.step = 2 %>
+  <% @cart.save %>
+  window.scroll({top: 0});
+  document.getElementById("order-area").innerHTML ="<%= j render 'orders/second_step'%>";
+<% else %>
+  <% @cart.step = 2 %>
+  <% @cart.save %>
+  window.scroll({top: 0});
+  document.getElementById("order-area").innerHTML ="<%= j render 'index'%>";
+<% end %>
   

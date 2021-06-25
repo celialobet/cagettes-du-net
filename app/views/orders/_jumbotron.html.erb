@@ -1,7 +1,5 @@
 <div class="container text-center">
   <div class="row mt-5">
-
-    
     <% if @cart.step >= 0 %>
       <div class="col-lg-3 text-center">
         <%= link_to  baskets_path, remote: true do %> 
@@ -19,10 +17,6 @@
         <p> Choix du panier </p>
       </div>  
     <% end %>
-    
-    
-
-    
     <% if @cart.step >= 1 %>
       <div class="col-lg-3 text-center">
         <%= link_to additional_products_path, remote: true do %> 
@@ -40,8 +34,6 @@
         <p class="pt-3"> Choix des <br> produits additionnels</p>
       </div>
     <% end %>
-    
-    
     <% if @cart.step >= 2 %>
       <div class="col-lg-3 text-center m-0">
         <%= link_to  locations_path, remote: true do %> 
@@ -59,7 +51,6 @@
           <p class="pt-3">Choix du <br>lieu de livraison</p>
       </div>
     <% end %> 
-
     <% if @cart.step >= 3 %>
       <div class="col-lg-3 text-center p-0">
         <%= link_to  cart_path(current_user), remote: true do %> 
@@ -77,6 +68,5 @@
           <p class="pt-3">Validation</p>
       </div>
     <% end %> 
-         
   </div>
 </div>
