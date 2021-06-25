@@ -4,10 +4,10 @@
         <div class="col-lg-8 col-md-8 col-12">
             <div class="card p-3 mb-4 shadow border-0">
                 <div class="card-body">
-                    <% if @basket_array.length == 1 %>
-                    <h4 class="mb-0 card-title fw-bold text-dark">Cagette</h4>
-                    <% else %>
+                    <% if @basket_array.length > 1 %>
                     <h4 class="mb-0 card-title fw-bold text-dark">Cagettes</h4>
+                    <% else %>
+                    <h4 class="mb-0 card-title fw-bold text-dark">Cagette</h4>
                     <% end %>
                 </div>
                 <ul class="list-group list-group-flush w-100">
