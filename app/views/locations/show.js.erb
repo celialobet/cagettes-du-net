@@ -23,7 +23,7 @@
 
     <%= current_user.location_id = @location.id %>
     <%= current_user.save %>
-    window.scroll({top: 0});
+
     document.getElementById("order-area").innerHTML ="<%= j render 'show'%>";
   <% end %>  
 

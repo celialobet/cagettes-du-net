@@ -4,16 +4,16 @@
         <div class="col-lg-8 col-md-8 col-12">
             <div class="card p-3 mb-4 shadow border-0">
                 <div class="card-body">
-                    <% if @basket_array.length == 1 %>
-                    <h4 class="mb-0 card-title fw-bold text-dark">Vos pannier de fruits et légumes</h4>
+                    <% if @basket_array.length > 1 %>
+                    <h4 class="mb-0 card-title fw-bold text-dark">Cagettes</h4>
                     <% else %>
-                    <h4 class="mb-0 card-title fw-bold text-dark">Vos paniers de fruits et légumes</h4>
+                    <h4 class="mb-0 card-title fw-bold text-dark">Cagette</h4>
                     <% end %>
                 </div>
                 <ul class="list-group list-group-flush w-100">
                 <% if @cart.selections.length > 0 %>
                 <% @basket_array.each do |selection| %>
-                    <li class="list-group-item px-0 pb-3 pt-0 w-100" >
+                    <li class="list-group-item px-0 pb-3 pt-0 w-100" id="<%= selection.id%>">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="d-lg-flex align-items-center">
                                 <div>
@@ -73,20 +73,26 @@
             <div class="card d-flex border-0 mb-4 shadow">
                 <div class="bg-light w-100 p-5 text-center">
                     <p class="text-muted pt-5 pb-0">Total</p>
-                    <h2 class="text-dark fw-bold display-5 p-5 pt-0"><%= @cart.total_cart %> €</h2>
+                    <h2 class="text-dark fw-bold display-5 p-5 pt-0", id="total-cart"><%= @cart.total_cart %> €</h2>
 
                 </div>
                 <div class="card-body p-5" id="order-options">
                     <% if @cart.step == 0 || @cart.step == 1 %>
-                      <%= link_to "Choisir votre lieu de livraison", locations_path,  class:"btn btn-dark btn-shadow d-block w-100 mt-4", remote: true %>
+                      
+                      <% if current_user.location_id == nil %>
+                        <%= link_to "Choisir votre lieu de livraison", locations_path,  class:"btn btn-dark btn-shadow d-block w-100 mt-4", remote: true %>
+                      <% else %>
+                        <%= link_to "Valider votre lieu de livraison", location_path(current_user.location_id),  class:"btn btn-dark btn-shadow d-block w-100 mt-4", remote: true %>
+                      <% end %>
                     <% else %>
                       <h5>Votre lieu de livraison</h5>
                       <small>
-                      <p class="m-0 text-muted">Le petit poucet</p>
-                      <p class="m-0 text-muted"><%= current_user.location.address_number %> <%= current_user.location.address_number %></p>
+                      <p class="m-0 text-muted"><%= current_user.location.name %></p>
+                      <p class="m-0 text-muted"><%= current_user.location.address_number %> <%= current_user.location.address_street %></p>
                       <p class="m-0 text-muted"><%= current_user.location.zip_code %></p>  
                       <p class="m-0 text-muted"> PARIS</p>
-                      <a href="">modifier</a>
+                      <%= link_to "Modifier", locations_path, class: "m-0 text-dark", remote: true %>
+                      
                       </small> 
                       <div class="w-100 m-0">
                         <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id, :engagement => "single"), class: "btn btn-success btn-shadow d-block w-100 mt-4", remote: true %>

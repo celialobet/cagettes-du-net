@@ -1,1 +1,5 @@
-document.getElementById("editpage").innerHTML = "<%= j render 'edit' %>";
+<% if params[:password] == 'password' %>
+  document.getElementById("editpage").innerHTML = "<%= j render 'edit_password' %>";  
+<% else %>
+  document.getElementById("editpage").innerHTML = "<%= j render 'edit' %>";
+<% end %>

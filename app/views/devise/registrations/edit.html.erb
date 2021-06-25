@@ -1,39 +1,37 @@
 <header>
   <section class="jumbotron2" >
-    <div class="container align-items-end  pt-5">
-      <div class="row">
-        <div class="col-12 align-self-center">
-          <h1 class="text-dark display-4 fw-bold">Mes informations personnelles</h1>
-        </div>
-      </div>
+    <div class="container align-items-end pt-5">
     </div>
   </section>
 </header>
-<section class="container col-12 pt-5"> 
-  <div class="row" style="margin-top: -150px;">
+<section class="container col-12 pb-5 " style="margin-top: -200px; margin-bottom: 300px;"> 
+  <div class="row">
     <div class="col-lg-4 col-md-4 col-12">
-      <div class="card border-0">
-        <div class="card-body p-4">
+      <div class="card border-0 rounded-3 shadow text-start p-5">
+        <div class="card-body ">
           <h6>Mon compte</h6>
-          <ul class="nav flex-column">
+          <ul class="nav flex-column pb-4">
+              <li class="nav-item ">
+                <%= link_to "Modifier mes informations personnelles", edit_user_registration_path, class:"nav-link text-muted px-0 fs-6", remote: true, method: :get %>
+              </li>
               <li class="nav-item">
-                <%= link_to "Modifier mes informations personnelles", edit_user_registration_path, class:"nav-link text-muted fs-6", remote: true, method: :get %>
+                <%= link_to "Modifier mon mot de passe", edit_user_registration_path(password: 'password'), class:"nav-link text-muted px-0 pb-2 fs-6", remote: true, method: :get %>
               </li>
           </ul>
           <h6>Mes commandes</h6>
-          <ul class="nav flex-column">
+          <ul class="nav flex-column pb-4">
             <li class="nav-item">
-              <%= link_to "Mes commandes passées", user_path(@user), class:"nav-link text-muted fs-6", remote: true, method: :get %>
+              <%= link_to "Mes commandes passées", user_path(@user), class:"nav-link text-muted px-0 fs-6", remote: true, method: :get %>
             </li>
             <li class="nav flex-column">
-              <%= link_to "Gérer mes abonnements", customer_portal_sessions_path, class:"nav-link text-muted fs-6", method: "POST" %>
+              <%= link_to "Gérer mes abonnements", customer_portal_sessions_path, class:"nav-link text-muted px-0 fs-6 pb-2", method: "POST" %>
             </li>
           </ul>
           <h6>Mes lieux de livraison</h6>
           <ul class="nav flex-column">
               <% if current_user.location_id != nil %>
                 <li class="nav-item">
-                  <%= link_to "Mes lieux de livraisons", location_path(current_user.location_id, go: 'go'), class:"nav-link text-muted fs-6", remote: true %>
+                  <%= link_to "Mes lieux de livraisons", location_path(current_user.location_id, go: 'go'), class:"nav-link text-muted px-0 fs-6", remote: true %>
                 </li>
               <% else %>
                 <li class="nav-item">
@@ -42,7 +40,7 @@
               <% end %>
           </ul>
           <div>
-            <%= link_to "Supprimer mon profil",  user_registration_path, class:"nav-link text-danger fs-6", data: { confirm: "Êtes vous sûr ? Il ne sera pas possible de revenir en arrière" }, method: :delete %>
+            <%= link_to "Supprimer mon profil",  user_registration_path, class:"nav-link text-danger fs-6 px-0 pt-3", data: { confirm: "Êtes vous sûr ? Il ne sera pas possible de revenir en arrière" }, method: :delete %>
           </div>
         </div>
       </div>

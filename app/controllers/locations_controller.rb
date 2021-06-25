@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  include ApplicationHelper
+
   
   def new
     @location = Location.new
@@ -18,12 +18,12 @@ class LocationsController < ApplicationController
   def show
     @location = Location.find(params[:id])
     
-    @cart = current_user_cart
+    @cart = current_user.cart
   end
 
   def index
     @locations = Location.all
-    @cart = current_user_cart
+    @subscription = Subscription.find_by(user_id: current_user.id)
   end
 
   private 

@@ -1,38 +1,29 @@
 
-<div class="card p-3 border-0">
-  <div class="card-body">
-    <h4>Historique des commandes</h4>
-  </div>
+<div class="card p-5 border-0 rounded-3 text-start shadow">
+    <div class="card-body">
+      <h4>Historique des commandes</h4>
+      <hr>
+    </div>
     <% @orders.each do |order| %> 
-
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
-
-        <div class="card m-3 bg-white text-dark" style="width: 18rem;">
-            <div class="card-header">
-              Commande n°<%= order.id%>
-            </div>
-          <div class="card-body text-center">
-            
-                            
-            <% order.selections.each do |selection| %>
-            <% if selection.basket_id == nil %>
-              <p>1 <%= selection.additional_product.title %> - <%= selection.additional_product.price %> €</p>
-            <% elsif selection.additional_product_id == nil %>
-              <p>1 <%= selection.basket.title %> - <%= selection.basket.price %> €</p>
-              <%= link_to "Accéder à la page de la cagette", basket_path(selection.basket.id), class:"btn btn-primary btn-sm" %></p>
-            <% end %>
-            
-            <% end %>
-            
-                        
+    <div class="row px-4">
+      <div class="card bg-white text-dark col-12 px-0 ">
+          <div class="card-header bg-dark w-100 text-white">
+            Commande n°<%= order.id%>
           </div>
-          <div class="card-footer">
+          <div class="card-body py-4">
+            <% order.selections.each do |selection| %>
+              <% if selection.basket_id == nil %>
+                <p>1 <%= selection.additional_product.title %> - <%= selection.additional_product.price %> €</p>
+              <% elsif selection.additional_product_id == nil %>
+                <p>1 <%= selection.basket.title %> - <%= selection.basket.price %> € - <%= link_to "Accéder à la page de la cagette", basket_path(selection.basket.id), class:"btn btn-outline-dark d-inline btn-sm mb-3" %></p>
+                
+              <% end %>
+            <% end %>
+          </div>
+          <div class="card-footer d-flex justify-content-end">
             Prix total : <%= order.total_order %> €
           </div>
-        </div>
       </div>
     </div>
-    
-  <% end %>
+    <% end %>
 </div>
