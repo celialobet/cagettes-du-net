@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def update
-
     @location = Location.find(params[:location_id])
     current_user.location_id = @location.id
     current_user.save

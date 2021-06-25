@@ -4,16 +4,16 @@ class AdditionalProduct < ApplicationRecord
   has_many :carts, through: :selections
 
   validates :title,
-  presence: true, 
-  length: { in: 5..140}
+    presence: true, 
+    length: { in: 5..140}
 
-validates :description,
-  presence: true, 
-  length: { in: 10..1000 }
+  validates :description,
+    presence: true, 
+    length: { in: 10..1000 }
 
-validates :price,
-  presence: true,
-  numericality: {greater_than: 0.00}
+  validates :price,
+    presence: true,
+    numericality: {greater_than: 0.00}
 
-  has_one_attached :image_url
+    has_one_attached :image_url
 end

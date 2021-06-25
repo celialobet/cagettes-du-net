@@ -1,6 +1,5 @@
 module ApplicationHelper
 
-  
   def city_list(locations)        
     @locations = locations
    

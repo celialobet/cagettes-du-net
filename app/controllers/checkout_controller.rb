@@ -36,7 +36,6 @@ class CheckoutController < ApplicationController
     )
 
     respond_to do |format|
-      format.js # renders create.js.erb
     end
   end
 

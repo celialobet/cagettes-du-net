@@ -1,6 +1,5 @@
 class SelectionsController < ApplicationController
 
-
   def create
     @selection = Selection.new(cart_id: current_user.cart.id)
     @locations = Location.all
