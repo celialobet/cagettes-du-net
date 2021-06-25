@@ -35,6 +35,9 @@
                   <% end %>
                 <% end %>
                 </ul>
+                <div class="ms-4 mb-4">
+                    <%= link_to "Rajouter un panier", baskets_path, class:'text-muted', remote: true %>
+                </div>
                 <hr>
                 <div class="p-3">
                     <h4 class="mb-4 card-title fw-bold text-dark">Produits additionels</h4>
@@ -61,6 +64,9 @@
                     </div>
                   <% end %>
                 </div>
+                <div class="ms-4 mb-4">
+                    <%= link_to "Rajouter un produit", additional_products_path, class:'text-muted', remote: true %>
+                </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-12">
@@ -68,11 +74,24 @@
                 <div class="bg-light w-100 p-5 text-center">
                     <p class="text-muted pt-5 pb-0">Total</p>
                     <h2 class="text-dark fw-bold display-5 p-5 pt-0"><%= @cart.total_cart %> €</h2>
+
                 </div>
-                <div class="card-body p-5" id="order-options"> 
+                <div class="card-body p-5" id="order-options">
+                    <% if @cart.step == 0 || @cart.step == 1 %>
+                      <%= link_to "Choisir votre lieu de livraison", locations_path,  class:"btn btn-dark btn-shadow d-block w-100 mt-4", remote: true %>
+                    <% else %>
+                      <h5>Votre lieu de livraison</h5>
+                      <small>
+                      <p class="m-0 text-muted">Le petit poucet</p>
+                      <p class="m-0 text-muted"><%= current_user.location.address_number %> <%= current_user.location.address_number %></p>
+                      <p class="m-0 text-muted"><%= current_user.location.zip_code %></p>  
+                      <p class="m-0 text-muted"> PARIS</p>
+                      <a href="">modifier</a>
+                      </small> 
                       <div class="w-100 m-0">
-                        <%= link_to "Passer commande", new_order_path, class:'btn btn-dark rounded w-100' %>
+                        <%= button_to "Procéder au paiement", checkout_create_path(total: @cart.total_cart, :id => @cart.id, :engagement => "single"), class: "btn btn-success btn-shadow d-block w-100 mt-4", remote: true %>
                       </div>
+                    <% end %>
                 </div>
             </div>
         </div>

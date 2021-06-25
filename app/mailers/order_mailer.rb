@@ -10,11 +10,20 @@ class OrderMailer < ApplicationMailer
 
   end
 
-  def subscription_email(subscription)
+  def subscription_email(current_user)
     
     @user = current_user
 
     mail(to: @user.email, subject: 'Merci pour votre abonnement !') 
+
+  end
+
+  def delivery_email(delivery)
+    @user = delivery.user
+    @time = delivery.time.strftime("Le %d/%m à %H:%M")
+    @location = delivery.location
+
+    mail(to: @user.email, subject: 'Récapitulatif avant livraison') 
 
   end
 end

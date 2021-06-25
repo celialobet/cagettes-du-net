@@ -35,13 +35,15 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><%=link_to 'Mes informations personnelles', edit_user_registration_path(@current_user), class:'dropdown-item text-dark'%></li>
-                  <li><%=link_to 'Mes commandes', root_path, class:'dropdown-item text-dark'%></li>
-                  <li><%=link_to 'Mes lieux de livraison', root_path, class:'dropdown-item text-dark'%></li>
                   <li><%=link_to 'Se déconnecter', destroy_user_session_path, class:'dropdown-item bg-danger text-white', method: :delete%></li>
                 </ul>
               </li>
               <li class="nav_item">
-                <%=link_to 'Commander', new_order_path, class:'btn btn-dark rounded'%>
+              
+                <%=link_to cart_path(current_user), class:'btn btn-dark rounded' do %>
+                  <span class="glyphicon glyphicon-eye-open"></span> <i class="fas fa-shopping-cart" id="cart-btn-value"> <%=Cart.find_by(user_id: current_user.id).selections.length %></i>
+                <% end %>
+                
               </li>
             </ul>  
             <% else %>

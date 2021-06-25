@@ -28,6 +28,7 @@ class CheckoutController < ApplicationController
 
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
+      customer: current_user.stripe_customer_id,
       mode: @mode,
       line_items: @line_items,
       success_url: checkout_success_url + '?session_id={CHECKOUT_SESSION_ID}',
@@ -41,15 +42,12 @@ class CheckoutController < ApplicationController
 
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
-    # if @mode == "single"
-    #   @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
-    # end
 
     @cart = Cart.find_by(user_id: current_user.id)
-    @order = Order.create(user_id: current_user.id)
+   
 
     if @session.mode === "payment"
-      puts @session  
+      @order = Order.create(user_id: current_user.id)
       @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
       @cart.selections.each do |selection|
         selection.cart_id = nil
@@ -58,12 +56,11 @@ class CheckoutController < ApplicationController
       end
       @cart.step = 0
       @cart.save
-
+      
       OrderMailer.order_email(@order).deliver_now   
 
     elsif @session.mode === "subscription"
-      puts @session  
-      OrderMailer.subscription_email.deliver_now   
+      OrderMailer.subscription_email(current_user).deliver_now   
     end
 
   end

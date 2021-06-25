@@ -13,7 +13,7 @@
     <div class="col-lg-8 col-12 order-lg-2 order-sm-2">
       <div class="card border-0 mx-0">
         <div class="card-body">
-          <h3 class="card-title text-dark py-3 fw-bold">A propos</h3>
+          <h3 class="card-title text-dark py-3 fw-bold">À propos</h3>
           <p class="card-text pb-3"><%= @location.description %></p>
           <hr>
           <h3 class="card-title text-dark py-3 fw-bold">Location</h3>
@@ -36,27 +36,19 @@
               <p><i class="fas fa-truck"></i> Livré les <%= @location.day %>s </p> 
             </li>
             <li class="list-group-item border-0 px-0">
-               <p><i class="fas fa-arrow-circle-right"></i>  A partir de <%= @location.time%>h</p>
+               <p><i class="fas fa-arrow-circle-right"></i>À partir de <%= @location.time%>h</p>
             </li>
             <li class="list-group-item border-0 px-0">
                <p><i class="far fa-clock mr-1"></i>  <%= @location.opening_hours %></p>
             </li>
           </ul>
         </div>
-        <button class="btn btn-dark mt-0">S'inscrire dans ce lieux</button>
+        <% if @location.id == current_user.location_id %>
+          <%=link_to 'Changer de lieu de livraison', locations_path, class:'btn btn-dark mt-0' %>
+        <% else %>
+          <%=link_to 'En faire votre lieu de livraison', user_path(current_user, location_id: @location.id), class:'btn btn-dark mt-0', method: "PUT" %>
+        <% end %>
       </div>
     </div>
   </div>   
 </section>
-
-<div class="container row" >
-    
-    <% if @location.id == current_user.location_id %>
-      <h4>Ce lieu est votre lieu de livraison par défaut</h4>
-    
-    <% else %>
-      <div class="col-6"><%=link_to 'En faire votre lieu de livraison', user_path(current_user, location_id: @location.id), class:'btn btn-dark rounded', method: "PUT" %>
-      </div>
-     <% end %>
-      
-  </div>

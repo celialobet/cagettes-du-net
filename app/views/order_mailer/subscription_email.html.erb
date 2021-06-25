@@ -12,7 +12,17 @@
     <p>Vous avez décidé de nous faire confiance sur le long terme, et ça nous fait chaud au coeur, donc merci !!</p>
 
     <p>Votre cagette vous sera livrée automatiquement, chaque semaine, dans votre lieu de livraison par défaut. Même si vous en changez, on s'occupe de tout, la livraison suivra quand même (sauf changement dans les 24h précédant la livraison).</p>
+    
 
+    <p>Pour le moment, voici vos informations:</p>
+    <ul>
+      <li>Lieu de livraison : <%= @user.location.name %></li>
+      <li>Jour de lviraison : Le <%= @user.location.day %></li>
+    </ul>
+
+     <p>Et rendez-vous sur votre page de profil, dans l'onglet "Gérer mes abonnements" pour suspendre ou annuler votre abonnement :)</p>
+
+    
     <p>A bientôt sur les Cagettes du net!</p>
 
 
