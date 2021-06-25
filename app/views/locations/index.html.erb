@@ -60,7 +60,7 @@
                       <% if is_current_user_subscriber(location) != true %>
                         <p class="col-8 pt-3 text-muted d-inline"> <%= link_to "Je m'inscris", new_location_subscription_path(location), class: "btn btn-info btn-sm" %> - <%= location.subscriptions.length %> inscrit(s)</p>
                       <% else %> 
-                        <p class="col-8 pt-3 text-muted d-inline"><%= location.subscriptions.length %> inscrit(s) !</p>   
+                        <p class="col-8 pt-3 text-muted d-inline"> <%= link_to "Se désinscrire", [@subscription.location, @subscription], method: "delete", class: "btn btn-warning btn-sm" %> - <%= location.subscriptions.length %> inscrit(s) !</p>   
                       <% end %>
                     <% else %> 
                         <p class="col-8 pt-3 text-muted d-inline"><%= location.subscriptions.length %> inscrit(s) !</p>                    

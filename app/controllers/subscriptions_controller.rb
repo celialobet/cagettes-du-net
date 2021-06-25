@@ -9,4 +9,15 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def destroy
+    @locations = Location.all
+    @subscription = Subscription.find(params[:id])
+    
+    @subscription.destroy
+    respond_to do |format|
+      format.html {redirect_to locations_path}
+      format.js { }
+    end
+  end
+
 end
